@@ -26,6 +26,7 @@ struct K {
     static var numberOfRows: [IndexPath] = []
     static var rederectUrl: String!
     static var userPass: String!
+    static var mailCheck: Bool = false
     
     
     

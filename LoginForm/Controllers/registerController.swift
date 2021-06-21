@@ -258,92 +258,106 @@ class  NoCheck: UIViewController {
     let viewMain = UIView()
     var timer = Timer()
     var itemTimeArray = [Login]()
+    var imageMail: URL!
+    let buttonExit = UIButton()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.didTapNext), userInfo: nil, repeats: true)
-        loginManager.delegate = self
-        viewMain.frame = view.frame
-        viewMain.backgroundColor = .white
-        if K.rederectUrl != nil {
-        customAlert.showAlertOkView(main: "Внимание", second: K.rederectUrl!, control: self, dismissView: false, notificcationStr: nil)
-        }
-        view.backgroundColor = .white
-        labelName.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: 20)
+override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    loginManager.delegate = self
+    viewMain.frame = view.frame
+    viewMain.backgroundColor = .white
+    if K.rederectUrl != nil {
+    customAlert.showAlertOkView(main: "Внимание", second: K.rederectUrl!, control: self, dismissView: false, notificcationStr: nil)
+    }
+    view.backgroundColor = .white
+    labelName.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: 20)
 //        labelName.text = "Привет МИР!"
-        view.addSubview(labelName)
-        // Do any additional setup after loading the view.
+    view.addSubview(labelName)
+    // Do any additional setup after loading the view.
+
+
+    NotificationCenter.default.addObserver(self, selector: #selector(self.refresh), name: NSNotification.Name(rawValue: "newDataNotif12"), object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(self.refreshMail), name: NSNotification.Name(rawValue: "newDataNotifMaill"), object: nil)
     
 
-        NotificationCenter.default.addObserver(self, selector: #selector(self.refresh), name: NSNotification.Name(rawValue: "newDataNotif12"), object: nil)
-  
-        let buttonBack = UIButton(type: .system)
-        buttonBack.setImage(UIImage(systemName: "chevron.backward"), for: .normal)
-        buttonBack.setTitle("Назад", for: .normal)
-        buttonBack.addTarget(self, action: #selector(didTapBack), for: .touchUpInside)
-        buttonBack.sizeToFit()
+    let buttonBack = UIButton(type: .system)
+    buttonBack.setImage(UIImage(systemName: "chevron.backward"), for: .normal)
+    buttonBack.setTitle("Назад", for: .normal)
+    buttonBack.addTarget(self, action: #selector(didTapBack), for: .touchUpInside)
+    buttonBack.sizeToFit()
 //        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: buttonBack)
 
-        
-        
-        let buttonNext = UIButton(type: .system)
-        buttonNext.setTitle("Далее", for: .normal)
-        buttonNext.addTarget(self, action: #selector(didTapNext), for: .touchUpInside)
-        buttonNext.sizeToFit()
+    
+    
+    let buttonNext = UIButton(type: .system)
+    buttonNext.setTitle("Далее", for: .normal)
+    buttonNext.addTarget(self, action: #selector(didTapNext), for: .touchUpInside)
+    buttonNext.sizeToFit()
 //        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: buttonNext)
 
-        
-        
-//        let buttonCreate = UIButton()
-//        buttonCreate.frame = CGRect(x: (view.frame.width/2) - (338/2), y: view.frame.height-(view.frame.height/4), width: 338, height: 56)
-//        buttonCreate.backgroundColor = UIColor(hexString: "#478ECC")
-//        buttonCreate.setTitle("Отсканировавть QR", for: .normal)
-//        buttonCreate.layer.cornerRadius = 8
-//        buttonCreate.layer.borderWidth = 0
-//        buttonCreate.addTarget(self, action: #selector(didTapNext), for: UIControl.Event.touchUpInside)
-////        buttonCreate.addTarget(self, action: #selector(buttonAction), for: UIControlEvents.touchUpInside)
-////        buttonCreate.layer.borderColor = UIColor.black.cgColor
-// 
-//        view.addSubview(buttonCreate)
-        
-        let buttonExit = UIButton()
-        buttonExit.frame = CGRect(x: 10, y: 63, width: 70, height: 14)
-//        buttonExit.backgroundColor = UIColor(hexString: "#478ECC")
-        buttonExit.setTitle("Выход", for: .normal)
-//        buttonExit.tintColor = .systemBlue
-        buttonExit.setTitleColor(.systemBlue,
-                             for: .normal)
-        
-//        buttonExit.layer.cornerRadius = 8
-//        buttonExit.layer.borderWidth = 0
-        buttonExit.addTarget(self, action: #selector(didTapBack), for: UIControl.Event.touchUpInside)
+    
+    
+    let buttonCreate = UIButton()
+    buttonCreate.frame = CGRect(x: (view.frame.width/2) - (338/2), y: view.frame.height-(view.frame.height/4), width: 338, height: 56)
+    buttonCreate.backgroundColor = UIColor(hexString: "#00be0a")
+    buttonCreate.setTitle("Продолжить", for: .normal)
+    buttonCreate.layer.cornerRadius = 8
+    buttonCreate.layer.borderWidth = 0
+    buttonCreate.addTarget(self, action: #selector(didTapNext), for: UIControl.Event.touchUpInside)
 //        buttonCreate.addTarget(self, action: #selector(buttonAction), for: UIControlEvents.touchUpInside)
 //        buttonCreate.layer.borderColor = UIColor.black.cgColor
- 
-        view.addSubview(buttonExit)
-
-        imageUser.frame = CGRect(x: (view.frame.width-160)/2, y: (view.frame.height/4)-80, width: 160, height: 132)
-        let url = URL(string:  "https://shi-ku.ru/img/mail_check.png")
-        let data = try? Data(contentsOf: url!)
-        imageUser.image = UIImage(data: data!)
-        view.addSubview(imageUser)
-        
-        labelTextMain.frame = CGRect(x: (view.frame.width-300)/2 , y: imageUser.frame.maxY + 40, width: 300, height: 80)
-        labelTextMain.text = "Проверка почты"
-        labelTextMain.numberOfLines = 2
-        labelTextMain.textAlignment = .center
-        labelTextMain.font = UIFont.preferredFont(forTextStyle: .title1)
-        view.addSubview(labelTextMain)
-        
-
-        
-        labelTextDesc.frame = CGRect(x: (view.frame.width-300)/2 , y: labelTextMain.frame.maxY + 20, width: 300, height: 120)
-        labelTextDesc.text = "На указанный почтотвый ящик направлено письмо для подстверждения адреса. После подтверждения фунционал приложение станет доступен."
-        labelTextDesc.numberOfLines = 5
-        labelTextDesc.textAlignment = .center
-        labelTextDesc.font = UIFont.preferredFont(forTextStyle: .body)
-        view.addSubview(labelTextDesc)
+    if K.mailCheck {
+        view.addSubview(buttonCreate)
+        imageMail = URL(string:  "https://shi-ku.ru/img/mail_check_green.png")!
+        labelTextMain.text = "Почта подтверждена!"
+        labelTextDesc.isHidden = true
+        buttonExit.isHidden = true
     }
+    else {
+        imageMail = URL(string:  "https://shi-ku.ru/img/mail_check_blue.png")!
+        labelTextMain.text = "Проверка почты"
+        labelTextDesc.text = "На указанный почтотвый ящик направлено письмо для подстверждения адреса. После подтверждения фунционал приложение станет доступен."
+        self.timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.didTapNext), userInfo: nil, repeats: true)
+    }
+
+    buttonExit.frame = CGRect(x: 10, y: 63, width: 70, height: 14)
+//        buttonExit.backgroundColor = UIColor(hexString: "#478ECC")
+    buttonExit.setTitle("Выход", for: .normal)
+//        buttonExit.tintColor = .systemBlue
+    buttonExit.setTitleColor(.systemBlue,
+                            for: .normal)
+    
+//        buttonExit.layer.cornerRadius = 8
+//        buttonExit.layer.borderWidth = 0
+    buttonExit.addTarget(self, action: #selector(didTapBack), for: UIControl.Event.touchUpInside)
+//        buttonCreate.addTarget(self, action: #selector(buttonAction), for: UIControlEvents.touchUpInside)
+//        buttonCreate.layer.borderColor = UIColor.black.cgColor
+
+    view.addSubview(buttonExit)
+
+    imageUser.frame = CGRect(x: (view.frame.width-160)/2, y: (view.frame.height/4)-80, width: 160, height: 132)
+    let url = imageMail
+    let data = try? Data(contentsOf: url!)
+    imageUser.image = UIImage(data: data!)
+    view.addSubview(imageUser)
+    
+    labelTextMain.frame = CGRect(x: (view.frame.width-300)/2 , y: imageUser.frame.maxY + 40, width: 300, height: 80)
+//    labelTextMain.text = "Проверка почты"
+    labelTextMain.numberOfLines = 2
+    labelTextMain.textAlignment = .center
+    labelTextMain.font = UIFont.preferredFont(forTextStyle: .title1)
+    view.addSubview(labelTextMain)
+    
+
+    
+    labelTextDesc.frame = CGRect(x: (view.frame.width-300)/2 , y: labelTextMain.frame.maxY + 20, width: 300, height: 120)
+
+    labelTextDesc.numberOfLines = 5
+    labelTextDesc.textAlignment = .center
+    labelTextDesc.font = UIFont.preferredFont(forTextStyle: .body)
+    view.addSubview(labelTextDesc)
+}
     
 
     @objc func didTapBack() {
@@ -380,6 +394,11 @@ class  NoCheck: UIViewController {
         DispatchQueue.main.async {
        self.dismiss(animated: true, completion: nil)
         }
+    }
+    @objc func refreshMail() {
+
+        self.viewDidLoad()
+        self.timer.invalidate()
     }
     
     func typeAction(user: String, pass: String) {
