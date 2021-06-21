@@ -14,16 +14,32 @@ import UserNotifications
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var itemTimeArray = [Logtimer]()
+    var itemTimeArrayUser = [Login]()
     var divToken: String!
+    var userCore: String!
+    
+    
 
+    var window: UIWindow?
 
+    var scheme: String!
+    var path: String!
+    var query: String!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last! as String)
         Thread.sleep(forTimeInterval: 2.0) //Timer Launch screen
         registerForPushNotifications()
 
-        IQKeyboardManager.shared.enable = true //1 Активация
+//        IQKeyboardManager.shared.enable = true //1 Активация
+        
+        
+        IQKeyboardManager.shared.enable = true
+
+        IQKeyboardManager.shared.enableAutoToolbar = false
+        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
+//        IQKeyboardManager.shared.shouldShowTextFieldPlaceholder = false
+//        IQKeyboardManager.shared.shouldHidePreviousNext = false
         
         return true
      
@@ -37,11 +53,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
         
     }
+    
+    
+
 
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+       
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
@@ -49,17 +69,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     
+
+    
     
     // MARK: - Core Data save context
     
     func applicationWillTerminate(_ application: UIApplication) {
 //        self.saveContext()
         print("444")
+   
         loadItems()
+      
         upadteTimeClose()
 //        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
 //        tableStepController.stopUpdateLocal()
-      
+    
     }
 
     // MARK: - Core Data stack
@@ -122,9 +146,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
     }
     
+    
 
     func loadItems() {
-        let context = persistentContainer.viewContext
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let request : NSFetchRequest<Logtimer> = Logtimer.fetchRequest()
         do {
             itemTimeArray = try context.fetch(request)
@@ -132,6 +157,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("Error")
         }
     }
+    
+    
+    
+
     
     func registerForPushNotifications() {
       //1

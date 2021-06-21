@@ -23,9 +23,11 @@ struct ContentModelTopStep  {
 
 struct AddTopicModelStep {
     let statusAddTopic: Int
+    let statusAddTopicDisc: String
 }
 struct AddTopicDataStep: Codable {
     let statusAddTopic: Int
+    let statusAddTopicDisc: String
 }
 
 //MARK: DATA
@@ -37,6 +39,7 @@ struct TopicStep: Codable {
     let id: Int
     let TOPIC_ID: Int
     let STEP_NAME: String
+    let comment: String!
 //    let time: Date
 //    let step_topic: [Step_topic]
 }

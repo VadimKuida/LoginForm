@@ -76,7 +76,7 @@ struct RegisterManager {
     
     
     
-    
+    //MARK: Возвращает Группу
     func performRequestGroup (){
     
     let url = URL(string: "https://shi-ku.ru:8443/ords/interval/list_group/all/")

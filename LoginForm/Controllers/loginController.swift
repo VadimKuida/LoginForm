@@ -51,6 +51,10 @@ class loginController: UIViewController {
     }
 }
 extension loginController: ContentManagerDelegate {
+    func didActiveUser(_ Content: ContentManager, content: ActiveUser) {
+        
+    }
+    
     func didSendMail(_ Content: ContentManager, content: SendMail) {
         
     }

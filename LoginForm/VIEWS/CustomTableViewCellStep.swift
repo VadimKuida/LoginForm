@@ -17,12 +17,13 @@ class CustomTableViewCellStep: UITableViewCell {
     
     @IBOutlet weak var labelNme: UILabel!
     @IBOutlet weak var labelCount: UILabel!
-    @IBOutlet weak var labelComment: UILabel!
+
     @IBOutlet weak var labelCountAct: UILabel!
     @IBOutlet weak var labelCountStep: UILabel!
     @IBOutlet weak var labelTimeAVDAct: UILabel!
     @IBOutlet weak var labelTimeAVDStep: UILabel!
     @IBOutlet weak var buttonInfo: UIButton!
+    @IBOutlet weak var labelComment: UILabel!
     
     var countSecond = 0
     
@@ -65,10 +66,10 @@ class CustomTableViewCellStep: UITableViewCell {
         let localTimeDelta = Int(Date().timeIntervalSince1970) - Int(localTimeInt)
    
         labelTimeAVDAct.textColor = UIColor.init(red: 71/255.0, green: 142/255.0, blue: 204/255.0, alpha: 1)
-        labelTimeAVDAct.font = UIFont(name: "SBSansText-SemiBold", size: 14)
+        labelTimeAVDAct.font = UIFont(name: K.fontSemiBold, size: 14)
         
         labelNme.textColor = UIColor.init(red: 71/255.0, green: 142/255.0, blue: 204/255.0, alpha: 1)
-        labelNme.font = UIFont(name: "SBSansText-SemiBold", size: 15)
+        labelNme.font = UIFont(name: K.fontSemiBold, size: 15)
         
         let hours = Int(localTimeDelta) / 3600
         let minutes = Int(localTimeDelta) / 60 % 60

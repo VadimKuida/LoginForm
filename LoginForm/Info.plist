@@ -18,21 +18,46 @@
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
 	<string>$(MARKETING_VERSION)</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>V52MMHXS5G.com.Interval</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>shiku</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleIdentifier</key>
+			<string></string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Доступ к камере необходим для считывания QR для перехода в другую группу</string>
 	<key>NSFaceIDUsageDescription</key>
 	<string>Use Face ID instead of a password to access your account.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Геолокация</string>
+	<string>Мы можем использовать ваше местоположение для отображение места замера на карте и статистики использования приложения</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Доступ к галерее необходим для загрузки QR что-бы сменить группу</string>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>Это абсолютно безопасно и поможет нам сделать приложение лучше!</string>
 	<key>UIAppFonts</key>
 	<array>
-		<string>SBSansText-Thin.ttf</string>
-		<string>SBSansText-SemiBold.ttf</string>
-		<string>SBSansText-Light.ttf</string>
-		<string>SBSansText-Regular.ttf</string>
-		<string>SBSansText-Bold.ttf</string>
+		<string>MPLUS1p-Thin.ttf</string>
+		<string>MPLUS1p-SemiBold.ttf</string>
+		<string>MPLUS1p-Light.ttf</string>
+		<string>MPLUS1p-Regular.ttf</string>
+		<string>MPLUS1p-Bold.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
@@ -66,8 +91,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>

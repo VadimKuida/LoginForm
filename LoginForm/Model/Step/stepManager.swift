@@ -31,7 +31,7 @@ struct StepManager {
     // HTTP Request Parameters which will be sent in HTTP Request Body
     let postString : Data = "{\"name\": \"\(loginRegLet)\",data:{ \"json\": \(json)}}".data(using: .utf8)!;
 //        let postString : Data = "{}".data(using: .utf8)!;
-
+//print("{\"name\": \"\(loginRegLet)\",data:{ \"json\": \(json)}}")
         
 //        print(postString)
     // Set HTTP Request Body

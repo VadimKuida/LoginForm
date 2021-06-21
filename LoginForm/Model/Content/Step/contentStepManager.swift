@@ -14,6 +14,7 @@ protocol ContentStepManagerDelegate {
     func didDelTopicStep(_ Content: ContentStepManager, content: AddTopicModelStep)
     func didActimeTime(_ Content: ContentStepManager, content: AddActiveModel)
     func didAddLocation(_ Content: ContentStepManager, content: AddLoccation)
+    func didCheckFeedBack(_ Content: ContentStepManager, content: AddLoccation)
     
 }
 
@@ -62,7 +63,7 @@ struct ContentStepManager {
     }
     
 //    //MARK: ADD TOPIC
-    func performAddTopicStep (groupLet: Int, nameStep: String){
+    func performAddTopicStep (groupLet: Int, nameStep: String, descStep: String, flagLoad: Int, stepID: Int){
 
     let url = URL(string: "https://shi-ku.ru:8443/ords/interval/create_interval_add_step/step/")
     guard let requestUrl = url else { fatalError() }
@@ -72,8 +73,8 @@ struct ContentStepManager {
     request.httpMethod = "POST"
 
     // HTTP Request Parameters which will be sent in HTTP Request Body
-    let postString : Data = " { \"TOPIC_ID\": \(groupLet), \"STEP_NAME\":\"\(nameStep)\"}".data(using: .utf8)!;
-    
+        let postString : Data = " { \"TOPIC_ID\": \(groupLet), \"STEP_NAME\":\"\(nameStep)\", \"STEP_DECK\":\"\(descStep)\", \"STEP_ID\":\(stepID)}".data(using: .utf8)!;
+        print(" { \"TOPIC_ID\": \(groupLet), \"STEP_NAME\":\"\(nameStep)\", \"STEP_DECK\":\"\(descStep)\", \"STEP_ID\":\(stepID)}")
     // Set HTTP Request Body
     request.httpBody = postString;
     request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
@@ -102,8 +103,9 @@ struct ContentStepManager {
             let decoderData = try decoder.decode(AddTopicData.self, from: responceData)
     //                print(decoderData.statusUser)
             let statusAdd = decoderData.statusAddTopic
-            print(statusAdd)
-            let statusReg  = AddTopicModelStep(statusAddTopic: statusAdd)
+            let statusAddDeck = decoderData.statusAddTopicDisc
+//            print(statusAdd)
+            let statusReg  = AddTopicModelStep(statusAddTopic: statusAdd, statusAddTopicDisc: statusAddDeck!)
 //            print(statusReg.statusUser)
             return statusReg
 
@@ -165,60 +167,40 @@ struct ContentStepManager {
             return nil
         }
     }
-//    
-//    //MARK: DEL TOPIC
-//    func performDelTopicStep (loginLet: String, groupLet: Int, nameTopic: String){
 //
-//    let url = URL(string: "http://95.165.3.188:8082/ords/interval/create_interval_del_topic/topic/")
-//    guard let requestUrl = url else { fatalError() }
-//
-//    // Prepare URL Request Object
-//    var request = URLRequest(url: requestUrl)
-//    request.httpMethod = "POST"
-//
-//    // HTTP Request Parameters which will be sent in HTTP Request Body
-//    let postString : Data = " { \"USER_ID\": \(loginLet), \"USER_GROUP\": \(groupLet), \"TOPIC_NAME\": \"\(nameTopic)\"}".data(using: .utf8)!;
-//print(" { \"USER_ID\": \(loginLet), \"USER_GROUP\": \(groupLet), \"TOPIC_NAME\": \"\(nameTopic)\"}")
-//
-//    // Set HTTP Request Body
-//    request.httpBody = postString;
-//    request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
-//
-//    // Perform HTTP Request
-//    let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-//
-//            // Check for Error
-//            if let error = error {
-//                print("Error took place \(error)")
-//                return
-//            }
-//        if let safeData = data {
-//            if let login = self.parseJSONAdd(safeData) {
-//                self.delegate?.didAddTopicStep(self, content: login)
-//            }
-//        }
-//
-//    }
-//    task.resume()
-//    }
-//
-//    func parseJSONDel(_ responceData: Data) -> AddTopicModel? {
-//        let decoder = JSONDecoder()
-//        do{
-//            let decoderData = try decoder.decode(AddTopicData.self, from: responceData)
-//    //                print(decoderData.statusUser)
-//            let statusAdd = decoderData.statusAddTopic
-//            print(statusAdd)
-//            let statusReg  = AddTopicModel(statusAddTopic: statusAdd)
-////            print(statusReg.statusUser)
-//            return statusReg
-//
-//        } catch {
-////            let statusReg  = AddTopicModel(statusAddTopic: nil)
-//            return nil
-//        }
-//    }
-    
+    //MARK: DEL TOPIC
+    func performDelTopicStep (groupLet: Int, nameStep: String){
+
+    let url = URL(string: "https://shi-ku.ru:8443/ords/interval/create_interval_del_step/step/")
+    guard let requestUrl = url else { fatalError() }
+
+    // Prepare URL Request Object
+    var request = URLRequest(url: requestUrl)
+    request.httpMethod = "POST"
+
+    // HTTP Request Parameters which will be sent in HTTP Request Body
+    let postString : Data = " { \"TOPIC_ID\": \(groupLet), \"STEP_NAME\": \"\(nameStep)\"}".data(using: .utf8)!;
+        print(" { \"TOPIC_ID\": \(groupLet), \"STEP_NAME\": \"\(nameStep)\"}")
+
+    // Set HTTP Request Body
+    request.httpBody = postString;
+    request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
+
+    // Perform HTTP Request
+    let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+
+            // Check for Error
+            if let error = error {
+                print("Error took place \(error)")
+                return
+            }
+
+    }
+    task.resume()
+    }
+
+
+
     
 
     
@@ -258,22 +240,63 @@ struct ContentStepManager {
         task.resume()
         }
 
-        func parseJSONAddLocation(_ responceData: Data) -> AddLoccation? {
-            let decoder = JSONDecoder()
-            do{
-                let decoderData = try decoder.decode(AddLoccation.self, from: responceData)
-        //                print(decoderData.statusUser)
-                let statusAdd = decoderData.statusAddLocation
-                print(statusAdd)
-                let statusReg  = AddLoccation(statusAddLocation: statusAdd)
-    //            print(statusReg.statusUser)
-                return statusReg
+    func parseJSONAddLocation(_ responceData: Data) -> AddLoccation? {
+        let decoder = JSONDecoder()
+        do{
+            let decoderData = try decoder.decode(AddLoccation.self, from: responceData)
+    //                print(decoderData.statusUser)
+            let statusAdd = decoderData.statusAddLocation
+//                print(statusAdd)
+            let statusReg  = AddLoccation(statusAddLocation: statusAdd)
+//            print(statusReg.statusUser)
+            return statusReg
 
-            } catch {
-    //            let statusReg  = AddTopicModel(statusAddTopic: nil)
-                return nil
-            }
+        } catch {
+//            let statusReg  = AddTopicModel(statusAddTopic: nil)
+            return nil
         }
+    }
+    
+    
+    
+    //    //MARK: Check feedback
+    func performCheckFeedback (activeID: Int){
+
+        let url = URL(string: "https://shi-ku.ru:8443/ords/interval/check_feedback_active/activeid/")
+        guard let requestUrl = url else { fatalError() }
+
+        // Prepare URL Request Object
+        var request = URLRequest(url: requestUrl)
+        request.httpMethod = "POST"
+
+        // HTTP Request Parameters which will be sent in HTTP Request Body
+        let postString : Data = "{\"ACTID\": \(activeID)}".data(using: .utf8)!;
+        
+        
+
+        // Set HTTP Request Body
+        request.httpBody = postString;
+        request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
+
+        // Perform HTTP Request
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+
+                // Check for Error
+                if let error = error {
+                    print("Error took place \(error)")
+                    return
+                }
+            if let safeData = data {
+                if let login = self.parseJSONAddLocation(safeData) {
+                    self.delegate?.didCheckFeedBack(self, content: login)
+                }
+            }
+
+        }
+        task.resume()
+        }
+
+
     
     
 }

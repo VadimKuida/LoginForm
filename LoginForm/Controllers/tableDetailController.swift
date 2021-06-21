@@ -53,6 +53,9 @@ class tableDetailController: UITableViewController {
         
     }
     
+    
+
+    
     private func setLoadingScreen() {
 
         // Sets the view which contains the loading text and the spinner
@@ -65,6 +68,7 @@ class tableDetailController: UITableViewController {
         // Sets loading text
         loadingLabel.textColor = .gray
         loadingLabel.textAlignment = .center
+        loadingLabel.font = UIFont(name: K.fontRegular, size: 16)
         loadingLabel.text = "Загрузка..."
         loadingLabel.frame = CGRect(x: 0, y: 0, width: 140, height: 30)
 
@@ -94,14 +98,13 @@ class tableDetailController: UITableViewController {
         spinner.stopAnimating()
         spinner.isHidden = true
         loadingLabel.isHidden = true
-
-
     }
     
     func labelAlert(flag: Int) {
         if (flag == 0) {
             labelAlarm.isHidden = false
-            labelAlarm.text = "Замеров еще нет"
+            labelAlarm.font = UIFont(name: K.fontSemiBold, size: 18)
+            labelAlarm.text = "Замеров еще нет!"
         } 
     }
     
@@ -180,16 +183,16 @@ class tableDetailController: UITableViewController {
         cell.layer.borderColor = UIColor.init(red: 245.0/255.0, green: 245.0/255.0, blue: 245.0/255.0, alpha: 1).cgColor
         cell.layer.borderWidth = 1
         cell.labelName.textColor = UIColor.init(red: 68.0/255.0, green: 62.0/255.0, blue: 62.0/255.0, alpha: 1)
-        cell.labelName.font = UIFont(name: "SBSansText-Regular", size: 15)
+        cell.labelName.font = UIFont(name: K.fontRegular, size: 15)
 //        cell.labelName.text = contentFix[indexPath.row].STEP_NAME
         cell.labelName.text = "Дата замера: \(message.DATE)"
         
         cell.labelStep.textColor = UIColor.init(red: 153/255.0, green: 153/255.0, blue: 153/255.0, alpha: 1)
-        cell.labelStep.font = UIFont(name: "SBSansText-Regular", size: 10)
+        cell.labelStep.font = UIFont(name: K.fontRegular, size: 10)
         cell.labelStep.text = "Шагов в замере: \(String(message.STEPFACT)) из \(message.STEPPLAN)"
         
         cell.labelTime.textColor = UIColor.init(red: 153/255.0, green: 153/255.0, blue: 153/255.0, alpha: 1)
-        cell.labelTime.font = UIFont(name: "SBSansText-Regular", size: 10)
+        cell.labelTime.font = UIFont(name: K.fontRegular, size: 10)
         cell.labelTime.text = "Общее время: \(String(castTime(localTimeDelta: message.TIMEALL)))"
 
           
@@ -231,7 +234,36 @@ class tableDetailController: UITableViewController {
         return UISwipeActionsConfiguration(actions: [testAction])
     }
     
+    //MARK: Действие на нажатие
+     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)  {
+         
+         let message = content[indexPath.row]
+        
+        print(message.ID_ART)
+        print(message.DATE)
 
+//         let dataCount = countStepSum(value: message.id)
+         
+         
+ //        cell.labelCountAct.font = UIFont(name: K.fontRegular, size: 10)
+
+//         if dataCount == 0 {
+//             self.showToast(message: "Комментарий недоступен", font: UIFont(name: K.fontRegular, size: 14)!)
+//         }
+//         else {
+             let newViewController = self.storyboard?.instantiateViewController(withIdentifier: "commentStepId") as! commentStep
+             newViewController.typeView = "detail"
+             newViewController.stepId = message.ID_ART
+             newViewController.stepName = message.DATE
+             newViewController.stepNum = "Время замера"
+                     self.present(newViewController, animated: true, completion: nil)
+             
+//         }
+         
+         
+         
+         
+     }
     
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {

@@ -112,7 +112,7 @@ struct ContentDetailManager {
             let decoderData = try decoder.decode(AddTopicData.self, from: responceData)
     //                print(decoderData.statusUser)
             let statusAdd = decoderData.statusAddTopic
-            print(statusAdd)
+//            print(statusAdd)
             let statusReg  = ValidAct(idActive: statusAdd)
 //            print(statusReg.statusUser)
             return statusReg

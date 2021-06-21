@@ -29,7 +29,7 @@ struct LoginManager {
     // HTTP Request Parameters which will be sent in HTTP Request Body
     let postString : Data = " { \"USER_LOGIN\": \"\(loginRegLet)\", \"USER_PASS\": \"\(passRegLet)\"}".data(using: .utf8)!;
 
-//        print(postString)
+        print(" { \"USER_LOGIN\": \"\(loginRegLet)\", \"USER_PASS\": \"\(passRegLet)\"}")
     // Set HTTP Request Body
     request.httpBody = postString;
     request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
@@ -56,22 +56,27 @@ struct LoginManager {
         let decoder = JSONDecoder()
         do{
             let decoderData = try decoder.decode(LoginData.self, from: responceData)
-    //                print(decoderData.statusUser)
+//                    print(decoderData.groupName)
+            
             let loginV = decoderData.login
             let firstNameV = decoderData.firstName
             let statusV = decoderData.status
+            let groupNameV = decoderData.groupName
             let groupV = decoderData.group
-            let statusReg  = LoginModel(login: loginV, firstName: firstNameV, group: groupV, status: statusV)
-//            print(statusReg.statusUser)
+            let teamLeader = decoderData.TL
+            let statusReg  = LoginModel(login: loginV, firstName: firstNameV, groupName: groupNameV, group: groupV, status: statusV, TL: teamLeader)
+            print(statusReg)
             return statusReg
 
         } catch {
-            let statusReg  = LoginModel(login: "null", firstName: "null", group: 0, status: 0)
+            let statusReg  = LoginModel(login: "null", firstName: "null", groupName: "null", group: 0, status: 0, TL: 0)
             return statusReg
         }
     }
 
 
+    
+    
     func performAddDev (loginLet: String, id: String){
 
     let url = URL(string: "https://shi-ku.ru:8443/ords/interval/add_user_dev/user/")
@@ -114,7 +119,7 @@ struct LoginManager {
             let statusAdd = decoderData.username
             print(statusAdd)
             let statusReg  = FlagAdd(username: statusAdd)
-//            print(statusReg.statusUser)
+//            print(statusReg)
             return statusReg
 
         } catch {

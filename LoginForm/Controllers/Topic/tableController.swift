@@ -10,181 +10,270 @@ import UIKit
 import CoreData
 import CoreLocation
 
-class SeccondViewController: UITableViewController, UISearchBarDelegate {
-    @IBOutlet weak var searchBar: UISearchBar!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .red
-//        title = "Статистика"
-    }
-}
-
-class FirstViewController: UITableViewController, UISearchBarDelegate {
-    @IBOutlet weak var searchBar: UISearchBar!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .blue
-//        title = "Статистика"
-    }
-}
 
 
 
 
 
-
-
-class tableController: UITableViewController, UISearchBarDelegate {
+class tableController: UITableViewController, UISearchBarDelegate, UIViewControllerTransitioningDelegate {
     var firstName: String!
-    var user: String!
+    var user: String! = K.userLogin
+    var userAction: String!
     var group: Int!
     var contentManager = ContentManager()
+    var activeUserManager = ActiveUserManager()
     var content: [Sector] = []
     var contentCore: [TopicStepCore] = []
     var itemTimeArray = [Logtimer]()
+    var itemLoginArray = [Login]()
+    var userCore: String!
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var contentActive: Int!
     var filteredData: [Sector]!
     var topicVar: [Topic]!
-    var resetCoredata = true
-//    var figuresByLetter = [(key: String, value: [Topic])]()
+    var resetCoredata: Bool!
     var numberOfRows: [IndexPath] = []
     var valueSearch: String = ""
-    
+    var idSeance: Int!
     let loadingView = UIView()
     let tabBar = UITabBar()
-
+    let mainFunc = MainFunc()
+    let navigation = UINavigationBar.appearance()
     /// Spinner shown during load the TableView
     let spinner = UIActivityIndicatorView()
 
     /// Text shown during load the TableView
     let loadingLabel = UILabel()
     
+    let urlTabBar: String! = nil
     //Location
     
+    var imageUser = UIImageView()
+    var labelTextDesc =  UILabel()
+    let buttonRefresh = UIButton()
     
     //TabBar
     let tabBarVC = UITabBarController()
+    
+
 
     @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.init(red: 245.0/255.0, green: 245.0/255.0, blue: 245.0/255.0, alpha: 1)
-        title = "Замеры"
-        let editMenu = self.makeEditMenu()
-        let exit = UIAction(
-            title: "Выход",
-//            image: UIImage(systemName: "trash"),
-            identifier: nil, discoverabilityTitle: nil,
-            attributes: .destructive, state: .off
-            
-            )  { action in
-            self.didTapMenuButton()
-        }
-        // Use the .displayInline option to avoid displaying the menu as a submenu,
-        // and to separate it from the other menu elements using a line separator.
-        let newMenu = UIMenu(title: "Меню", options: .displayInline, children: [editMenu,exit])
-        self.navigationItem.title = "Замеры"
-        let rightBackButton = UIBarButtonItem(
-    //            title: "Back",
-            image: UIImage(systemName: "ellipsis.circle"),
-            menu: newMenu
-//            menu: newMenu
-        )
-        
-        
-        let leftBackButton = UIBarButtonItem(
-            title: "Выход",
-            style: .plain,
-            target: self,
-            action: #selector(didTapMenuButton)
-        )
-
-
-        
-
-        self.navigationItem.rightBarButtonItem = rightBackButton
-
-//        self.navigationItem.leftBarButtonItem = leftBackButton
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-//        labelHello.text =  "Привет \(String(firstName))!!!"
-//        self.tableView.register(TableViewCell.self, forCellReuseIdentifier: "TableViewCell")
-//        let attributes = [NSAttributedString.Key.font: UIFont(name: "SBSansText-SemiBold", size: 17)!]
-//        UINavigationBar.appearance().titleTextAttributes = attributes
-        
-        let navigation = UINavigationBar.appearance()
-
-        let navigationFont = UIFont(name: "SBSansText-SemiBold", size: 16)
-        let navigationLargeFont = UIFont(name: "SBSansText-SemiBold", size: 34) //34 is Large Title size by default
-
-        navigation.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.font: navigationFont!]
-        
-        if #available(iOS 11, *){
-            navigation.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.font: navigationLargeFont!]
-        }
-
-
-        self.registerTableViewCells()
-        self.tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "TableViewCell" )
-        contentManager.delegate = self
-        contentManager.performLogin(user: user)
-        contentManager.performStep(loginLet: user)
-        filteredData = content
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
-        self.searchBar.text = valueSearch
-
-//        self.searchBar.isFocused
-        searchBar.delegate = self
-        setLoadingScreen()
-        
-        self.tableView.reloadData()
-        self.tableView.keyboardDismissMode = .interactive
-        self.tableView.keyboardDismissMode = .onDrag
-        self.tableView.scrollsToTop = true
-        
-        
-//        tableView.addSubview(tabBar)
-
-//        let vc1 = SeccondViewController()
-//        let vc2 = FirstViewController()
-//        let vc3 = tableController()
-//        
-//        tabBarVC.setViewControllers([vc1, vc2, vc3], animated: false)
-//        
-////        tabBarVC.modalPresentationStyle = .fullScreen
-//        present(tabBarVC, animated: true)
-        loadItems()
-
-
-//        showSearchBar()
-
+       
+        loadGroup()
     }
+    
+    
+     func loadGroup () {
+
+  
+        imageUser.frame = CGRect(x: (view.frame.width-160)/2, y: (view.frame.height/4)-80, width: 160, height: 130)
+        let url = URL(string:  "https://shi-ku.ru/img/not_topic.png")
+        let data = try? Data(contentsOf: url!)
+        imageUser.image = UIImage(data: data!)
         
+        labelTextDesc.frame = CGRect(x: (view.frame.width-300)/2 , y: imageUser.frame.maxY + 20, width: 300, height: 80)
+        labelTextDesc.text = "Сейчас в группе '\(String(K.groupName))' нет активных замеров!"
+        labelTextDesc.numberOfLines = 3
+        labelTextDesc.textAlignment = .center
+        labelTextDesc.font = UIFont.preferredFont(forTextStyle: .body)
+        
+  
+        buttonRefresh.frame = CGRect(x: (view.frame.width/2) - (338/2), y: view.frame.height-(view.frame.height/4), width: 338, height: 56)
+        buttonRefresh.backgroundColor = UIColor(hexString: "#478ECC")
+        buttonRefresh.setTitle("Обновить", for: .normal)
+        buttonRefresh.layer.cornerRadius = 8
+        buttonRefresh.layer.borderWidth = 0
+        buttonRefresh.addTarget(self, action: #selector(didTapNext), for: .touchUpInside)
+       
+        tableView.separatorStyle = .none
+        tableView.separatorColor = .clear
+        navigationItem.largeTitleDisplayMode = .never
+
+    setLoadingScreen()
+    self.view.backgroundColor = UIColor.init(red: 245.0/255.0, green: 245.0/255.0, blue: 245.0/255.0, alpha: 1)
+    title = "Замеры"
+    let editMenu = self.makeEditMenu()
+    let exit = UIAction(
+        title: "Выход",
+        identifier: nil, discoverabilityTitle: nil,
+        attributes: .destructive, state: .off
+        )  { action in
+        self.didTapMenuButton()
+    }
+    let person = UIAction(title: "Профиль", image: UIImage(systemName: "person")) { action in
+                self.didProfile()
+            }
+    let newMenu = UIMenu(title: "Меню", options: .displayInline, children: [person, editMenu, exit])
+    self.navigationItem.title = "Замеры"
+    let rightBackButton = UIBarButtonItem(
+        image: UIImage(systemName: "ellipsis.circle"),
+        menu: newMenu
+    )
+        _ = UIBarButtonItem(
+        title: "Выход",
+        style: .plain,
+        target: self,
+        action: #selector(didTapMenuButton)
+    )
+
+    
+    NotificationCenter.default.addObserver(self, selector: #selector(self.refresh), name: NSNotification.Name(rawValue: "newDataNotif"), object: nil)
+        
+    NotificationCenter.default.addObserver(self, selector: #selector(self.refreshStep), name: NSNotification.Name(rawValue: "newDataNotifStep"), object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(self.refreshAddTopic), name: NSNotification.Name(rawValue: "newDataNotifAddTopic"), object: nil)
+    
+    
+    NotificationCenter.default.addObserver(self, selector: #selector(applicationDidEnterBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
+
+
+    self.navigationItem.rightBarButtonItem = rightBackButton
+
+    self.navigationController?.navigationBar.prefersLargeTitles = true
+
+    
+    
+
+    let navigationFont = UIFont(name: K.fontSemiBold, size: 16)
+    let navigationLargeFont = UIFont(name: K.fontSemiBold, size: 34) //34 is Large Title size by default
+
+
+
+        
+    navigation.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.font: navigationFont!]
+    
+    if #available(iOS 11, *){
+        navigation.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.font: navigationLargeFont!]
+    }
+
+//        self.tableView.frame = view.frame
+    self.registerTableViewCells()
+    self.tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "TableViewCell" )
+    contentManager.delegate = self
+    activeUserManager.delegate = self
+        contentManager.performLogin(user: K.userLogin)
+    contentManager.performStep(loginLet: K.userLogin)
+    filteredData = content
+    self.tableView.dataSource = self
+    self.tableView.delegate = self
+    self.searchBar.text = valueSearch
+    searchBar.delegate = self
+//    self.tableView.reloadData()
+    self.tableView.keyboardDismissMode = .interactive
+    self.tableView.keyboardDismissMode = .onDrag
+//    self.tableView.scrollsToTop = true
+    tableView.frame = CGRect(x: 0, y: 200, width: view.frame.width, height: view.frame.height)
+
+        
+        
+        view.addSubview(imageUser)
+        view.addSubview(labelTextDesc)
+        view.addSubview(buttonRefresh)
+        
+        imageUser.isHidden = true
+        labelTextDesc.isHidden  =  true
+        buttonRefresh.isHidden  =  true
+        
+    loadItems()
+    }
+    
+    
+    @objc func didTapNext() {
+        contentManager.performLogin(user: K.userLogin)
+    }
+
+    
+    
+    @objc func applicationDidEnterBackground() {
+       print("app enters background")
+        let userCoreStr = nameUserCore()
+        activeUserManager.performActiveUser(loginLet: userCoreStr, action: 0)
+   }
+
+   @objc func applicationDidBecomeActive() {
+       print("app enters foreground")
+    let userCoreStr = nameUserCore()
+    activeUserManager.performActiveUser(loginLet: userCoreStr, action: 1)
+   }
+        
+    @objc func refresh() {
+        let noGroup = NoGroup()
+        noGroup.refresh()
+        self.loadAlpha()
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(150)) {
+            self.contentManager.performLogin(user: self.user)
+        }
+    }
+    
+    
+    
+    @objc func refreshStep() {
+        let noGroup = NoGroup()
+        noGroup.refresh()
+//        self.loadAlpha()
+        DispatchQueue.main.async {
+            self.contentManager.performLogin(user: self.user)
+        }
+    }
+    
+    
+    @objc func refreshAddTopic() {
+
+        let toast = ToastViewController(title: "Создание прошло успешно", backgroundColor: .systemGreen)
+        present(toast, animated: true)
+        Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { _ in
+            toast.dismiss(animated: true)
+        }
+        
+   
+    }
+    
+    
+    
+
+
+     override func didReceiveMemoryWarning() {
+       super.didReceiveMemoryWarning()
+       // Dispose of any resources that can be recreated.
+     }
+    
     
     func makeEditMenu() -> UIMenu {
     
-    let addTopic = UIAction(title: "Новый замер", image: UIImage(systemName: "doc.badge.plus")) { action in
+        let addTopic = UIAction(title: "Создать замер", image: UIImage(systemName: "doc.badge.plus")) { action in
         self.didTapMenuButtonAdd()
     }
+        
+        let qr = UIAction(title: "QR", image: UIImage(systemName: "qrcode")) { action in
+                    self.didQR()
+                }
+        
+
+        
+            
+            
     // Creating Delete button
     let sendMail = UIAction(title: "Отправить отчет",
         image: UIImage(systemName: "envelope.open") ) { action in
         self.didTapMenuButtonSendMail()
     }
         
+        var menuButton: [UIMenuElement] = []
+        if K.teamLeader == 0 {
+            menuButton = [/*addTopic,*/ sendMail, qr]
+        } else
+        {
+            menuButton = [addTopic, sendMail, qr]
+        }
         
         return UIMenu(title: "Edit",
 //                          image: editIcon,
                       options: [.displayInline], // [], .displayInline, .destructive
-            children: [addTopic, sendMail])
+                      children: menuButton)
     }
     
-    
-    
-    // MARK: Ожидание загрузки
-
 
 
      // Set the activity indicator into the main view
@@ -200,6 +289,7 @@ class tableController: UITableViewController, UISearchBarDelegate {
          // Sets loading text
          loadingLabel.textColor = .gray
          loadingLabel.textAlignment = .center
+         loadingLabel.font = UIFont(name: K.fontRegular, size: 16)
          loadingLabel.text = "Загрузка..."
          loadingLabel.frame = CGRect(x: 0, y: 0, width: 140, height: 30)
 
@@ -228,11 +318,6 @@ class tableController: UITableViewController, UISearchBarDelegate {
 
      }
 
-    
-    
-    
-    
-    
     //MARK: CoreDATA
  
     func loadItems() {
@@ -242,6 +327,24 @@ class tableController: UITableViewController, UISearchBarDelegate {
         } catch {
             print("Error")
         }
+    }
+    
+    func loadItemsUser() {
+        let request : NSFetchRequest<Login> = Login.fetchRequest()
+        do {
+            itemLoginArray = try context.fetch(request)
+        } catch {
+            print("Error")
+        }
+    }
+    
+    func nameUserCore() -> String
+    {
+        loadItemsUser()
+        if let i = itemLoginArray.firstIndex(where: {$0.user != nil }) {
+            self.userCore = itemLoginArray[i].user!
+            }
+        return self.userCore
     }
     
     func saveItems() {
@@ -255,6 +358,7 @@ class tableController: UITableViewController, UISearchBarDelegate {
     }
     
     func sumFactCell (topicI: Int) -> Int {
+        loadItems()
         var i = 0
         self.itemTimeArray.forEach({ book in
             if (book.topicID == topicI && book.flagActive == 0 && book.user == user) {
@@ -264,6 +368,7 @@ class tableController: UITableViewController, UISearchBarDelegate {
         return i
     }
     func sumFactCellUser () -> Int {
+        loadItems()
         var i = 0
         self.itemTimeArray.forEach({ book in
             if (book.user == user) {
@@ -272,20 +377,6 @@ class tableController: UITableViewController, UISearchBarDelegate {
         })
         return i
     }
-    
-    
-
-    func deleteAllData(entity: String)
-    {
-        let ReqVar = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
-        let DelAllReqVar = NSBatchDeleteRequest(fetchRequest: ReqVar)
-        do { try context.execute(DelAllReqVar) }
-        catch { print(error) }
-    }
-    
-
-
-    
     //MARK: Замеры
     private func registerTableViewCells() {
         let textFieldCell = UINib(nibName: "CustomTableViewCell",
@@ -293,9 +384,6 @@ class tableController: UITableViewController, UISearchBarDelegate {
         self.tableView.register(textFieldCell,
                                 forCellReuseIdentifier: "CustomTableViewCell")
     }
-
-    
-
     func isColorRow (numTag: Float) -> UIColor {
 
         switch numTag {
@@ -311,7 +399,33 @@ class tableController: UITableViewController, UISearchBarDelegate {
     }
     
 
+   func loadAlpha () {
+        self.buttonRefresh.alpha = 0
+        self.labelTextDesc.alpha = 0
+        self.imageUser.alpha = 0
+        self.tableView.alpha = 0
+        self.tableView.isHidden = false
+    UIView.animate(withDuration: 0.5, delay: 0.3, animations: {
+            self.buttonRefresh.alpha = 1
+            self.labelTextDesc.alpha = 1
+            self.imageUser.alpha = 1
+            self.tableView.alpha = 1
+        })
+    }
     
+    func cleareAlpha () {
+//         self.buttonRefresh.alpha = 1
+//         self.labelTextDesc.alpha = 0
+           
+            self.tableView.alpha = 0
+        self.tableView.isHidden = true
+        UIView.animate(withDuration: 0.5, delay: 0.3, animations: {
+             self.buttonRefresh.alpha = 0
+             self.labelTextDesc.alpha = 0
+             self.imageUser.alpha = 0
+//             self.tableView.alpha = 0
+         })
+     }
 
     
     
@@ -370,100 +484,38 @@ class tableController: UITableViewController, UISearchBarDelegate {
         cell.layer.borderWidth = 10.0
         cell.indentationWidth = 30
         cell.layer.borderColor = UIColor.init(red: 245.0/255.0, green: 245.0/255.0, blue: 245.0/255.0, alpha: 1).cgColor
-     
-        
-        
-        
-        
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor.init(red: 233.0/255.0, green: 233.0/255.0, blue: 233.0/255.0, alpha: 1)
         cell.selectedBackgroundView = backgroundView
-        
         cell.backgroundColor = .white
-
         cell.labelNme.textColor = UIColor.init(red: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 1)
-        cell.labelNme.font = UIFont(name: "SBSansText-SemiBold", size: 15)
+        cell.labelNme.font = UIFont(name: K.fontSemiBold, size: 15)
         cell.labelNme.text = message.TOPIC_NAME
-        
-        
         let count = String(message.COUNT_STEP)
-//        cell.labelComment.text = message.FLD_COMMENT
-
-        
-        cell.labelCountAct.font = UIFont(name: "SBSansText-Regular", size: 14)
+        cell.labelCountAct.font = UIFont(name: K.fontRegular, size: 14)
         cell.labelCountAct.text = "\(String(message.COUNT_ACTIVE_F)) из \(message.PLAN_COUNT) замеров "
         cell.labelCountAct.textColor = isColorRow(numTag: Float(Float(message.COUNT_ACTIVE_F)/Float(message.PLAN_COUNT)))
-        
-//        cell.labelCountStep.isHidden = true
-//        cell.labelCountStep.text = "Шагов: \(String(message.COUNT_STEP_F))"
-        
         cell.labelTimeAVDAct.textColor = UIColor.init(red: 153/255.0, green: 153/255.0, blue: 153/255.0, alpha: 1)
-        cell.labelTimeAVDAct.font = UIFont(name: "SBSansText-Regular", size: 10)
+        cell.labelTimeAVDAct.font = UIFont(name: K.fontRegular, size: 10)
         cell.labelTimeAVDAct.text = (castTime(localTimeDelta: Int(message.AVG_TIME_TOPIC)))
-        
         cell.labelAvgString.textColor = UIColor.init(red: 153/255.0, green: 153/255.0, blue: 153/255.0, alpha: 1)
-        cell.labelAvgString.font = UIFont(name: "SBSansText-Regular", size: 10)
-//        cell.labelAvgString.text = (castTime(localTimeDelta: Int(message.AVG_TIME_TOPIC)))
-        
-
-        
+        cell.labelAvgString.font = UIFont(name: K.fontRegular, size: 10)
         cell.labelTimeAVDStep.textColor = UIColor.init(red: 180/255.0, green: 180/255.0, blue: 180/255.0, alpha: 1)
-        cell.labelTimeAVDStep.font = UIFont(name: "SBSansText-Regular", size: 10)
+        cell.labelTimeAVDStep.font = UIFont(name: K.fontRegular, size: 10)
         cell.labelTimeAVDStep.text = (castTime(localTimeDelta: Int(message.AVG_TIME_STEP)))
-        
-        
-        
         cell.labelCount.textColor = UIColor.init(red: 180/255.0, green: 180/255.0, blue: 180/255.0, alpha: 1)
-        cell.labelCount.font = UIFont(name: "SBSansText-Regular", size: 10)
+        cell.labelCount.font = UIFont(name: K.fontRegular, size: 10)
         cell.labelCount.text = "\(String(sumFactCell(topicI: message.id))) из \(count)"
-
-        
-        
-        
         cell.labelAvgStep.textColor = UIColor.init(red: 180/255.0, green: 180/255.0, blue: 180/255.0, alpha: 1)
-        cell.labelAvgStep.font = UIFont(name: "SBSansText-Regular", size: 10)
-
+        cell.labelAvgStep.font = UIFont(name: K.fontRegular, size: 10)
         cell.labelAvg.textColor = UIColor.init(red: 180/255.0, green: 180/255.0, blue: 180/255.0, alpha: 1)
-        cell.labelAvg.font = UIFont(name: "SBSansText-Regular", size: 10)
-
-        
+        cell.labelAvg.font = UIFont(name: K.fontRegular, size: 10)
         cell.buttonInfo.tag = message.id
-        
-        
-//        cell.buttonInfo.titleLabel?.isHidden = true
-//        cell.buttonInfo.setImage(UIImage(systemName: "info"), for: .normal)
-//        cell.buttonInfo.setImage(UIImage(systemName: "info"), for: .highlighted)
-//        cell.buttonInfo.image(for: "pencil")
-//        cell.buttonInfo.tag1 = indexPath.section
         cell.buttonInfo.addTarget(self, action: #selector(connected(sender:)), for: .allTouchEvents)
         cell.buttonInfo.contentEdgeInsets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
-        
-
-//        print(cell)
         return cell
     }
-    
 
-    
-//    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source _: UIViewController) -> UIPresentationController? {
-//            let presentationController = CustomPresentationController(presentedViewController: presented, presenting: presenting, presentedViewHeight: 100)
-//            return presentationController
-//        }
-//    
-//    class CustomPresentationController: UIPresentationController {
-//      var presentedViewHeight: CGFloat
-//      init(presentedViewController: UIViewController, presenting presentingViewController: UIViewController?, presentedViewHeight: CGFloat) {
-//            self.presentedViewHeight = presentedViewHeight
-//            super.init(presentedViewController: presentedViewController, presenting: presentingViewController)
-//        }
-//
-//      override var frameOfPresentedViewInContainerView: CGRect {
-//            var frame: CGRect = .zero
-//            frame.size = CGSize(width: containerView!.bounds.width, height: presentedViewHeight)
-//            frame.origin.y = containerView!.frame.height - presentedViewHeight
-//            return frame
-//        }
-//    }
 
     @objc func connected(sender: UIButton){
         
@@ -511,7 +563,7 @@ class tableController: UITableViewController, UISearchBarDelegate {
         lb.text = filteredData[section].name
 //        lb.font = lb.font.withSize(20)
         lb.textColor = UIColor.init(red: 0.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1)
-        lb.font = UIFont(name: "SBSansText-Thin", size: 17)
+        lb.font = UIFont(name: K.fontThin, size: 17)
         lb.textAlignment = .left
         popup.addSubview(lb)
         let imageOpen = UIImage(systemName: "chevron.backward")?.withTintColor(.lightGray, renderingMode: .alwaysOriginal) as UIImage?
@@ -555,6 +607,7 @@ class tableController: UITableViewController, UISearchBarDelegate {
         } else {
             tableView.insertRows(at: indexPaths, with: .fade)
         }
+        print(self.tableView.contentSize)
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -612,20 +665,28 @@ class tableController: UITableViewController, UISearchBarDelegate {
         func openCell(flagActive: Bool) {
         if let newViewController = self.storyboard?.instantiateViewController(withIdentifier: "TableStep") as? tableStepController {
 
-//            let selectedRows = tableView.indexPathsForSelectedRows
-//            print(selectedRows)
+            let transition = CATransition()
             newViewController.TOPIC_NAME = message.TOPIC_NAME
             newViewController.user = self.user
             newViewController.group = self.group
             newViewController.idTopic = message.id
             newViewController.activeFlag = flagActive
-            newViewController.numberOfRowsMain = self.tableView.indexPathsForSelectedRows!
+            newViewController.TYPE_FEEDBACK = message.TYPE_FEEDBACK
+            K.numberOfRows = self.tableView.indexPathsForSelectedRows!
             newViewController.valueSearchStep = valueSearch
+            transition.duration = 0.3
+            transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+            transition.type = CATransitionType.moveIn
+            transition.subtype = CATransitionSubtype.fromRight
+            self.navigationController?.view.layer.backgroundColor = .some(CGColor(red: 255, green: 255, blue: 255, alpha: 1))
+            self.navigationController?.view.layer.add(transition, forKey: nil)
+            self.navigationController?.pushViewController(newViewController, animated: false)
 
-            let navController = UINavigationController(rootViewController: newViewController)
-            navController.modalTransitionStyle = .crossDissolve
-            navController.modalPresentationStyle = .overFullScreen
-            self.present(navController, animated: true, completion: nil)
+
+//            let navController = UINavigationController(rootViewController: newViewController)
+//            navController.modalTransitionStyle = .crossDissolve
+//            navController.modalPresentationStyle = .overFullScreen
+//            self.present(navController, animated: true, completion: nil)
            }
         }
         
@@ -648,8 +709,6 @@ class tableController: UITableViewController, UISearchBarDelegate {
                     print("The user is okay.")
                     openCell(flagActive: true)
                     upadteFlagAction ()
-                
-
                 }
 
             let noAction = UIAlertAction(title: "Нет", style: .default) { (action) -> Void in
@@ -688,27 +747,26 @@ class tableController: UITableViewController, UISearchBarDelegate {
 //
 
     //MARK:  Действия на свайп
-//    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-//        let testAction = UIContextualAction(style: .destructive, title: "del") { (_, _, completionHandler) in
-//            self.contentManager.performDelTopic(loginLet: self.user, groupLet: self.group, nameTopic: self.filteredData[indexPath.row].TOPIC_NAME)
-//            self.filteredData[indexPath.section].topic.remove(at: indexPath.row)
-//            tableView.deleteRows(at: [indexPath], with: .fade)
-//
-////            figuresByLetter[indexPath.section].value[indexPath.row]
-//
-//
-////            completionHandler(true)
-//        }
-//        testAction.backgroundColor = .red
-//        testAction.image = UIImage(systemName: "trash")
-//        let testAction2 = UIContextualAction(style: .destructive, title: "Edit") { (_, _, completionHandler) in
-//            print("test")
-//            completionHandler(true)
-//        }
-//        testAction2.backgroundColor = .clear
-//        testAction2.image = UIImage(systemName: "pencil")
-//        return UISwipeActionsConfiguration(actions: [testAction])
-//    }
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let testAction = UIContextualAction(style: .destructive, title: "") { (_, _, completionHandler) in
+            self.contentManager.performDelTopic(loginLet: K.userLogin, groupLet: K.idGroupProfile, nameTopic: self.filteredData[indexPath.section].topic[indexPath.row].TOPIC_NAME)
+            self.filteredData[indexPath.section].topic.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+        testAction.backgroundColor = .red
+        testAction.image = UIImage(systemName: "trash")
+        let testAction2 = UIContextualAction(style: .destructive, title: "Edit") { (_, _, completionHandler) in
+            print("test")
+            completionHandler(true)
+        }
+        testAction2.backgroundColor = .clear
+        testAction2.image = UIImage(systemName: "pencil")
+        if K.teamLeader == 0 {
+            return nil
+        }  else {
+        return UISwipeActionsConfiguration(actions: [testAction])
+        }
+    }
     
 
     
@@ -720,7 +778,19 @@ class tableController: UITableViewController, UISearchBarDelegate {
             // Initialize Actions
         let yesAction = UIAlertAction(title: "Выйти", style: .destructive) { (action) -> Void in
                 print("The user is okay.")
-            self.deleteAllData(entity: "Login")
+            self.mainFunc.deleteAllData(entity: "Login")
+            self.mainFunc.deleteAllData(entity: "Logtimer")
+            K.userName = nil
+            K.userLogin = nil
+            K.idGroupProfile =  nil
+            K.numberOfRowsProfilGroup = []
+            imageQR.image = nil
+            labelGroupName.text = ""
+            K.groupName = nil
+            labelInvite.text = nil
+            K.teamLeader = nil
+            K.numberOfRows = []
+            
             if let newViewController = self.storyboard?.instantiateViewController(withIdentifier: "main") {
                 newViewController.modalTransitionStyle = .flipHorizontal // это значение можно менять для разных видов анимации появления
                 newViewController.modalPresentationStyle = .overFullScreen
@@ -745,45 +815,72 @@ class tableController: UITableViewController, UISearchBarDelegate {
         self.present(alertController, animated: true, completion: nil)
     }
     
+    //MARK: Кнопка Профиль
+    @objc public func didProfile() {
+        if let newViewController = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBarController") as? MainTabBarController {
+            let transition = CATransition()
+            newViewController.user = self.user
+            newViewController.nameUser = self.firstName
+            transition.duration = 0.3
+            transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+            transition.type = CATransitionType.push
+            transition.subtype = CATransitionSubtype.fromRight
+            self.navigationController?.view.layer.add(transition, forKey: nil)
+            self.navigationController?.view.layer.backgroundColor = .some(CGColor(red: 255, green: 255, blue: 255, alpha: 1))
+            self.navigationController?.pushViewController(newViewController, animated: false)
+            self.imageUser.isHidden = true
+            self.labelTextDesc.isHidden  =  true
+            self.buttonRefresh.isHidden  =  true
+//
+            self.cleareAlpha()
+        }
+    }
+    
+    
+    //MARK: Кнопка QR
+    @objc public func didQR() {
+    
+            let newViewController =  ScannerViewController()
+            newViewController.user = self.user
+            let navController = UINavigationController(rootViewController: newViewController)
+            navController.modalTransitionStyle = .crossDissolve
+            navController.modalPresentationStyle = .overFullScreen
+            self.present(navController, animated: true, completion: nil)
+        
+        
+    }
+    
+    
     //MARK: Кнопка Добавления
     @objc public func didTapMenuButtonAdd() {
-                DispatchQueue.main.async {
-        var textField = UITextField()
-               
-               let alert = UIAlertController (title: "Добавить действие", message: "", preferredStyle: .alert)
-               let action = UIAlertAction (title: "Добавить", style: .default) { (action) in
-//                   print(textField.text)
-                let nameTopic = textField.text
-             
-                self.contentManager.performAddTopic(loginLet: self.user, groupLet: self.group, nameTopic: nameTopic!)
-//                self.tableView.deleteRows(at: [indexPath], with: .fade)
-         
-                   
-//                   let newItem = Exercise(context: self.context)
-//                   newItem.name = textField.text!
-//                   newItem.perentGroupExercise = self.selectidGroup
-//                    print("Добалвен элемент\(self.selectidGroup!)")
-//                   self.itemExersiceArray.append(newItem)
-//                   //save data
-//                   self.saveItems()
-//                  // self.saveItems()
-                sleep(1)
-                self.contentManager.performLogin(user: self.user)
-                self.tableView.reloadData()
+//                DispatchQueue.main.async {
+//        var textField = UITextField()
+//
+//               let alert = UIAlertController (title: "Добавить действие", message: "", preferredStyle: .alert)
+//               let action = UIAlertAction (title: "Добавить", style: .default) { (action) in
+//                let nameTopic = textField.text
+//                self.contentManager.performAddTopic(loginLet: self.user, groupLet: self.group, nameTopic: nameTopic!)
+//                sleep(1)
+//                self.contentManager.performLogin(user: self.user)
+//                self.tableView.reloadData()
+//        }
+//        alert.addTextField { (alertTextField) in
+//            alertTextField.placeholder = "Добавить новое действие"
+//            textField = alertTextField
+//        }
+//        alert.addAction(action)
+//                    self.tableView.reloadData()
+//                    self.present(alert, animated: true, completion: nil)
+//        }
         
-        }
-        alert.addTextField { (alertTextField) in
-            alertTextField.placeholder = "Добавить новое действие"
-            textField = alertTextField
-        }
         
-        alert.addAction(action)
+        let vc = AddNewTopicController()
+//        let navController = UINavigationController(rootViewController: vc)
+//        navController.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .automatic
+        present(vc, animated: true, completion: nil)
         
-                    self.tableView.reloadData()
-                    self.present(alert, animated: true, completion: nil)
-  
-        }
-
+        
     }
     
     //MARK: Кнопка Отправки отчета
@@ -807,34 +904,50 @@ class tableController: UITableViewController, UISearchBarDelegate {
             let today = Date()
             let formatter1 = DateFormatter()
             formatter1.dateFormat = "yMMd_Hmmss"
-
-            
-            
                 self.contentManager.performSendMail(loginLet: self.user, keyName: self.user + "_" + formatter1.string(from: today))
-                
             }
-
 
             // Add Actions
             alertController.addAction(yesAction)
             alertController.addAction(noAction)
 
-
-
-
             // Present Alert Controller
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+}
+
+
+extension tableController: ActiveUserManagerDelegate {
+    func didShowGroupUser(_ Content: ActiveUserManager, content: [ListAdminUser]) {
         
+    }
+    
+    func didShowGroup(_ Content: ActiveUserManager, content: [ListAdmin]) {
         
-        
-        
+    }
+    
+    func didUpdateGroup(_ Content: ActiveUserManager, content: GroupUpdate) {
         
 
+        
+    }
+    
+    func didActiveUserSeance(_ Content: ActiveUserManager, content: ActiveUser) {
+        
+    }
+    
+    func didActiveUser(_ Content: ActiveUserManager, content: ActiveUser) {
+        
     }
     
 }
 
 extension tableController: ContentManagerDelegate {
+
+    
+
+    
     func didSendMail(_ Content: ContentManager, content: SendMail) {
         DispatchQueue.main.async {
         print(content.mail)
@@ -871,6 +984,7 @@ extension tableController: ContentManagerDelegate {
                     newItem.dateTimeEnd = castDate(dateOld: item.DATETIMEEND)
                     newItem.typeAction = "Finish"
                     newItem.activeID = Int16(item.ACTIVEID)
+                    newItem.comment = item.COMMENT
 //                    print(castDate(dateOld: item.DATETIMEEND))
                 try context.save()
                 } catch {
@@ -888,14 +1002,14 @@ extension tableController: ContentManagerDelegate {
         
 
         
-//        self.content.remove(at: indexPath.row)
+
         
         if (resetCoredata == false ) {
 //            saveContentCore()
 //            loadItems()
         }else
         {
-            deleteAllData(entity: "Logtimer")
+            self.mainFunc.deleteAllData(entity: "Logtimer")
             saveContentCore()
             loadItems()
         }
@@ -917,27 +1031,42 @@ extension tableController: ContentManagerDelegate {
     func didAddTopic(_ Content: ContentManager, content: AddTopicModel) {
         
     }
-    
+    //MARK: Запрос к сервису Замеров
     func didContentData(_ Content: ContentManager, content: [Sector]) {
         self.content = content
         self.filteredData = content
-//        print(self.filteredData)
-//        figuresByLetter = Dictionary(grouping: filteredData, by: { String($0.NAME_SECTOR) }).sorted(by: { $0.0 < $1.0 })
 
-    
-//        if (self.filteredData.count > 0) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(20)) {
-            
-            self.tableView.reloadData()
-            self.searchBar(self.searchBar, textDidChange: self.valueSearch)
+        DispatchQueue.main.async {
+          
+            if content.count == 0 {
+                self.tableView.isScrollEnabled = false
+                self.tableView.backgroundColor = .white
+                self.searchBar.isHidden = true
+                self.labelTextDesc.text = "Сейчас в группе '\(String(K.groupName))' нет активных замеров!"
+                self.imageUser.isHidden = false
+                self.labelTextDesc.isHidden  =  false
+                self.buttonRefresh.isHidden  =  false
+               
+//                self.removeLoadingScreen()
+           } else {
+                self.tableView.isScrollEnabled = true
+                self.view.backgroundColor = UIColor.init(red: 245.0/255.0, green: 245.0/255.0, blue: 245.0/255.0, alpha: 1)
+                self.searchBar.isHidden = false
+                self.imageUser.isHidden = true
+                self.labelTextDesc.isHidden  =  true
+                self.buttonRefresh.isHidden  =  true
+             }
+             self.searchBar(self.searchBar, textDidChange: self.valueSearch)
             self.tableView.separatorStyle = .singleLine
             self.removeLoadingScreen()
-            self.numberOfRows.forEach { numberOfRows in
-                self.tableView.selectRow(at: numberOfRows, animated: false, scrollPosition: .middle)
+            self.tableView.reloadData()
+             K.numberOfRows.forEach { numberOfRows in
+                self.tableView.selectRow(at: numberOfRows, animated: false, scrollPosition: .none)
             }
-            
+//            self.loadAlpha()
+ 
         }
-//        }
+ 
     }
 }
 
@@ -957,41 +1086,13 @@ extension UIView{
 
 
 
-//extension UIColor {
-//    public convenience init?(hex: String) {
-//        let r, g, b, a: CGFloat
-//
-//        if hex.hasPrefix("#") {
-//            let start = hex.index(hex.startIndex, offsetBy: 1)
-//            let hexColor = String(hex[start...])
-//
-//            if hexColor.count == 8 {
-//                let scanner = Scanner(string: hexColor)
-//                var hexNumber: UInt64 = 0
-//
-//                if scanner.scanHexInt64(&hexNumber) {
-//                    r = CGFloat((hexNumber & 0xff000000) >> 24) / 255
-//                    g = CGFloat((hexNumber & 0x00ff0000) >> 16) / 255
-//                    b = CGFloat((hexNumber & 0x0000ff00) >> 8) / 255
-//                    a = CGFloat(hexNumber & 0x000000ff) / 255
-//
-//                    self.init(red: r, green: g, blue: b, alpha: a)
-//                    return
-//                }
-//            }
-//        }
-//
-//        return nil
-//    }
-//}
-
 extension UIColor {
     convenience init(hexString: String, alpha: CGFloat = 1.0) {
         let hexString: String = hexString.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         let scanner = Scanner(string: hexString)
         if (hexString.hasPrefix("#")) {
-             scanner.scanLocation = 1
-            //scanner.currentIndex =  scanner.string.index(ofAccessibilityElement: 1)
+//             scanner.currentIndex = 1
+            scanner.currentIndex = scanner.string.index(after: scanner.currentIndex)
         }
         var color: UInt64 = 0
         scanner.scanHexInt64(&color)
@@ -1019,18 +1120,164 @@ extension UIColor {
 
 
 class SpinnerViewController: UIViewController {
-    var spinner = UIActivityIndicatorView(style: .whiteLarge)
+    var spinner = UIActivityIndicatorView(style: .large)
 
     override func loadView() {
         view = UIView()
         view.backgroundColor = UIColor(white: 0, alpha: 0.7)
-
         spinner.translatesAutoresizingMaskIntoConstraints = false
         spinner.startAnimating()
         view.addSubview(spinner)
-
         spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+    }
+}
+
+
+
+class NoGroup: UIViewController {
+
+    var labelName = UILabel()
+    var imageUser = UIImageView()
+    var labelTextMain = UILabel()
+    var labelTextDesc = UILabel()
+    let mainFunc = MainFunc()
+    let customAlert = AlertCustom()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if K.rederectUrl != nil {
+        customAlert.showAlertOkView(main: "Внимание", second: K.rederectUrl!, control: self, dismissView: false, notificcationStr: nil)
+        }
+        view.backgroundColor = .white
+        labelName.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: 20)
+//        labelName.text = "Привет МИР!"
+        view.addSubview(labelName)
+        // Do any additional setup after loading the view.
+    
+
+        NotificationCenter.default.addObserver(self, selector: #selector(self.refresh), name: NSNotification.Name(rawValue: "newDataNotif1"), object: nil)
+  
+        let buttonBack = UIButton(type: .system)
+        buttonBack.setImage(UIImage(systemName: "chevron.backward"), for: .normal)
+        buttonBack.setTitle("Назад", for: .normal)
+        buttonBack.addTarget(self, action: #selector(didTapBack), for: .touchUpInside)
+        buttonBack.sizeToFit()
+//        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: buttonBack)
+
+        
+        
+        let buttonNext = UIButton(type: .system)
+        buttonNext.setTitle("Далее", for: .normal)
+        buttonNext.addTarget(self, action: #selector(didTapNext), for: .touchUpInside)
+        buttonNext.sizeToFit()
+//        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: buttonNext)
+
+        
+        
+        let buttonCreate = UIButton()
+        buttonCreate.frame = CGRect(x: (view.frame.width/2) - (338/2), y: view.frame.height-(view.frame.height/4), width: 338, height: 56)
+        buttonCreate.backgroundColor = UIColor(hexString: "#478ECC")
+        buttonCreate.setTitle("Отсканировавть QR", for: .normal)
+        buttonCreate.layer.cornerRadius = 8
+        buttonCreate.layer.borderWidth = 0
+        buttonCreate.addTarget(self, action: #selector(didTapNext), for: UIControl.Event.touchUpInside)
+//        buttonCreate.addTarget(self, action: #selector(buttonAction), for: UIControlEvents.touchUpInside)
+//        buttonCreate.layer.borderColor = UIColor.black.cgColor
+ 
+        view.addSubview(buttonCreate)
+        
+        let buttonExit = UIButton()
+        buttonExit.frame = CGRect(x: 10, y: 63, width: 70, height: 14)
+//        buttonExit.backgroundColor = UIColor(hexString: "#478ECC")
+        buttonExit.setTitle("Выход", for: .normal)
+//        buttonExit.tintColor = .systemBlue
+        buttonExit.setTitleColor(.systemBlue,
+                             for: .normal)
+        
+//        buttonExit.layer.cornerRadius = 8
+//        buttonExit.layer.borderWidth = 0
+        buttonExit.addTarget(self, action: #selector(didTapBack), for: UIControl.Event.touchUpInside)
+//        buttonCreate.addTarget(self, action: #selector(buttonAction), for: UIControlEvents.touchUpInside)
+//        buttonCreate.layer.borderColor = UIColor.black.cgColor
+ 
+        view.addSubview(buttonExit)
+
+        imageUser.frame = CGRect(x: (view.frame.width-160)/2, y: (view.frame.height/4)-80, width: 160, height: 110)
+        let url = URL(string:  "https://shi-ku.ru/img/not_group.png")
+        let data = try? Data(contentsOf: url!)
+        imageUser.image = UIImage(data: data!)
+        view.addSubview(imageUser)
+        
+        labelTextMain.frame = CGRect(x: (view.frame.width-300)/2 , y: imageUser.frame.maxY + 40, width: 300, height: 80)
+        labelTextMain.text = "Что нужно для начала работы?"
+        labelTextMain.numberOfLines = 2
+        labelTextMain.textAlignment = .center
+        labelTextMain.font = UIFont.preferredFont(forTextStyle: .title1)
+        view.addSubview(labelTextMain)
+        
+        labelTextDesc.frame = CGRect(x: (view.frame.width-300)/2 , y: labelTextMain.frame.maxY + 20, width: 300, height: 80)
+        labelTextDesc.text = "Вам необходимо добавиться в группу! Для этого отсканируйте QR"
+        labelTextDesc.numberOfLines = 3
+        labelTextDesc.textAlignment = .center
+        labelTextDesc.font = UIFont.preferredFont(forTextStyle: .body)
+        view.addSubview(labelTextDesc)
+    }
+    
+
+    @objc func didTapBack() {
+        self.mainFunc.deleteAllData(entity: "Login")
+        self.mainFunc.deleteAllData(entity: "Logtimer")
+        K.userName = nil
+        K.userLogin = nil
+        K.idGroupProfile =  nil
+        K.numberOfRowsProfilGroup = []
+        imageQR.image = nil
+        labelGroupName.text = ""
+        K.groupName = nil
+        labelInvite.text = nil
+        
+        
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "main") as! ViewController
+            vc.modalTransitionStyle = .crossDissolve
+            vc.modalPresentationStyle = .overFullScreen
+        self.present(vc, animated: true, completion: nil)
+
+           
+        }
+    
+    @objc public func didTapNext() {
+
+        let newViewController =  ScannerViewController()
+        newViewController.user = K.userLogin
+        let navController = UINavigationController(rootViewController: newViewController)
+        navController.modalTransitionStyle = .crossDissolve
+        navController.modalPresentationStyle = .overFullScreen
+        self.present(navController, animated: true, completion: nil)
+//        self.dismiss(animated: false, completion: nil)
+    }
+    
+    @objc func refresh() {
+
+        DispatchQueue.main.async {
+       self.dismiss(animated: true, completion: nil)
+        }
+    }
+
+
+}
+
+
+struct MainFunc {
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    func deleteAllData(entity: String)
+    {
+        let ReqVar = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+        let DelAllReqVar = NSBatchDeleteRequest(fetchRequest: ReqVar)
+        do { try context.execute(DelAllReqVar) }
+        catch { print(error) }
     }
 }
 

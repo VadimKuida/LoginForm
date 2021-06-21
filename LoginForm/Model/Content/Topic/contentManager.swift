@@ -14,9 +14,6 @@ protocol ContentManagerDelegate {
     func didDelTopic(_ Content: ContentManager, content: AddTopicModel)
     func didContentStepDataCore(_ Content: ContentManager, content: [TopicStepCore])
     func didSendMail(_ Content: ContentManager, content: SendMail)
-
-    
-    
 }
 
 struct ContentManager {
@@ -54,7 +51,6 @@ struct ContentManager {
         do{
             let decoderData = try decoder.decode(ContentData.self, from: responceData)
             let topicname = decoderData.sector
-//            print(topicname)
             return topicname
         } catch {
 
@@ -63,7 +59,7 @@ struct ContentManager {
     }
     
     //MARK: ADD TOPIC
-    func performAddTopic (loginLet: String, groupLet: Int, nameTopic: String){
+    func performAddTopic (loginLet: String, groupLet: Int, nameTopic: String, groupTopic: String, descTopic: String, countMinTopic: String, countDayTopic:String, typeFeedBack: Int){
 
     let url = URL(string: "https://shi-ku.ru:8443/ords/interval/create_interval_add_topic/topic/")
     guard let requestUrl = url else { fatalError() }
@@ -73,8 +69,9 @@ struct ContentManager {
     request.httpMethod = "POST"
 
     // HTTP Request Parameters which will be sent in HTTP Request Body
-    let postString : Data = " { \"USER_ID\": \"\(loginLet)\", \"USER_GROUP\": \(groupLet), \"TOPIC_NAME\": \"\(nameTopic)\"}".data(using: .utf8)!;
-
+        let postString : Data = " { \"USER_ID\": \"\(loginLet)\", \"USER_GROUP\": \(groupLet), \"TOPIC_NAME\": \"\(nameTopic)\", \"TOPIC_GROUP\": \"\(groupTopic)\", \"TOPIC_DESC\": \"\(descTopic)\", \"TOPIC_COUNT\": \"\(countMinTopic)\", \"TOPIC_DAY\": \"\(countDayTopic)\" , \"TYPEFEEDBACK\":\(typeFeedBack)}".data(using: .utf8)!;
+        print(" { \"USER_ID\": \"\(loginLet)\", \"USER_GROUP\": \(groupLet), \"TOPIC_NAME\": \"\(nameTopic)\", \"TOPIC_GROUP\": \"\(groupTopic)\", \"TOPIC_DESC\": \"\(descTopic)\", \"TOPIC_COUNT\": \"\(countMinTopic)\", \"TOPIC_DAY\": \"\(countDayTopic)\" , \"TYPEFEEDBACK\":\(typeFeedBack)}")
+        
     // Set HTTP Request Body
     request.httpBody = postString;
     request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
@@ -103,9 +100,10 @@ struct ContentManager {
             let decoderData = try decoder.decode(AddTopicData.self, from: responceData)
     //                print(decoderData.statusUser)
             let statusAdd = decoderData.statusAddTopic
+            let statusAddDeck = decoderData.statusAddTopicDisc
 //            print(statusAdd)
-            let statusReg  = AddTopicModel(statusAddTopic: statusAdd)
-//            print(statusReg.statusUser)
+            let statusReg  = AddTopicModel(statusAddTopic: statusAdd, statusAddTopicDisc: statusAddDeck)
+//            print(statusReg.statusAddTopic)
             return statusReg
 
         } catch {
@@ -157,7 +155,7 @@ print(" { \"USER_ID\": \(loginLet), \"USER_GROUP\": \(groupLet), \"TOPIC_NAME\":
     //                print(decoderData.statusUser)
             let statusAdd = decoderData.statusAddTopic
 //            print(statusAdd)
-            let statusReg  = AddTopicModel(statusAddTopic: statusAdd)
+            let statusReg  = AddTopicModel(statusAddTopic: statusAdd, statusAddTopicDisc: nil)
 //            print(statusReg.statusUser)
             return statusReg
 
@@ -275,6 +273,49 @@ print(" { \"USER_ID\": \(loginLet), \"USER_GROUP\": \(groupLet), \"TOPIC_NAME\":
             return nil
         }
     }
+    
+  
+    //MARK: VIEW ALL GROUP
+    func performGroupTopic(user: String) {
+    let url = URL(string: "https://shi-ku.ru:8443/ords/interval/mod_interval_topc_user_g/get_user/\(user)")
+    guard let requestUrl = url else { fatalError() }
+
+    // Prepare URL Request Object
+    var request = URLRequest(url: requestUrl)
+    request.httpMethod = "GET"
+    // HTTP Request Parameters which will be sent in HTTP Request Body
+    request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
+    // Perform HTTP Request
+    let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            // Check for Error
+            if let error = error {
+                print("Error took place \(error)")
+                return
+            }
+        if let safeData = data {
+            if let login = self.parseJSONGroupTopic(safeData) {
+                self.delegate?.didContentData(self, content: login)
+            }
+        }
+    }
+    task.resume()
+    }
+
+    func parseJSONGroupTopic(_ responceData: Data) -> [Sector]?  {
+        let decoder = JSONDecoder()
+        do{
+            let decoderData = try decoder.decode(ContentData.self, from: responceData)
+            let topicname = decoderData.sector
+//            print(topicname)
+            return topicname
+        } catch {
+
+            return nil
+        }
+    }
+    
+    
+    
     
     
 }

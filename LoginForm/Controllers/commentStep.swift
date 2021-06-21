@@ -18,9 +18,17 @@ class commentStep: UIViewController, UITextViewDelegate {
     var commentTextCore: String = ""
     let titleLabel = UITextView()
     var stepName: String!
-    var stepNum: Int!
+    var stepNum: String!
     var placeholderLabel = UILabel()
     var titleLabelMain = UILabel()
+    var typeView:  String!
+    var commentManager = CommentManager()
+    
+    let loadingView = UIView()
+    /// Spinner shown during load the TableView
+    let spinner = UIActivityIndicatorView()
+    /// Text shown during load the TableView
+    let loadingLabel = UILabel()
 
     
 
@@ -35,10 +43,7 @@ class commentStep: UIViewController, UITextViewDelegate {
 //        print(stepId)
         self.view = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
         
-        
-        print(self.view.frame.size)
-        
-        print(view.frame.size)
+        commentManager.delegate = self
  
             // Заголовок
             let labelTitilAll = UIView(frame: CGRect(x:0, y: 430 ,width: self.view.frame.width ,height:80))
@@ -47,8 +52,8 @@ class commentStep: UIViewController, UITextViewDelegate {
             
                 //Номер шага
                     let labelTitilStep = UILabel(frame: CGRect(x:16, y: 12 ,width: self.view.frame.width ,height: 10))
-                    labelTitilStep.text = "Шаг \(String(stepNum))"
-                    labelTitilStep.font = UIFont(name: "SBSansText-Regular", size: 12)
+                    labelTitilStep.text = stepNum
+                    labelTitilStep.font = UIFont(name: K.fontRegular, size: 12)
                     labelTitilStep.numberOfLines = 1
                     labelTitilStep.textColor = UIColor.init(red: 153.0/255.0, green: 153.0/255.0, blue: 153.0/255.0, alpha: 1)
                     labelTitilStep.layer.cornerRadius = 20
@@ -58,7 +63,7 @@ class commentStep: UIViewController, UITextViewDelegate {
                     labelTitil.text =  (String(stepName))
                     labelTitil.baselineAdjustment = .alignCenters
                     labelTitil.textAlignment = NSTextAlignment.left
-                    labelTitil.font = UIFont(name: "SBSansText-Regular", size: 17)
+                    labelTitil.font = UIFont(name: K.fontRegular, size: 17)
                     labelTitil.numberOfLines = 1
 
             labelTitilAll.addSubview(labelTitilStep)
@@ -67,41 +72,45 @@ class commentStep: UIViewController, UITextViewDelegate {
 //        placeholderLabel.isHidden = !toTextView.text.isEmpty
         
             //  Основной фрейм
-            titleLabelMain.frame = CGRect(x:16, y: 500 ,width: newView.frame.width-32 , height: self.view.frame.maxY - 500 - 70)
+            titleLabelMain.frame = CGRect(x:16, y: 500 ,width: newView.frame.width-32 , height: self.view.frame.maxY - 500 - 40)
             titleLabelMain.backgroundColor = UIColor.init(red: 248.0/255.0, green: 248.0/255.0, blue: 248.0/255.0, alpha: 0)
 
-                titleLabel.frame = CGRect(x:24, y: 500 ,width: newView.frame.width-48 , height: titleLabelMain.frame.maxY - 500 - 70)
+                titleLabel.frame = CGRect(x:24, y: 500 ,width: newView.frame.width-48 , height: titleLabelMain.frame.maxY - 500 - 40)
                 titleLabel.backgroundColor = UIColor.init(red: 248.0/255.0, green: 248.0/255.0, blue: 248.0/255.0, alpha: 1)
                 titleLabel.textAlignment = NSTextAlignment.left
-                titleLabel.font = UIFont(name: "SBSansText-Regular", size: 14)
+                titleLabel.font = UIFont(name: K.fontRegular, size: 14)
 
                 
                     placeholderLabel.text = "Введите комментарий"
                     placeholderLabel.frame = CGRect(x:0, y: 0 ,width: self.view.frame.width , height: 15)
                     placeholderLabel.sizeToFit()
-                    placeholderLabel.font = UIFont(name: "SBSansText-Regular", size: 14)
+                    placeholderLabel.font = UIFont(name: K.fontRegular, size: 14)
                     placeholderLabel.textColor = UIColor.init(red: 204.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 1)
                     placeholderLabel.tag = 100
         loadItems()
-        titleLabel.addSubview(placeholderLabel)
+
         self.view.addSubview(labelTitilAll)
         self.view.addSubview(newView)
         self.view.addSubview(titleLabelMain)
         self.view.addSubview(titleLabel)
 
 
-        titleLabel.text = addComment(value: stepId)
+
+        
+        
+        if typeView == "step" {
+            titleLabel.addSubview(placeholderLabel)
+            titleLabel.text = addComment(value: stepId)
+        } else if typeView == "detail" {
+            titleLabel.isEditable = false
+            setLoadingScreen()
+            commentManager.performShowComment(activeID: stepId)
+        }
 
 
         placeholderLabel.isHidden = !titleLabel.text.isEmpty
 
 
-
-
-        // works without the tap gesture just fine (only dragging), but I also wanted to be able to tap anywhere and dismiss it, so I added the gesture below
-        
-
-        
 
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
         self.view.addGestureRecognizer(tap)
@@ -109,6 +118,49 @@ class commentStep: UIViewController, UITextViewDelegate {
     }
     
 
+    
+    
+    private func setLoadingScreen() {
+
+        // Sets the view which contains the loading text and the spinner
+        let width: CGFloat = 120
+        let height: CGFloat = 30
+        let x = (titleLabel.frame.width / 2) - (width / 2)
+        let y = (titleLabel.frame.height / 2) - (height / 2)
+//        let x:  CGFloat = 1
+//        let y: CGFloat = 1
+        loadingView.frame = CGRect(x: x, y: y, width: width, height: height)
+
+        // Sets loading text
+        loadingLabel.textColor = .gray
+        loadingLabel.textAlignment = .center
+        loadingLabel.font = UIFont(name: K.fontRegular, size: 16)
+        loadingLabel.text = "Загрузка..."
+        loadingLabel.frame = CGRect(x: 0, y: 0, width: 140, height: 30)
+
+        // Sets spinner
+        spinner.style = UIActivityIndicatorView.Style.medium  //.gray
+        spinner.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        spinner.startAnimating()
+
+        // Adds text and spinner to the view
+        loadingView.addSubview(spinner)
+        loadingView.addSubview(loadingLabel)
+
+        titleLabel.addSubview(loadingView)
+
+    }
+    
+    private func removeLoadingScreen() {
+
+        // Hides and stops the text and the spinner
+        spinner.stopAnimating()
+        spinner.isHidden = true
+        loadingLabel.isHidden = true
+
+    }
+    
+    
     func textViewDidBeginEditing(_ textView: UITextView) {
 //        print(!titleLabel.text.isEmpty)
         placeholderLabel.isHidden = true
@@ -128,8 +180,12 @@ class commentStep: UIViewController, UITextViewDelegate {
         super.viewWillDisappear(animated)
         if isBeingDismissed {
 //            loadItems()
+            
+            if typeView == "step" {
             updateComment(value: stepId, textComment: titleLabel.text)
-            // TODO: Do your stuff here.
+            } else if typeView == "detail" {
+                commentManager.performUpdateComment(activeID: stepId, comment: titleLabel.text)
+            }
         }
     }
     
@@ -149,9 +205,6 @@ class commentStep: UIViewController, UITextViewDelegate {
         let request : NSFetchRequest<Logtimer> = Logtimer.fetchRequest()
         do {
             itemTimeArray = try context.fetch(request)
-//            records = try context.fetch(request) as [Record]
-//            let jsonData = try JSONEncoder().encode(records)
-
         } catch {
             print("Error")
         }
@@ -160,35 +213,50 @@ class commentStep: UIViewController, UITextViewDelegate {
     func addComment(value searchValue: Int) -> String
     {
         loadItems()
-//        print(searchValue)
         if let i = itemTimeArray.lastIndex(where: { $0.stepID == Int16(searchValue)}) {
-//                itemTimeArray[i].setValue(Date(), forKey: "dateTimeEnd")
-                
             commentTextCore =  itemTimeArray[i].comment != nil ? itemTimeArray[i].comment! : ""
-//                print(itemTimeArray[i].comment)
-//                itemTimeArray[i].setValue(1, forKey: "flagActive")
-//                self.saveItems()
         }
-        
-//        return
-        
         return  commentTextCore
     }
     
     
     func updateComment(value searchValue: Int, textComment: String)
     {
-            print(searchValue)
-            print(textComment)
             if let i = itemTimeArray.lastIndex(where: { $0.stepID == Int16(searchValue)}) {
-//                itemTimeArray[i].setValue(Date(), forKey: "dateTimeEnd")
-                print(textComment)
-                itemTimeArray[i].setValue(textComment, forKey: "comment")
-//                itemTimeArray[i].setValue(1, forKey: "flagActive")
-                self.saveItems()
+            itemTimeArray[i].setValue(textComment, forKey: "comment")
+            self.saveItems()
         }
     }
     
 
 
+}
+
+
+extension commentStep: CommentManagerDelegate {
+    func didUpdateFeedback(_ Content: CommentManager, content: UpdateComment) {
+        
+    }
+    
+    func didUpdateComment(_ Content: CommentManager, content: UpdateComment) {
+        
+        
+        
+    }
+    
+    func didShowComment(_ Content: CommentManager, content: ShowComment) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1000)) {
+            if content.comm != nil {
+                self.removeLoadingScreen()
+                self.titleLabel.isEditable = true
+                self.titleLabel.text = content.comm
+            } else {
+                self.removeLoadingScreen()
+                self.titleLabel.isEditable = true
+                self.titleLabel.addSubview(self.placeholderLabel)
+            }
+        }
+    }
+    
+    
 }

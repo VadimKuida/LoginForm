@@ -10,15 +10,19 @@ import Foundation
 struct LoginModel {
     let login: String
     let firstName: String
+    let groupName: String!
     let group: Int
     let status: Int
+    let TL: Int
 }
 
 struct LoginData: Codable {
     let login: String
     let firstName: String
+    let groupName: String!
     let group: Int
     let status: Int
+    let TL: Int
 }
 
 struct FlagAdd: Codable {
