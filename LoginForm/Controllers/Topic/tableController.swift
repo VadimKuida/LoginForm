@@ -503,12 +503,12 @@ class tableController: UITableViewController, UISearchBarDelegate, UIViewControl
         cell.labelTimeAVDStep.textColor = UIColor.init(red: 180/255.0, green: 180/255.0, blue: 180/255.0, alpha: 1)
         cell.labelTimeAVDStep.font = UIFont(name: K.fontRegular, size: 10)
         cell.labelTimeAVDStep.text = (castTime(localTimeDelta: Int(message.AVG_TIME_STEP)))
-        cell.labelCount.textColor = UIColor.init(red: 180/255.0, green: 180/255.0, blue: 180/255.0, alpha: 1)
+        cell.labelCount.textColor = isColorRow(numTag: Float(Float(message.END_DAY)/Float(message.ALL_DAY)))
         cell.labelCount.font = UIFont(name: K.fontRegular, size: 10)
-        cell.labelCount.text = "\(String(sumFactCell(topicI: message.id))) из \(count)"
+        cell.labelCount.text = "\(String(message.END_DAY)) из \(String(message.ALL_DAY))"
         cell.labelAvgStep.textColor = UIColor.init(red: 180/255.0, green: 180/255.0, blue: 180/255.0, alpha: 1)
         cell.labelAvgStep.font = UIFont(name: K.fontRegular, size: 10)
-        cell.labelAvg.textColor = UIColor.init(red: 180/255.0, green: 180/255.0, blue: 180/255.0, alpha: 1)
+        cell.labelAvg.textColor = isColorRow(numTag: Float(Float(message.END_DAY)/Float(message.ALL_DAY)))
         cell.labelAvg.font = UIFont(name: K.fontRegular, size: 10)
         cell.buttonInfo.tag = message.id
         cell.buttonInfo.addTarget(self, action: #selector(connected(sender:)), for: .allTouchEvents)

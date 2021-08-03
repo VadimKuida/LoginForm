@@ -86,6 +86,8 @@ struct Topic: Codable {
     let AVG_TIME_STEP: Float
     let PLAN_COUNT: Int
     let TYPE_FEEDBACK: Int!
+    let ALL_DAY: Int!
+    let END_DAY: Int!
 //    var isExt: Bool  = true
     
     
