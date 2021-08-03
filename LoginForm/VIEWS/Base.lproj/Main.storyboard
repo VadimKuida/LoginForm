@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19115.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19107.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -226,20 +225,13 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Группа" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="97a-SF-aO8">
-                                        <rect key="frame" x="20" y="240" width="249" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" enablesReturnKeyAutomatically="YES" smartInsertDeleteType="no" smartQuotesType="no"/>
-                                    </textField>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="WVY-VQ-YVY" firstAttribute="centerX" secondItem="L5Q-XN-rzH" secondAttribute="centerX" id="3AJ-Hm-g5e"/>
-                                    <constraint firstItem="97a-SF-aO8" firstAttribute="top" secondItem="qUl-7P-llz" secondAttribute="bottom" constant="10" id="4gh-Xo-Ns0"/>
                                     <constraint firstItem="WVY-VQ-YVY" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qUl-7P-llz" secondAttribute="leading" id="5Qc-sj-mfe"/>
                                     <constraint firstItem="WVY-VQ-YVY" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2eV-Qh-tgZ" secondAttribute="leading" id="5Sg-V7-bnk"/>
                                     <constraint firstItem="WVY-VQ-YVY" firstAttribute="trailing" secondItem="2eV-Qh-tgZ" secondAttribute="trailing" id="78g-Qf-cI3"/>
                                     <constraint firstItem="WVY-VQ-YVY" firstAttribute="leading" secondItem="IPC-BO-7xA" secondAttribute="leading" id="DCc-nq-pth"/>
-                                    <constraint firstItem="WVY-VQ-YVY" firstAttribute="trailing" secondItem="97a-SF-aO8" secondAttribute="trailing" id="Fkh-Va-Xbz"/>
                                     <constraint firstItem="qUl-7P-llz" firstAttribute="top" secondItem="WVY-VQ-YVY" secondAttribute="bottom" constant="10" id="GBI-hY-YYO"/>
                                     <constraint firstItem="WVY-VQ-YVY" firstAttribute="leading" secondItem="FKW-Sl-zN1" secondAttribute="leading" id="Omg-h2-e9O"/>
                                     <constraint firstItem="WVY-VQ-YVY" firstAttribute="trailing" secondItem="FKW-Sl-zN1" secondAttribute="trailing" id="Phx-bp-fZV"/>
@@ -254,7 +246,6 @@
                                     <constraint firstAttribute="width" constant="289" id="pd2-Av-LvT"/>
                                     <constraint firstItem="WVY-VQ-YVY" firstAttribute="leading" secondItem="FLk-Wd-1s2" secondAttribute="leading" constant="20" id="s2q-n3-vJl"/>
                                     <constraint firstItem="IPC-BO-7xA" firstAttribute="top" secondItem="L5Q-XN-rzH" secondAttribute="top" constant="20" id="uEk-MF-20P"/>
-                                    <constraint firstItem="WVY-VQ-YVY" firstAttribute="leading" secondItem="97a-SF-aO8" secondAttribute="leading" id="zqm-Vi-LWe"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="r5K-5N-WcA"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="FLk-Wd-1s2"/>
@@ -281,10 +272,10 @@
                         <viewLayoutGuide key="safeArea" id="wui-m4-ThX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="M1x-bp-CEL" firstAttribute="top" secondItem="wui-m4-ThX" secondAttribute="top" constant="5" id="1dc-9m-M7i"/>
                             <constraint firstItem="wui-m4-ThX" firstAttribute="trailing" secondItem="M1x-bp-CEL" secondAttribute="trailing" constant="20" id="3pk-dI-FQL"/>
                             <constraint firstItem="zmD-Wn-E6w" firstAttribute="leading" secondItem="eJc-4K-crx" secondAttribute="leading" constant="20" id="93e-ZA-F5a"/>
                             <constraint firstItem="L5Q-XN-rzH" firstAttribute="top" secondItem="eJc-4K-crx" secondAttribute="top" constant="175" id="DEb-5V-WHW"/>
+                            <constraint firstItem="M1x-bp-CEL" firstAttribute="top" secondItem="eJc-4K-crx" secondAttribute="top" constant="49" id="ESR-vA-woY"/>
                             <constraint firstItem="L5Q-XN-rzH" firstAttribute="centerX" secondItem="eJc-4K-crx" secondAttribute="centerX" id="Reb-If-VG6"/>
                             <constraint firstItem="hxe-Mx-VaL" firstAttribute="centerY" secondItem="eJc-4K-crx" secondAttribute="centerY" multiplier="0.4" constant="-55" id="VQe-iK-AW1"/>
                             <constraint firstItem="hxe-Mx-VaL" firstAttribute="centerX" secondItem="eJc-4K-crx" secondAttribute="centerX" id="ZAv-m1-Y6i"/>
@@ -301,7 +292,6 @@
                         <outlet property="nameReg" destination="IPC-BO-7xA" id="d7c-bV-fSS"/>
                         <outlet property="passReg" destination="qUl-7P-llz" id="KUg-2W-q0j"/>
                         <outlet property="phoneReg" destination="WVY-VQ-YVY" id="9ed-VB-w4z"/>
-                        <outlet property="textBox" destination="97a-SF-aO8" id="5gs-N5-GpU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pU8-ho-Qli" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -335,7 +325,7 @@
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableViewCell" textLabel="7sr-0H-YZc" detailTextLabel="sA3-Xk-HVS" rowHeight="142" style="IBUITableViewCellStyleValue1" id="OvZ-db-lLd">
-                                <rect key="frame" x="0.0" y="50" width="414" height="142"/>
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="142"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OvZ-db-lLd" id="hJ9-8U-5Vv">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="142"/>
@@ -396,9 +386,16 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <label key="tableFooterView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Rlm-Xu-ir2">
+                            <rect key="frame" x="0.0" y="191.00000034679067" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableViewCell" textLabel="qSX-LL-t6b" detailTextLabel="Ptb-Py-Hh3" rowHeight="142" style="IBUITableViewCellStyleValue1" id="aJg-MR-xOV">
-                                <rect key="frame" x="0.0" y="50" width="414" height="142"/>
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="142"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aJg-MR-xOV" id="xqQ-72-64v">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="142"/>
@@ -442,6 +439,7 @@
                         </attributedString>
                     </refreshControl>
                     <connections>
+                        <outlet property="labelAlarm" destination="Rlm-Xu-ir2" id="VwU-F6-OyB"/>
                         <outlet property="tableView" destination="s31-3F-asd" id="1LR-aA-E5p"/>
                     </connections>
                 </tableViewController>

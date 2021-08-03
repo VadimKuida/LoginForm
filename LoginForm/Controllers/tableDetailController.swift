@@ -31,7 +31,8 @@ class tableDetailController: UITableViewController {
     let spinner = UIActivityIndicatorView()
     /// Text shown during load the TableView
     let loadingLabel = UILabel()
-    @IBOutlet weak var labelAlarm: UILabel!
+    //@IBOutlet weak var labelAlarm: UILabel!
+    @IBOutlet var labelAlarm: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +65,7 @@ class tableDetailController: UITableViewController {
         let x = (tableView.frame.width / 2) - (width / 2)
         let y = (tableView.frame.height / 2) - (height / 2) - (navigationController?.navigationBar.frame.height)!
         loadingView.frame = CGRect(x: x, y: y, width: width, height: height)
-
+        labelAlarm.isHidden = true
         // Sets loading text
         loadingLabel.textColor = .gray
         loadingLabel.textAlignment = .center

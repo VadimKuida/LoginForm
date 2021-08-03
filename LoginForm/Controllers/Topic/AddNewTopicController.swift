@@ -69,10 +69,25 @@ class AddNewTopicController: UIViewController {
         view.addSubview(buttonCreate)
 
         imageUser.frame = CGRect(x: (view.frame.width-160)/2, y: (view.frame.height/3-55), width: 160, height: 107)
-        let url = URL(string:  "https://shi-ku.ru/img/new_topic.png")
-        let data = try? Data(contentsOf: url!)
-        imageUser.image = UIImage(data: data!)
         view.addSubview(imageUser)
+        imageUser.alpha = 0
+        let url = URL(string:  "https://shi-ku.ru/img/new_topic.png")
+        DispatchQueue.global().async {
+            // Fetch Image Data
+            if let data = try? Data(contentsOf: url!) {
+                DispatchQueue.main.async {
+                    // Create Image and Update Image View
+                    self.imageUser.image = UIImage(data: data)
+                    loadScreen.removeLoadingScreen()
+                    self.imageUser.alpha = 0
+                    UIView.animate(withDuration: 0.3, delay: 0, animations: {
+//                        imageQR.isHidden =  false
+                        self.imageUser.alpha = 1
+                     })
+                }
+            }
+        }
+       
         
         labelTextMain.frame = CGRect(x: (view.frame.width-300)/2 , y: imageUser.frame.maxY + 40, width: 300, height: 40)
         labelTextMain.text = "Создание замера"

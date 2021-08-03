@@ -22,6 +22,7 @@
 		8F5CC930260A25EB003BC3FA /* CommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5CC92F260A25EB003BC3FA /* CommentModel.swift */; };
 		8F5F8CFE2620984900DC8AAD /* AddNewTopicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5F8CFD2620984900DC8AAD /* AddNewTopicController.swift */; };
 		8F61F9DE2614D74E0068E0F3 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F61F9DD2614D74E0068E0F3 /* Alert.swift */; };
+		8F633190268A0D3200F5FC92 /* OnlineCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F63318F268A0D3200F5FC92 /* OnlineCheck.swift */; };
 		8F7A415325405529009440C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7A415225405529009440C8 /* AppDelegate.swift */; };
 		8F7A415525405529009440C8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7A415425405529009440C8 /* SceneDelegate.swift */; };
 		8F7A415725405529009440C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7A415625405529009440C8 /* ViewController.swift */; };
@@ -123,6 +124,7 @@
 		8F5CC92F260A25EB003BC3FA /* CommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentModel.swift; sourceTree = "<group>"; };
 		8F5F8CFD2620984900DC8AAD /* AddNewTopicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTopicController.swift; sourceTree = "<group>"; };
 		8F61F9DD2614D74E0068E0F3 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		8F63318F268A0D3200F5FC92 /* OnlineCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineCheck.swift; sourceTree = "<group>"; };
 		8F7A414F25405529009440C8 /* LoginForm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginForm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F7A415225405529009440C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8F7A415425405529009440C8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -385,6 +387,7 @@
 				8F8E204625F4FFD20002D67A /* MainTabBarController.swift */,
 				8FC262AE261B04FE00B39052 /* AddGroupAddController.swift */,
 				8FAA27992631771A00E3D16F /* CustomCalendar.swift */,
+				8F63318F268A0D3200F5FC92 /* OnlineCheck.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -763,6 +766,7 @@
 				8FD598DC25922018005B7AF9 /* Model.xcdatamodeld in Sources */,
 				8F98651025EFA6BB0039980B /* CustomTableViewCellStep.swift in Sources */,
 				8FAE6F7D2603528E000F2DE8 /* ActiveUserModel.swift in Sources */,
+				8F633190268A0D3200F5FC92 /* OnlineCheck.swift in Sources */,
 				8FBB029C25CBDB4D005B2883 /* CustomTableDetailCell.swift in Sources */,
 				8FAA279A2631771A00E3D16F /* CustomCalendar.swift in Sources */,
 				8F7A415D25405529009440C8 /* LoginForm.xcdatamodeld in Sources */,
@@ -955,7 +959,7 @@
 				CODE_SIGN_ENTITLEMENTS = LoginForm/LoginForm.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 23;
+				CURRENT_PROJECT_VERSION = 24;
 				DEVELOPMENT_TEAM = FGZ7977LN5;
 				INFOPLIST_FILE = LoginForm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -981,7 +985,7 @@
 				CODE_SIGN_ENTITLEMENTS = LoginForm/LoginForm.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 23;
+				CURRENT_PROJECT_VERSION = 24;
 				DEVELOPMENT_TEAM = FGZ7977LN5;
 				INFOPLIST_FILE = LoginForm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -9,6 +9,7 @@ import UIKit
 import CoreData
 import IQKeyboardManagerSwift //1 Pod для смещения объектов под клавиатуру
 import UserNotifications
+import Network
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,14 +18,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var itemTimeArrayUser = [Login]()
     var divToken: String!
     var userCore: String!
-    
-    
 
     var window: UIWindow?
 
     var scheme: String!
     var path: String!
     var query: String!
+    
+    let monitor = NWPathMonitor()
+    let queue = DispatchQueue(label: "InternetConnectionMonitor")
+
+   
+
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last! as String)
@@ -38,11 +43,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         IQKeyboardManager.shared.enableAutoToolbar = false
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
+        
+        monitor.pathUpdateHandler = { pathUpdateHandler in
+            if pathUpdateHandler.status == .satisfied {
+                print("Internet connection is on.")
+//                self.onlineCheck()
+            } else {
+                print("There's no internet connection.")
+                self.onlineCheck()
+
+            }
+        }
+
+        monitor.start(queue: queue)
+
 //        IQKeyboardManager.shared.shouldShowTextFieldPlaceholder = false
 //        IQKeyboardManager.shared.shouldHidePreviousNext = false
         
         return true
      
+    }
+    
+    func onlineCheck() {
+        DispatchQueue.main.async {
+        let vc = OnlineCheck()
+//        let navController = UINavigationController(rootViewController: vc)
+//        navController.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .fullScreen
+        self.window?.rootViewController?.present(vc, animated: true, completion: nil)
+        }
     }
 
     // MARK: UISceneSession Lifecycle

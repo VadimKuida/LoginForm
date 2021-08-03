@@ -13,6 +13,7 @@ import AppTrackingTransparency
 
 
 
+
 class ViewController: UIViewController {
  //Биометрий
 
@@ -24,6 +25,8 @@ class ViewController: UIViewController {
     var resetCoredata: Bool! = nil
     let viewMain = UIView()
 
+    
+    var window: UIWindow?
 
     @IBOutlet weak var testLabel: UILabel!
     
@@ -166,8 +169,9 @@ class ViewController: UIViewController {
         contextIdent.canEvaluatePolicy(.deviceOwnerAuthentication, error: nil)
         loadItems()
         activeUserManager.delegate = self
-        
-        
+
+
+
         
         if itemTimeArray.count == 0  {
             self.view.layoutIfNeeded()
@@ -215,6 +219,8 @@ class ViewController: UIViewController {
      
         
     }
+    
+
 
     @IBAction func goToReg(_ sender: Any) {
         if let newViewController = storyboard?.instantiateViewController(withIdentifier: "Reg") {

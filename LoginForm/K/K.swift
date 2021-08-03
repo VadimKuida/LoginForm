@@ -27,6 +27,7 @@ struct K {
     static var rederectUrl: String!
     static var userPass: String!
     static var mailCheck: Bool = false
+    static var startStep: Bool = false
     
     
     

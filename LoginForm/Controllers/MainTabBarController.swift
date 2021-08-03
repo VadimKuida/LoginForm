@@ -298,9 +298,32 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
             viewPrifile.frame = CGRect(x: 10, y: yNav, width: (Int(view.frame.size.width)/2) - 10, height: 200)
 
                 imageUser.frame = CGRect(x: (viewPrifile.frame.width-160)/2, y: 30, width: 160, height: 146)
-                let url = URL(string:  "https://shi-ku.ru/img/undraw_profile_pic_ic5t.png")
-                let data = try? Data(contentsOf: url!)
-                imageUser.image = UIImage(data: data!)
+//                let url = URL(string:  "https://shi-ku.ru/img/undraw_profile_pic_ic5t.png")
+//                let data = try? Data(contentsOf: url!)
+                
+        
+        
+        let url = URL(string:  "https://shi-ku.ru/img/undraw_profile_pic_ic5t.png")
+
+        
+
+        DispatchQueue.global().async {
+            // Fetch Image Data
+            if let data = try? Data(contentsOf: url!) {
+                DispatchQueue.main.async {
+                    // Create Image and Update Image View
+                    imageUser.image = UIImage(data: data)
+//                    loadScreen.removeLoadingScreen()
+                    imageUser.alpha = 0
+                    UIView.animate(withDuration: 0.3, delay: 0, animations: {
+//                        imageUser.isHidden =  false
+                        imageUser.alpha = 1
+                     })
+                }
+            }
+        }
+        
+        
                 viewPrifile.addSubview(imageUser)
                 self.view.addSubview(viewPrifile)
                 labelName.frame = CGRect(x: 20, y: imageUser.frame.maxY + 5, width: viewPrifile.frame.width - 40, height: 20)

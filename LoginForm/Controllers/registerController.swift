@@ -36,8 +36,8 @@ class registerController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         registerManager.delegate = self
         registerManager.performRequestGroup()
         
-        createPickerView()
-        dismissPickerView()
+//        createPickerView()
+//        dismissPickerView()
     }
     
     override func didReceiveMemoryWarning() {
@@ -93,12 +93,12 @@ class registerController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
 //    var countryList = ["1", "2", "3", "4", "5", "10"]
     
     
-    func createPickerView() {
-           let pickerView = UIPickerView()
-           pickerView.delegate = self
-            textBox.inputView = pickerView
-            
-    }
+//    func createPickerView() {
+//           let pickerView = UIPickerView()
+//           pickerView.delegate = self
+//            textBox.inputView = pickerView
+//
+//    }
     
     func saveItems() {
               
@@ -338,8 +338,24 @@ override func viewDidLoad() {
 
     imageUser.frame = CGRect(x: (view.frame.width-160)/2, y: (view.frame.height/4)-80, width: 160, height: 132)
     let url = imageMail
-    let data = try? Data(contentsOf: url!)
-    imageUser.image = UIImage(data: data!)
+    
+    
+    DispatchQueue.global().async {
+        // Fetch Image Data
+        if let data = try? Data(contentsOf: url!) {
+            DispatchQueue.main.async {
+                // Create Image and Update Image View
+                self.imageUser.image = UIImage(data: data)
+                self.imageUser.alpha = 0
+                UIView.animate(withDuration: 0.3, delay: 0, animations: {
+//                    imageMail.isHidden =  false
+                    self.imageUser.alpha = 1
+                 })
+            }
+        }
+    }
+    
+
     view.addSubview(imageUser)
     
     labelTextMain.frame = CGRect(x: (view.frame.width-300)/2 , y: imageUser.frame.maxY + 40, width: 300, height: 80)

@@ -12,6 +12,7 @@ import CoreLocation
 import UserNotifications
 
 
+
 //let child = tableStepController()
 
 
@@ -56,6 +57,7 @@ class tableStepController: UITableViewController, UIPopoverPresentationControlle
     var backMainForm: Bool!
     var selectedCellIndexPath: NSIndexPath?
     var expandedIndexSet : IndexSet = []
+
     
     var numberOfRowsMain: [IndexPath] = []
     
@@ -89,6 +91,9 @@ class tableStepController: UITableViewController, UIPopoverPresentationControlle
         
 //        buttonPanel.frame.origin = CGPoint(x: 40, y: 400) //= CGRect(x: 0, y: view.frame.height-50, width: view.frame.width, height: 50)
 //        buttonPanel.frame.size = CGSize(width: 200, height: 40)
+        
+
+        
         buttonPanel.translatesAutoresizingMaskIntoConstraints = false
 
         buttonPanel.backgroundColor = UIColor(hexString: "#f5f5f5")
@@ -941,6 +946,7 @@ class tableStepController: UITableViewController, UIPopoverPresentationControlle
             timeDeltaSumAll(value: idTopic)
             buttonCreate.backgroundColor = UIColor(hexString: "#478ECC")
             buttonCreate.isEnabled  = true
+            K.startStep  = true
             
         }
 //        testAction.backgroundColor = UIColor(red: 109.0 / 255.0, green: 220.0 / 255.0, blue: 207.0 / 255.0, alpha: 1.0)
@@ -962,6 +968,7 @@ class tableStepController: UITableViewController, UIPopoverPresentationControlle
             self.timer.invalidate()
             self.stopUpdateLocal()
             self.saveItems()
+            K.startStep  = false
         }
 //        stopAction.backgroundColor = UIColor(red: 231.0 / 255.0, green: 230.0 / 255.0, blue: 225.0 / 255.0, alpha: 1.0)
         stopAction.backgroundColor = .systemYellow
@@ -1022,6 +1029,7 @@ class tableStepController: UITableViewController, UIPopoverPresentationControlle
             let jsonTo = self.convertToJSONArray(moArray: self.itemTimeArray)
             let jsonString = self.convertIntoJSONString(arrayObject: jsonTo)!
             self.backMainForm = true
+            K.startStep  = false
             self.timer.invalidate()
             self.stepManager.performRequest(loginRegLet: self.user, json: jsonString)
    
