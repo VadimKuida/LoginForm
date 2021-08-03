@@ -1,0 +1,283 @@
+2021-02-19 13:31:11 +0000  Initial pipeline context: <IDEDistributionProcessingPipelineContext: 0x7f9c0ffac8b0; archive(resolved)='<IDEArchive: 0x7f9c0cecc240>', distributionTask(resolved)='2', distributionDestination(resolved)='1', distributionMethod(resolved)='<IDEDistributionMethodDevelopmentSigned: 0x7f9c2448b2c0>', team(resolved)='<IDEProvisioningDisambiguatableBasicTeam: 0x7f9c2a907030; teamID='FGZ7977LN5', teamName='Dmitry Shiryaev', teamType='Individual', username='shmondimon@gmail.com', isFreeProvisioningTeam='0'>'>
+	Chain (14, self inclusive):
+	<IDEDistributionProcessingPipelineContext: 0x7f9c0ffac8b0; archive = '<IDEArchive: 0x7f9c0cecc240>', distributionMethod='<IDEDistributionMethodDevelopmentSigned: 0x7f9c2448b2c0>', team='<IDEProvisioningDisambiguatableBasicTeam: 0x7f9c2a907030; teamID='FGZ7977LN5', teamName='Dmitry Shiryaev', teamType='Individual', username='shmondimon@gmail.com', isFreeProvisioningTeam='0'>'>
+	<IDEDistributionProcessingPipelineContext: 0x7f9c0ff72020; archive = '<IDEArchive: 0x7f9c0cecc240>', distributionMethod='<IDEDistributionMethodDevelopmentSigned: 0x7f9c2448b2c0>', team='<IDEProvisioningDisambiguatableBasicTeam: 0x7f9c2a907030; teamID='FGZ7977LN5', teamName='Dmitry Shiryaev', teamType='Individual', username='shmondimon@gmail.com', isFreeProvisioningTeam='0'>'>
+	<IDEDistributionContext: 0x7f9c0f8fb7d0; archive = '<IDEArchive: 0x7f9c0cecc240>', distributionMethod='<IDEDistributionMethodDevelopmentSigned: 0x7f9c2448b2c0>', team='<IDEProvisioningDisambiguatableBasicTeam: 0x7f9c2a907030; teamID='FGZ7977LN5', teamName='Dmitry Shiryaev', teamType='Individual', username='shmondimon@gmail.com', isFreeProvisioningTeam='0'>'>
+	<IDEDistributionContext: 0x7f9c0dc4ca00; archive = '<IDEArchive: 0x7f9c0cecc240>', distributionMethod='<IDEDistributionMethodDevelopmentSigned: 0x7f9c2448b2c0>', team='<IDEProvisioningDisambiguatableBasicTeam: 0x7f9c2a907030; teamID='FGZ7977LN5', teamName='Dmitry Shiryaev', teamType='Individual', username='shmondimon@gmail.com', isFreeProvisioningTeam='0'>'>
+	<IDEDistributionContext: 0x7f9c0e689930; archive = '<IDEArchive: 0x7f9c0cecc240>', distributionMethod='<IDEDistributionMethodDevelopmentSigned: 0x7f9c2448b2c0>', team='<IDEProvisioningDisambiguatableBasicTeam: 0x7f9c2a907030; teamID='FGZ7977LN5', teamName='Dmitry Shiryaev', teamType='Individual', username='shmondimon@gmail.com', isFreeProvisioningTeam='0'>'>
+	<IDEDistributionContext: 0x7f9c0ccbed00; archive = '<IDEArchive: 0x7f9c0cecc240>', distributionMethod='<IDEDistributionMethodDevelopmentSigned: 0x7f9c2448b2c0>', team='<IDEProvisioningDisambiguatableBasicTeam: 0x7f9c2a907030; teamID='FGZ7977LN5', teamName='Dmitry Shiryaev', teamType='Individual', username='shmondimon@gmail.com', isFreeProvisioningTeam='0'>'>
+	<IDEDistributionContext: 0x7f9c0e276dc0; archive = '<IDEArchive: 0x7f9c0cecc240>', distributionMethod='<IDEDistributionMethodDevelopmentSigned: 0x7f9c2448b2c0>', team='<IDEProvisioningDisambiguatableBasicTeam: 0x7f9c2a907030; teamID='FGZ7977LN5', teamName='Dmitry Shiryaev', teamType='Individual', username='shmondimon@gmail.com', isFreeProvisioningTeam='0'>'>
+	<IDEDistributionContext: 0x7f9c0e3efe50; archive = '<IDEArchive: 0x7f9c0cecc240>', distributionMethod='<IDEDistributionMethodDevelopmentSigned: 0x7f9c2448b2c0>', team='<IDEProvisioningDisambiguatableBasicTeam: 0x7f9c2a907030; teamID='FGZ7977LN5', teamName='Dmitry Shiryaev', teamType='Individual', username='shmondimon@gmail.com', isFreeProvisioningTeam='0'>'>
+	<IDEDistributionContext: 0x7f9c23ab1c20; archive = '<IDEArchive: 0x7f9c0cecc240>', distributionMethod='<IDEDistributionMethodDevelopmentSigned: 0x7f9c2448b2c0>', team='<IDEProvisioningDisambiguatableBasicTeam: 0x7f9c2a907030; teamID='FGZ7977LN5', teamName='Dmitry Shiryaev', teamType='Individual', username='shmondimon@gmail.com', isFreeProvisioningTeam='0'>'>
+	<IDEDistributionContext: 0x7f9c0da99770; archive = '<IDEArchive: 0x7f9c0cecc240>', distributionMethod='<IDEDistributionMethodDevelopmentSigned: 0x7f9c2448b2c0>', team='(null)'>
+	<IDEDistributionContext: 0x7f9c0dd6b340; archive = '<IDEArchive: 0x7f9c0cecc240>', distributionMethod='<IDEDistributionMethodDevelopmentSigned: 0x7f9c2448b2c0>', team='(null)'>
+	<IDEDistributionContext: 0x7f9c0fe7bc70; archive = '<IDEArchive: 0x7f9c0cecc240>', distributionMethod='<IDEDistributionMethodDevelopmentSigned: 0x7f9c2448b2c0>', team='(null)'>
+	<IDEDistributionContext: 0x7f9c0dbaaa30; archive = '<IDEArchive: 0x7f9c0cecc240>', distributionMethod='<IDEDistributionMethodDevelopmentSigned: 0x7f9c2448b2c0>', team='(null)'>
+	<IDEDistributionContext: 0x7f9c0cff5270; archive = '<IDEArchive: 0x7f9c0cecc240>', distributionMethod='(null)', team='(null)'>
+</IDEDistributionProcessingPipelineContext: 0x7f9c0ffac8b0>
+2021-02-19 13:31:11 +0000  Processing step: IDEDistributionCreateDestRootStep
+2021-02-19 13:31:11 +0000  Processing step: IDEDistributionCopyItemStep
+2021-02-19 13:31:11 +0000  Running /usr/bin/ditto '-V' '/Users/vadimkuida/Library/Developer/Xcode/Archives/2021-02-19/LoginForm 19.02.2021, 16.30.xcarchive/Products/Applications/LoginForm.app' '/var/folders/r5/4z2skxk533vflc5lzgdvwctw0000gn/T/XcodeDistPipeline.~~~D3ZZQC/Root/Payload/LoginForm.app'
+2021-02-19 13:31:11 +0000  >>> Copying /Users/vadimkuida/Library/Developer/Xcode/Archives/2021-02-19/LoginForm 19.02.2021, 16.30.xcarchive/Products/Applications/LoginForm.app 
+2021-02-19 13:31:11 +0000  copying file ./CustomTableViewCell.nib ... 
+2021-02-19 13:31:11 +0000  6264 bytes for ./CustomTableViewCell.nib
+2021-02-19 13:31:11 +0000  copying file ./_CodeSignature/CodeResources ... 
+2021-02-19 13:31:11 +0000  10223 bytes for ./_CodeSignature/CodeResources
+2021-02-19 13:31:11 +0000  copying file ./AppIcon60x60@2x.png ... 
+2021-02-19 13:31:11 +0000  2983 bytes for ./AppIcon60x60@2x.png
+copying file ./LoginForm ... 
+2021-02-19 13:31:11 +0000  2253552 bytes for ./LoginForm
+2021-02-19 13:31:11 +0000  copying file ./Base.lproj/Main.storyboardc/inY-Hx-ubW-view-7nd-2O-2jP.nib ... 
+5614 bytes for ./Base.lproj/Main.storyboardc/inY-Hx-ubW-view-7nd-2O-2jP.nib
+2021-02-19 13:31:11 +0000  copying file ./Base.lproj/Main.storyboardc/SA6-cA-Fux-view-HOz-8j-h5w.nib ... 
+2021-02-19 13:31:11 +0000  1197 bytes for ./Base.lproj/Main.storyboardc/SA6-cA-Fux-view-HOz-8j-h5w.nib
+copying file ./Base.lproj/Main.storyboardc/main.nib ... 
+2021-02-19 13:31:11 +0000  1088 bytes for ./Base.lproj/Main.storyboardc/main.nib
+copying file ./Base.lproj/Main.storyboardc/myVC.nib ... 
+2021-02-19 13:31:11 +0000  1308 bytes for ./Base.lproj/Main.storyboardc/myVC.nib
+copying file ./Base.lproj/Main.storyboardc/eGn-Ek-ZiX-view-eJc-4K-crx.nib ... 
+2021-02-19 13:31:11 +0000  8585 bytes for ./Base.lproj/Main.storyboardc/eGn-Ek-ZiX-view-eJc-4K-crx.nib
+copying file ./Base.lproj/Main.storyboardc/KaN-BA-0BM-view-s31-3F-asd.nib ... 
+2021-02-19 13:31:11 +0000  6280 bytes for ./Base.lproj/Main.storyboardc/KaN-BA-0BM-view-s31-3F-asd.nib
+2021-02-19 13:31:11 +0000  copying file ./Base.lproj/Main.storyboardc/TableDetal.nib ... 
+2021-02-19 13:31:11 +0000  1208 bytes for ./Base.lproj/Main.storyboardc/TableDetal.nib
+copying file ./Base.lproj/Main.storyboardc/Table.nib ... 
+2021-02-19 13:31:11 +0000  1197 bytes for ./Base.lproj/Main.storyboardc/Table.nib
+copying file ./Base.lproj/Main.storyboardc/BYZ-38-t0r-view-8bC-Xf-vdC.nib ... 
+2021-02-19 13:31:11 +0000  8603 bytes for ./Base.lproj/Main.storyboardc/BYZ-38-t0r-view-8bC-Xf-vdC.nib
+2021-02-19 13:31:11 +0000  copying file ./Base.lproj/Main.storyboardc/Reg.nib ... 
+2021-02-19 13:31:11 +0000  1043 bytes for ./Base.lproj/Main.storyboardc/Reg.nib
+copying file ./Base.lproj/Main.storyboardc/Ctt-fG-ESF-view-9a1-jh-fMu.nib ... 
+2021-02-19 13:31:11 +0000  6202 bytes for ./Base.lproj/Main.storyboardc/Ctt-fG-ESF-view-9a1-jh-fMu.nib
+copying file ./Base.lproj/Main.storyboardc/TableStep.nib ... 
+2021-02-19 13:31:11 +0000  1205 bytes for ./Base.lproj/Main.storyboardc/TableStep.nib
+copying file ./Base.lproj/Main.storyboardc/commentStepId.nib ... 
+2021-02-19 13:31:11 +0000  977 bytes for ./Base.lproj/Main.storyboardc/commentStepId.nib
+2021-02-19 13:31:11 +0000  copying file ./Base.lproj/Main.storyboardc/Info.plist ... 
+2021-02-19 13:31:11 +0000  301 bytes for ./Base.lproj/Main.storyboardc/Info.plist
+2021-02-19 13:31:11 +0000  copying file ./Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib ... 
+2021-02-19 13:31:11 +0000  2664 bytes for ./Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib
+copying file ./Base.lproj/LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib ... 
+2021-02-19 13:31:11 +0000  896 bytes for ./Base.lproj/LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib
+copying file ./Base.lproj/LaunchScreen.storyboardc/Info.plist ... 
+2021-02-19 13:31:11 +0000  258 bytes for ./Base.lproj/LaunchScreen.storyboardc/Info.plist
+2021-02-19 13:31:11 +0000  copying file ./Assets.car ... 
+2021-02-19 13:31:11 +0000  206703 bytes for ./Assets.car
+2021-02-19 13:31:11 +0000  copying file ./LoginForm.momd/VersionInfo.plist ... 
+2021-02-19 13:31:11 +0000  155 bytes for ./LoginForm.momd/VersionInfo.plist
+copying file ./LoginForm.momd/LoginForm.omo ... 
+2021-02-19 13:31:11 +0000  704 bytes for ./LoginForm.momd/LoginForm.omo
+2021-02-19 13:31:11 +0000  copying file ./LoginForm.momd/LoginForm.mom ... 
+2021-02-19 13:31:11 +0000  513 bytes for ./LoginForm.momd/LoginForm.mom
+copying file ./AppIcon76x76@2x~ipad.png ... 
+2021-02-19 13:31:11 +0000  3699 bytes for ./AppIcon76x76@2x~ipad.png
+2021-02-19 13:31:11 +0000  copying file ./Model.momd/VersionInfo.plist ... 
+2021-02-19 13:31:11 +0000  143 bytes for ./Model.momd/VersionInfo.plist
+copying file ./Model.momd/Model.mom ... 
+2021-02-19 13:31:11 +0000  1990 bytes for ./Model.momd/Model.mom
+2021-02-19 13:31:11 +0000  copying file ./CustomTableDetailCell.nib ... 
+2021-02-19 13:31:11 +0000  4525 bytes for ./CustomTableDetailCell.nib
+2021-02-19 13:31:11 +0000  copying file ./Frameworks/IQKeyboardManagerSwift.framework/_CodeSignature/CodeResources ... 
+2021-02-19 13:31:11 +0000  1798 bytes for ./Frameworks/IQKeyboardManagerSwift.framework/_CodeSignature/CodeResources
+2021-02-19 13:31:11 +0000  copying file ./Frameworks/IQKeyboardManagerSwift.framework/IQKeyboardManagerSwift ... 
+2021-02-19 13:31:11 +0000  2617424 bytes for ./Frameworks/IQKeyboardManagerSwift.framework/IQKeyboardManagerSwift
+copying file ./Frameworks/IQKeyboardManagerSwift.framework/Info.plist ... 
+2021-02-19 13:31:11 +0000  769 bytes for ./Frameworks/IQKeyboardManagerSwift.framework/Info.plist
+copying file ./embedded.mobileprovision ... 
+2021-02-19 13:31:11 +0000  11589 bytes for ./embedded.mobileprovision
+copying file ./Info.plist ... 
+2021-02-19 13:31:11 +0000  1729 bytes for ./Info.plist
+2021-02-19 13:31:11 +0000  copying file ./PkgInfo ... 
+2021-02-19 13:31:11 +0000  8 bytes for ./PkgInfo
+2021-02-19 13:31:11 +0000  /usr/bin/ditto exited with 0
+2021-02-19 13:31:11 +0000  Processing step: IDEDistributionEmbedProfileStep
+2021-02-19 13:31:11 +0000  Skipping profile for item: <IDEDistributionItem: 0x7f9c0e516500; bundleID='org.cocoapods.IQKeyboardManagerSwift', path='<DVTFilePath:0x7f9c0ddf6bd0:'/Users/vadimkuida/Library/Developer/Xcode/Archives/2021-02-19/LoginForm 19.02.2021, 16.30.xcarchive/Products/Applications/LoginForm.app/Frameworks/IQKeyboardManagerSwift.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7f9c0e11bfc0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7f9c0da1c780; name='Apple Development: Dmitry Shiryaev (V52MMHXS5G)', hash='9331A3812163D92F53736F898A811747AE754EDC', serialNumber='<DVTSigningCertificateSerialNumber: 0x7f9c2af3b0a0>', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2021-01-28 11:02:24 +0000''>', entitlements='(null)', teamID='FGZ7977LN5', identifier='org.cocoapods.IQKeyboardManagerSwift', executablePath='<DVTFilePath:0x7f9c2ac7ac00:'/Users/vadimkuida/Library/Developer/Xcode/Archives/2021-02-19/LoginForm 19.02.2021, 16.30.xcarchive/Products/Applications/LoginForm.app/Frameworks/IQKeyboardManagerSwift.framework/IQKeyboardManagerSwift'>', hardenedRuntime='0'>'>
+2021-02-19 13:31:11 +0000  Processing step: IDEDistributionInfoPlistStep
+2021-02-19 13:31:11 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2021-02-19 13:31:11 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2021-02-19 13:31:11 +0000  Processing step: IDEDistributionAppThinningPlistStep
+2021-02-19 13:31:11 +0000  Skipping step: IDEDistributionAppThinningPlistStep because it said so
+2021-02-19 13:31:11 +0000  Processing step: IDEDistributionCompileBitcodeStep
+2021-02-19 13:31:11 +0000  Skipping step: IDEDistributionCompileBitcodeStep because it said so
+2021-02-19 13:31:11 +0000  Processing step: IDEDistributionCodeSlimmingStep
+2021-02-19 13:31:11 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip '/var/folders/r5/4z2skxk533vflc5lzgdvwctw0000gn/T/XcodeDistPipeline.~~~D3ZZQC/Root/Payload/LoginForm.app/Frameworks/IQKeyboardManagerSwift.framework/IQKeyboardManagerSwift' '-r' '-o' '/var/folders/r5/4z2skxk533vflc5lzgdvwctw0000gn/T/XcodeDistPipeline.~~~D3ZZQC/Root/Payload/LoginForm.app/Frameworks/IQKeyboardManagerSwift.framework/IQKeyboardManagerSwift'
+2021-02-19 13:31:11 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip exited with 0
+2021-02-19 13:31:11 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip '/var/folders/r5/4z2skxk533vflc5lzgdvwctw0000gn/T/XcodeDistPipeline.~~~D3ZZQC/Root/Payload/LoginForm.app/LoginForm' '-r' '-o' '/var/folders/r5/4z2skxk533vflc5lzgdvwctw0000gn/T/XcodeDistPipeline.~~~D3ZZQC/Root/Payload/LoginForm.app/LoginForm'
+2021-02-19 13:31:11 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip exited with 0
+2021-02-19 13:31:11 +0000  Processing step: IDEDistributionCopyBCSymbolMapsStep
+2021-02-19 13:31:11 +0000  Skipping step: IDEDistributionCopyBCSymbolMapsStep because it said so
+2021-02-19 13:31:11 +0000  Skipping step: IDEDistributionCopyBCSymbolMapsStep because it said so
+2021-02-19 13:31:11 +0000  Processing step: IDEDistributionSymbolsStep
+2021-02-19 13:31:11 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2021-02-19 13:31:11 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2021-02-19 13:31:11 +0000  Processing step: IDEDistributionAppThinningStep
+2021-02-19 13:31:11 +0000  Skipping step: IDEDistributionAppThinningStep because it said so
+2021-02-19 13:31:11 +0000  Processing step: IDEDistributionArchThinningStep
+2021-02-19 13:31:11 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/r5/4z2skxk533vflc5lzgdvwctw0000gn/T/XcodeDistPipeline.~~~D3ZZQC/Root/Payload/LoginForm.app/Frameworks/IQKeyboardManagerSwift.framework/IQKeyboardManagerSwift' '-verify_arch' 'arm64e'
+2021-02-19 13:31:11 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2021-02-19 13:31:11 +0000  Skipping architecture thinning for item "IQKeyboardManagerSwift" because arch "arm64e" wasn't found
+2021-02-19 13:31:11 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/r5/4z2skxk533vflc5lzgdvwctw0000gn/T/XcodeDistPipeline.~~~D3ZZQC/Root/Payload/LoginForm.app/LoginForm' '-verify_arch' 'arm64e'
+2021-02-19 13:31:11 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2021-02-19 13:31:11 +0000  Skipping architecture thinning for item "LoginForm" because arch "arm64e" wasn't found
+2021-02-19 13:31:11 +0000  Processing step: IDEDistributionODRStep
+2021-02-19 13:31:11 +0000  Processing step: IDEDistributionStripXattrsStep
+2021-02-19 13:31:11 +0000  Skipping stripping extended attributes of item: <IDEDistributionItem: 0x7f9c0e516500; bundleID='org.cocoapods.IQKeyboardManagerSwift', path='<DVTFilePath:0x7f9c0ddf6bd0:'/Users/vadimkuida/Library/Developer/Xcode/Archives/2021-02-19/LoginForm 19.02.2021, 16.30.xcarchive/Products/Applications/LoginForm.app/Frameworks/IQKeyboardManagerSwift.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7f9c0e11bfc0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7f9c0fa5a2d0; name='Apple Development: Dmitry Shiryaev (V52MMHXS5G)', hash='9331A3812163D92F53736F898A811747AE754EDC', serialNumber='<DVTSigningCertificateSerialNumber: 0x7f9c2acf7d70>', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2021-01-28 11:02:24 +0000''>', entitlements='(null)', teamID='FGZ7977LN5', identifier='org.cocoapods.IQKeyboardManagerSwift', executablePath='<DVTFilePath:0x7f9c2ac7ac00:'/Users/vadimkuida/Library/Developer/Xcode/Archives/2021-02-19/LoginForm 19.02.2021, 16.30.xcarchive/Products/Applications/LoginForm.app/Frameworks/IQKeyboardManagerSwift.framework/IQKeyboardManagerSwift'>', hardenedRuntime='0'>'>
+2021-02-19 13:31:11 +0000  Running /usr/bin/xattr '-crs' '/var/folders/r5/4z2skxk533vflc5lzgdvwctw0000gn/T/XcodeDistPipeline.~~~D3ZZQC/Root/Payload/LoginForm.app'
+2021-02-19 13:31:12 +0000  /usr/bin/xattr exited with 0
+2021-02-19 13:31:12 +0000  Processing step: IDEDistributionCodesignStep
+2021-02-19 13:31:12 +0000  Entitlements for <IDEDistributionItem: 0x7f9c0e516500; bundleID='org.cocoapods.IQKeyboardManagerSwift', path='<DVTFilePath:0x7f9c0ddf6bd0:'/Users/vadimkuida/Library/Developer/Xcode/Archives/2021-02-19/LoginForm 19.02.2021, 16.30.xcarchive/Products/Applications/LoginForm.app/Frameworks/IQKeyboardManagerSwift.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7f9c0e11bfc0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7f9c0f034fe0; name='Apple Development: Dmitry Shiryaev (V52MMHXS5G)', hash='9331A3812163D92F53736F898A811747AE754EDC', serialNumber='<DVTSigningCertificateSerialNumber: 0x7f9c0fd13130>', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2021-01-28 11:02:24 +0000''>', entitlements='(null)', teamID='FGZ7977LN5', identifier='org.cocoapods.IQKeyboardManagerSwift', executablePath='<DVTFilePath:0x7f9c2ac7ac00:'/Users/vadimkuida/Library/Developer/Xcode/Archives/2021-02-19/LoginForm 19.02.2021, 16.30.xcarchive/Products/Applications/LoginForm.app/Frameworks/IQKeyboardManagerSwift.framework/IQKeyboardManagerSwift'>', hardenedRuntime='0'>'>: {
+}
+2021-02-19 13:31:12 +0000  Entitlements for <IDEDistributionItem: 0x7f9c0e516500; bundleID='org.cocoapods.IQKeyboardManagerSwift', path='<DVTFilePath:0x7f9c0ddf6bd0:'/Users/vadimkuida/Library/Developer/Xcode/Archives/2021-02-19/LoginForm 19.02.2021, 16.30.xcarchive/Products/Applications/LoginForm.app/Frameworks/IQKeyboardManagerSwift.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7f9c0e11bfc0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7f9c0e17f080; name='Apple Development: Dmitry Shiryaev (V52MMHXS5G)', hash='9331A3812163D92F53736F898A811747AE754EDC', serialNumber='<DVTSigningCertificateSerialNumber: 0x7f9c0fdd7cd0>', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2021-01-28 11:02:24 +0000''>', entitlements='(null)', teamID='FGZ7977LN5', identifier='org.cocoapods.IQKeyboardManagerSwift', executablePath='<DVTFilePath:0x7f9c2ac7ac00:'/Users/vadimkuida/Library/Developer/Xcode/Archives/2021-02-19/LoginForm 19.02.2021, 16.30.xcarchive/Products/Applications/LoginForm.app/Frameworks/IQKeyboardManagerSwift.framework/IQKeyboardManagerSwift'>', hardenedRuntime='0'>'> are: {
+}
+2021-02-19 13:31:12 +0000  Writing entitlements for <IDEDistributionItem: 0x7f9c0e516500; bundleID='org.cocoapods.IQKeyboardManagerSwift', path='<DVTFilePath:0x7f9c0ddf6bd0:'/Users/vadimkuida/Library/Developer/Xcode/Archives/2021-02-19/LoginForm 19.02.2021, 16.30.xcarchive/Products/Applications/LoginForm.app/Frameworks/IQKeyboardManagerSwift.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7f9c0e11bfc0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7f9c0e178e40; name='Apple Development: Dmitry Shiryaev (V52MMHXS5G)', hash='9331A3812163D92F53736F898A811747AE754EDC', serialNumber='<DVTSigningCertificateSerialNumber: 0x7f9c0fda2550>', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2021-01-28 11:02:24 +0000''>', entitlements='(null)', teamID='FGZ7977LN5', identifier='org.cocoapods.IQKeyboardManagerSwift', executablePath='<DVTFilePath:0x7f9c2ac7ac00:'/Users/vadimkuida/Library/Developer/Xcode/Archives/2021-02-19/LoginForm 19.02.2021, 16.30.xcarchive/Products/Applications/LoginForm.app/Frameworks/IQKeyboardManagerSwift.framework/IQKeyboardManagerSwift'>', hardenedRuntime='0'>'> to: /var/folders/r5/4z2skxk533vflc5lzgdvwctw0000gn/T/XcodeDistPipeline.~~~D3ZZQC/entitlements~~~vPS4mv
+2021-02-19 13:31:12 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' '9331A3812163D92F53736F898A811747AE754EDC' '--entitlements' '/var/folders/r5/4z2skxk533vflc5lzgdvwctw0000gn/T/XcodeDistPipeline.~~~D3ZZQC/entitlements~~~vPS4mv' '--preserve-metadata=identifier,flags,runtime' '/var/folders/r5/4z2skxk533vflc5lzgdvwctw0000gn/T/XcodeDistPipeline.~~~D3ZZQC/Root/Payload/LoginForm.app/Frameworks/IQKeyboardManagerSwift.framework'
+2021-02-19 13:31:12 +0000  /var/folders/r5/4z2skxk533vflc5lzgdvwctw0000gn/T/XcodeDistPipeline.~~~D3ZZQC/Root/Payload/LoginForm.app/Frameworks/IQKeyboardManagerSwift.framework: signed bundle with Mach-O universal (arm64) [org.cocoapods.IQKeyboardManagerSwift]
+2021-02-19 13:31:12 +0000  /usr/bin/codesign exited with 0
+2021-02-19 13:31:12 +0000  Entitlements for <IDEDistributionItem: 0x7f9c0cccea80; bundleID='V52MMHXS5G.com.Interval', path='<DVTFilePath:0x7f9c0dc9e900:'/Users/vadimkuida/Library/Developer/Xcode/Archives/2021-02-19/LoginForm 19.02.2021, 16.30.xcarchive/Products/Applications/LoginForm.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7f9c0fdfbeb0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7f9c0da8ded0; name='Apple Development: Dmitry Shiryaev (V52MMHXS5G)', hash='9331A3812163D92F53736F898A811747AE754EDC', serialNumber='<DVTSigningCertificateSerialNumber: 0x7f9c0d8b1350>', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2021-01-28 11:02:24 +0000''>', entitlements='{
+    "application-identifier" = "FGZ7977LN5.V52MMHXS5G.com.Interval";
+    "com.apple.developer.team-identifier" = FGZ7977LN5;
+    "get-task-allow" = 1;
+    "keychain-access-groups" =     (
+        "FGZ7977LN5.V52MMHXS5G.com.Interval"
+    );
+}', teamID='FGZ7977LN5', identifier='V52MMHXS5G.com.Interval', executablePath='<DVTFilePath:0x7f9c0f09a080:'/Users/vadimkuida/Library/Developer/Xcode/Archives/2021-02-19/LoginForm 19.02.2021, 16.30.xcarchive/Products/Applications/LoginForm.app/LoginForm'>', hardenedRuntime='0'>'>: {
+    "application-identifier" = "FGZ7977LN5.V52MMHXS5G.com.Interval";
+    "com.apple.developer.team-identifier" = FGZ7977LN5;
+    "get-task-allow" = 1;
+    "keychain-access-groups" =     (
+        "FGZ7977LN5.V52MMHXS5G.com.Interval"
+    );
+}
+2021-02-19 13:31:12 +0000  Entitlements for <IDEDistributionItem: 0x7f9c0cccea80; bundleID='V52MMHXS5G.com.Interval', path='<DVTFilePath:0x7f9c0dc9e900:'/Users/vadimkuida/Library/Developer/Xcode/Archives/2021-02-19/LoginForm 19.02.2021, 16.30.xcarchive/Products/Applications/LoginForm.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7f9c0fdfbeb0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7f9c0fffa880; name='Apple Development: Dmitry Shiryaev (V52MMHXS5G)', hash='9331A3812163D92F53736F898A811747AE754EDC', serialNumber='<DVTSigningCertificateSerialNumber: 0x7f9c0d863890>', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2021-01-28 11:02:24 +0000''>', entitlements='{
+    "application-identifier" = "FGZ7977LN5.V52MMHXS5G.com.Interval";
+    "com.apple.developer.team-identifier" = FGZ7977LN5;
+    "get-task-allow" = 1;
+    "keychain-access-groups" =     (
+        "FGZ7977LN5.V52MMHXS5G.com.Interval"
+    );
+}', teamID='FGZ7977LN5', identifier='V52MMHXS5G.com.Interval', executablePath='<DVTFilePath:0x7f9c0f09a080:'/Users/vadimkuida/Library/Developer/Xcode/Archives/2021-02-19/LoginForm 19.02.2021, 16.30.xcarchive/Products/Applications/LoginForm.app/LoginForm'>', hardenedRuntime='0'>'> are: {
+    "application-identifier" = "FGZ7977LN5.V52MMHXS5G.com.Interval";
+    "com.apple.developer.team-identifier" = FGZ7977LN5;
+    "get-task-allow" = 1;
+    "keychain-access-groups" =     (
+        "FGZ7977LN5.V52MMHXS5G.com.Interval"
+    );
+}
+2021-02-19 13:31:12 +0000  Writing entitlements for <IDEDistributionItem: 0x7f9c0cccea80; bundleID='V52MMHXS5G.com.Interval', path='<DVTFilePath:0x7f9c0dc9e900:'/Users/vadimkuida/Library/Developer/Xcode/Archives/2021-02-19/LoginForm 19.02.2021, 16.30.xcarchive/Products/Applications/LoginForm.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7f9c0fdfbeb0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7f9c0f9b9c20; name='Apple Development: Dmitry Shiryaev (V52MMHXS5G)', hash='9331A3812163D92F53736F898A811747AE754EDC', serialNumber='<DVTSigningCertificateSerialNumber: 0x7f9c0fd817c0>', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2021-01-28 11:02:24 +0000''>', entitlements='{
+    "application-identifier" = "FGZ7977LN5.V52MMHXS5G.com.Interval";
+    "com.apple.developer.team-identifier" = FGZ7977LN5;
+    "get-task-allow" = 1;
+    "keychain-access-groups" =     (
+        "FGZ7977LN5.V52MMHXS5G.com.Interval"
+    );
+}', teamID='FGZ7977LN5', identifier='V52MMHXS5G.com.Interval', executablePath='<DVTFilePath:0x7f9c0f09a080:'/Users/vadimkuida/Library/Developer/Xcode/Archives/2021-02-19/LoginForm 19.02.2021, 16.30.xcarchive/Products/Applications/LoginForm.app/LoginForm'>', hardenedRuntime='0'>'> to: /var/folders/r5/4z2skxk533vflc5lzgdvwctw0000gn/T/XcodeDistPipeline.~~~D3ZZQC/entitlements~~~uF0BMr
+2021-02-19 13:31:12 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' '9331A3812163D92F53736F898A811747AE754EDC' '--entitlements' '/var/folders/r5/4z2skxk533vflc5lzgdvwctw0000gn/T/XcodeDistPipeline.~~~D3ZZQC/entitlements~~~uF0BMr' '--preserve-metadata=identifier,flags,runtime' '/var/folders/r5/4z2skxk533vflc5lzgdvwctw0000gn/T/XcodeDistPipeline.~~~D3ZZQC/Root/Payload/LoginForm.app'
+2021-02-19 13:31:12 +0000  /var/folders/r5/4z2skxk533vflc5lzgdvwctw0000gn/T/XcodeDistPipeline.~~~D3ZZQC/Root/Payload/LoginForm.app: signed app bundle with Mach-O thin (arm64) [V52MMHXS5G.com.Interval]
+2021-02-19 13:31:12 +0000  /usr/bin/codesign exited with 0
+2021-02-19 13:31:12 +0000  Processing step: IDEDistributionZipODRItemStep
+2021-02-19 13:31:12 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2021-02-19 13:31:12 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2021-02-19 13:31:12 +0000  Processing step: IDEDistributionCreateIPAStep
+2021-02-19 13:31:12 +0000  Running /usr/bin/ditto '-V' '-c' '-k' '--norsrc' '/var/folders/r5/4z2skxk533vflc5lzgdvwctw0000gn/T/XcodeDistPipeline.~~~D3ZZQC/Root' '/var/folders/r5/4z2skxk533vflc5lzgdvwctw0000gn/T/XcodeDistPipeline.~~~D3ZZQC/Packages/LoginForm.ipa'
+2021-02-19 13:31:12 +0000  >>> Copying /var/folders/r5/4z2skxk533vflc5lzgdvwctw0000gn/T/XcodeDistPipeline.~~~D3ZZQC/Root 
+2021-02-19 13:31:12 +0000  copying file ./Payload/LoginForm.app/CustomTableViewCell.nib ... 
+2021-02-19 13:31:12 +0000  6264 bytes for ./Payload/LoginForm.app/CustomTableViewCell.nib
+2021-02-19 13:31:12 +0000  copying file ./Payload/LoginForm.app/_CodeSignature/CodeResources ... 
+2021-02-19 13:31:12 +0000  10223 bytes for ./Payload/LoginForm.app/_CodeSignature/CodeResources
+copying file ./Payload/LoginForm.app/AppIcon60x60@2x.png ... 
+2021-02-19 13:31:12 +0000  2983 bytes for ./Payload/LoginForm.app/AppIcon60x60@2x.png
+copying file ./Payload/LoginForm.app/LoginForm ... 
+2021-02-19 13:31:12 +0000  387696 bytes for ./Payload/LoginForm.app/LoginForm
+2021-02-19 13:31:12 +0000  copying file ./Payload/LoginForm.app/Base.lproj/Main.storyboardc/inY-Hx-ubW-view-7nd-2O-2jP.nib ... 
+2021-02-19 13:31:12 +0000  5614 bytes for ./Payload/LoginForm.app/Base.lproj/Main.storyboardc/inY-Hx-ubW-view-7nd-2O-2jP.nib
+copying file ./Payload/LoginForm.app/Base.lproj/Main.storyboardc/SA6-cA-Fux-view-HOz-8j-h5w.nib ... 
+2021-02-19 13:31:12 +0000  1197 bytes for ./Payload/LoginForm.app/Base.lproj/Main.storyboardc/SA6-cA-Fux-view-HOz-8j-h5w.nib
+copying file ./Payload/LoginForm.app/Base.lproj/Main.storyboardc/main.nib ... 
+1088 bytes for ./Payload/LoginForm.app/Base.lproj/Main.storyboardc/main.nib
+2021-02-19 13:31:12 +0000  copying file ./Payload/LoginForm.app/Base.lproj/Main.storyboardc/myVC.nib ... 
+1308 bytes for ./Payload/LoginForm.app/Base.lproj/Main.storyboardc/myVC.nib
+copying file ./Payload/LoginForm.app/Base.lproj/Main.storyboardc/eGn-Ek-ZiX-view-eJc-4K-crx.nib ... 
+2021-02-19 13:31:12 +0000  8585 bytes for ./Payload/LoginForm.app/Base.lproj/Main.storyboardc/eGn-Ek-ZiX-view-eJc-4K-crx.nib
+2021-02-19 13:31:12 +0000  copying file ./Payload/LoginForm.app/Base.lproj/Main.storyboardc/KaN-BA-0BM-view-s31-3F-asd.nib ... 
+2021-02-19 13:31:12 +0000  6280 bytes for ./Payload/LoginForm.app/Base.lproj/Main.storyboardc/KaN-BA-0BM-view-s31-3F-asd.nib
+copying file ./Payload/LoginForm.app/Base.lproj/Main.storyboardc/TableDetal.nib ... 
+2021-02-19 13:31:12 +0000  1208 bytes for ./Payload/LoginForm.app/Base.lproj/Main.storyboardc/TableDetal.nib
+2021-02-19 13:31:12 +0000  copying file ./Payload/LoginForm.app/Base.lproj/Main.storyboardc/Table.nib ... 
+2021-02-19 13:31:12 +0000  1197 bytes for ./Payload/LoginForm.app/Base.lproj/Main.storyboardc/Table.nib
+copying file ./Payload/LoginForm.app/Base.lproj/Main.storyboardc/BYZ-38-t0r-view-8bC-Xf-vdC.nib ... 
+2021-02-19 13:31:12 +0000  8603 bytes for ./Payload/LoginForm.app/Base.lproj/Main.storyboardc/BYZ-38-t0r-view-8bC-Xf-vdC.nib
+2021-02-19 13:31:12 +0000  copying file ./Payload/LoginForm.app/Base.lproj/Main.storyboardc/Reg.nib ... 
+1043 bytes for ./Payload/LoginForm.app/Base.lproj/Main.storyboardc/Reg.nib
+copying file ./Payload/LoginForm.app/Base.lproj/Main.storyboardc/Ctt-fG-ESF-view-9a1-jh-fMu.nib ... 
+2021-02-19 13:31:12 +0000  6202 bytes for ./Payload/LoginForm.app/Base.lproj/Main.storyboardc/Ctt-fG-ESF-view-9a1-jh-fMu.nib
+2021-02-19 13:31:12 +0000  copying file ./Payload/LoginForm.app/Base.lproj/Main.storyboardc/TableStep.nib ... 
+1205 bytes for ./Payload/LoginForm.app/Base.lproj/Main.storyboardc/TableStep.nib
+copying file ./Payload/LoginForm.app/Base.lproj/Main.storyboardc/commentStepId.nib ... 
+2021-02-19 13:31:12 +0000  977 bytes for ./Payload/LoginForm.app/Base.lproj/Main.storyboardc/commentStepId.nib
+copying file ./Payload/LoginForm.app/Base.lproj/Main.storyboardc/Info.plist ... 
+301 bytes for ./Payload/LoginForm.app/Base.lproj/Main.storyboardc/Info.plist
+2021-02-19 13:31:12 +0000  copying file ./Payload/LoginForm.app/Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib ... 
+2664 bytes for ./Payload/LoginForm.app/Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib
+2021-02-19 13:31:12 +0000  copying file ./Payload/LoginForm.app/Base.lproj/LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib ... 
+896 bytes for ./Payload/LoginForm.app/Base.lproj/LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib
+copying file ./Payload/LoginForm.app/Base.lproj/LaunchScreen.storyboardc/Info.plist ... 
+2021-02-19 13:31:12 +0000  258 bytes for ./Payload/LoginForm.app/Base.lproj/LaunchScreen.storyboardc/Info.plist
+copying file ./Payload/LoginForm.app/Assets.car ... 
+2021-02-19 13:31:12 +0000  206703 bytes for ./Payload/LoginForm.app/Assets.car
+2021-02-19 13:31:12 +0000  copying file ./Payload/LoginForm.app/LoginForm.momd/VersionInfo.plist ... 
+155 bytes for ./Payload/LoginForm.app/LoginForm.momd/VersionInfo.plist
+copying file ./Payload/LoginForm.app/LoginForm.momd/LoginForm.omo ... 
+2021-02-19 13:31:12 +0000  704 bytes for ./Payload/LoginForm.app/LoginForm.momd/LoginForm.omo
+copying file ./Payload/LoginForm.app/LoginForm.momd/LoginForm.mom ... 
+513 bytes for ./Payload/LoginForm.app/LoginForm.momd/LoginForm.mom
+copying file ./Payload/LoginForm.app/AppIcon76x76@2x~ipad.png ... 
+2021-02-19 13:31:12 +0000  3699 bytes for ./Payload/LoginForm.app/AppIcon76x76@2x~ipad.png
+2021-02-19 13:31:12 +0000  copying file ./Payload/LoginForm.app/Model.momd/VersionInfo.plist ... 
+143 bytes for ./Payload/LoginForm.app/Model.momd/VersionInfo.plist
+copying file ./Payload/LoginForm.app/Model.momd/Model.mom ... 
+2021-02-19 13:31:12 +0000  1990 bytes for ./Payload/LoginForm.app/Model.momd/Model.mom
+copying file ./Payload/LoginForm.app/CustomTableDetailCell.nib ... 
+2021-02-19 13:31:12 +0000  4525 bytes for ./Payload/LoginForm.app/CustomTableDetailCell.nib
+2021-02-19 13:31:12 +0000  copying file ./Payload/LoginForm.app/Frameworks/IQKeyboardManagerSwift.framework/_CodeSignature/CodeResources ... 
+1798 bytes for ./Payload/LoginForm.app/Frameworks/IQKeyboardManagerSwift.framework/_CodeSignature/CodeResources
+copying file ./Payload/LoginForm.app/Frameworks/IQKeyboardManagerSwift.framework/IQKeyboardManagerSwift ... 
+2021-02-19 13:31:12 +0000  908752 bytes for ./Payload/LoginForm.app/Frameworks/IQKeyboardManagerSwift.framework/IQKeyboardManagerSwift
+copying file ./Payload/LoginForm.app/Frameworks/IQKeyboardManagerSwift.framework/Info.plist ... 
+2021-02-19 13:31:12 +0000  769 bytes for ./Payload/LoginForm.app/Frameworks/IQKeyboardManagerSwift.framework/Info.plist
+copying file ./Payload/LoginForm.app/embedded.mobileprovision ... 
+2021-02-19 13:31:12 +0000  11589 bytes for ./Payload/LoginForm.app/embedded.mobileprovision
+2021-02-19 13:31:12 +0000  copying file ./Payload/LoginForm.app/Info.plist ... 
+1729 bytes for ./Payload/LoginForm.app/Info.plist
+copying file ./Payload/LoginForm.app/PkgInfo ... 
+2021-02-19 13:31:12 +0000  8 bytes for ./Payload/LoginForm.app/PkgInfo
+2021-02-19 13:31:12 +0000  /usr/bin/ditto exited with 0
+2021-02-19 13:31:12 +0000  Processing step: IDEDistributionAppStoreInformationStep
+2021-02-19 13:31:12 +0000  Skipping step: IDEDistributionAppStoreInformationStep because it said so
+2021-02-19 13:31:12 +0000  Processing step: IDEDistributionGenerateProcessedDistributionItems
+2021-02-19 13:31:12 +0000  IDEDistributionItem init <DVTFilePath:0x7f9c0da5fec0:'/var/folders/r5/4z2skxk533vflc5lzgdvwctw0000gn/T/XcodeDistPipeline.~~~D3ZZQC/Root/Payload/LoginForm.app/Frameworks/IQKeyboardManagerSwift.framework'>
+2021-02-19 13:31:12 +0000  IDEDistributionItem init <DVTFilePath:0x7f9c29930a70:'/var/folders/r5/4z2skxk533vflc5lzgdvwctw0000gn/T/XcodeDistPipeline.~~~D3ZZQC/Root/Payload/LoginForm.app'>
+2021-02-19 13:31:12 +0000  Processing step: IDEDistributionCreateManifestStep

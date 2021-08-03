@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>LoginForm.ipa</key>
+	<array>
+		<dict>
+			<key>architectures</key>
+			<array>
+				<string>arm64</string>
+			</array>
+			<key>certificate</key>
+			<dict>
+				<key>SHA1</key>
+				<string>9331A3812163D92F53736F898A811747AE754EDC</string>
+				<key>dateExpires</key>
+				<string>28.01.2022</string>
+				<key>type</key>
+				<string>Apple Development</string>
+			</dict>
+			<key>embeddedBinaries</key>
+			<array>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>arm64</string>
+					</array>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string>9331A3812163D92F53736F898A811747AE754EDC</string>
+						<key>dateExpires</key>
+						<string>28.01.2022</string>
+						<key>type</key>
+						<string>Apple Development</string>
+					</dict>
+					<key>name</key>
+					<string>IQKeyboardManagerSwift.framework</string>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>FGZ7977LN5</string>
+						<key>name</key>
+						<string>Dmitry Shiryaev</string>
+					</dict>
+				</dict>
+			</array>
+			<key>entitlements</key>
+			<dict>
+				<key>application-identifier</key>
+				<string>FGZ7977LN5.V52MMHXS5G.com.Interval</string>
+				<key>com.apple.developer.team-identifier</key>
+				<string>FGZ7977LN5</string>
+				<key>get-task-allow</key>
+				<true/>
+				<key>keychain-access-groups</key>
+				<array>
+					<string>FGZ7977LN5.V52MMHXS5G.com.Interval</string>
+				</array>
+			</dict>
+			<key>name</key>
+			<string>LoginForm.app</string>
+			<key>profile</key>
+			<dict>
+				<key>UUID</key>
+				<string>23ea2d47-82f3-4908-beac-dddef3bb0b93</string>
+				<key>name</key>
+				<string>iOS Team Provisioning Profile: V52MMHXS5G.com.Interval</string>
+			</dict>
+			<key>team</key>
+			<dict>
+				<key>id</key>
+				<string>FGZ7977LN5</string>
+				<key>name</key>
+				<string>Dmitry Shiryaev</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
