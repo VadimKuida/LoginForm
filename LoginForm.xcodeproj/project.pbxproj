@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07BA94BC26BAD4C400BF614A /* Font in Sources */ = {isa = PBXBuildFile; fileRef = 8FDA890326556BCD00AEC8FF /* Font */; };
+		07BA94C326BAD61500BF614A /* MPLUS1p-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 07BA94BE26BAD5AE00BF614A /* MPLUS1p-Black.ttf */; };
+		07BA94C426BAD61500BF614A /* MPLUS1p-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 07BA94C126BAD5AE00BF614A /* MPLUS1p-ExtraBold.ttf */; };
+		07BA94C526BAD61500BF614A /* MPLUS1p-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 07BA94C226BAD5AE00BF614A /* MPLUS1p-Light.ttf */; };
+		07BA94C626BAD61500BF614A /* MPLUS1p-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 07BA94C026BAD5AE00BF614A /* MPLUS1p-Medium.ttf */; };
+		07BA94C726BAD61500BF614A /* MPLUS1p-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 07BA94BD26BAD5AE00BF614A /* MPLUS1p-Regular.ttf */; };
+		07BA94C826BAD61500BF614A /* MPLUS1p-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 07BA94BF26BAD5AE00BF614A /* MPLUS1p-Thin.ttf */; };
+		07BA94CA26BAD67D00BF614A /* MPLUS1p-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 07BA94C926BAD67600BF614A /* MPLUS1p-Bold.ttf */; };
 		0D0BF7E425BCC19800688A94 /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0BF7E325BCC19800688A94 /* K.swift */; };
 		0D0BF81825C1390C00688A94 /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0BF81725C1390B00688A94 /* Crypto.swift */; };
 		19727C9108AF50A83B5B3A8C /* libPods-LoginFormTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D21678E24ECD8319D5D7031 /* libPods-LoginFormTests.a */; };
@@ -61,17 +69,6 @@
 		8FD1C35B2548464A00242C42 /* registerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD1C35A2548464A00242C42 /* registerModel.swift */; };
 		8FD1C3602548479200242C42 /* registerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD1C35F2548479200242C42 /* registerManager.swift */; };
 		8FD598DC25922018005B7AF9 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8FD598DA25922018005B7AF9 /* Model.xcdatamodeld */; };
-		8FDA890426556BCD00AEC8FF /* Font in Resources */ = {isa = PBXBuildFile; fileRef = 8FDA890326556BCD00AEC8FF /* Font */; };
-		8FDA890B26556D6200AEC8FF /* FiraSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8FDA890626556D6200AEC8FF /* FiraSans-Bold.ttf */; };
-		8FDA890C26556D6200AEC8FF /* FiraSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8FDA890726556D6200AEC8FF /* FiraSans-SemiBold.ttf */; };
-		8FDA890D26556D6200AEC8FF /* FiraSans-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8FDA890826556D6200AEC8FF /* FiraSans-Thin.ttf */; };
-		8FDA890E26556D6200AEC8FF /* FiraSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8FDA890926556D6200AEC8FF /* FiraSans-Light.ttf */; };
-		8FDA890F26556D6200AEC8FF /* FiraSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8FDA890A26556D6200AEC8FF /* FiraSans-Regular.ttf */; };
-		8FDB840826568F9000E4D61C /* MPLUS1p-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8FDB840326568F8F00E4D61C /* MPLUS1p-Regular.ttf */; };
-		8FDB840926568F9000E4D61C /* MPLUS1p-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8FDB840426568F8F00E4D61C /* MPLUS1p-Light.ttf */; };
-		8FDB840A26568F9000E4D61C /* MPLUS1p-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8FDB840526568F9000E4D61C /* MPLUS1p-Bold.ttf */; };
-		8FDB840B26568F9000E4D61C /* MPLUS1p-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8FDB840626568F9000E4D61C /* MPLUS1p-Thin.ttf */; };
-		8FDB840C26568F9000E4D61C /* MPLUS1p-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8FDB840726568F9000E4D61C /* MPLUS1p-ExtraBold.ttf */; };
 		AB3446DF49D9526D6ECE620B /* libPods-LoginForm-LoginFormUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 13B85FDFCA510D30B815D856 /* libPods-LoginForm-LoginFormUITests.a */; };
 /* End PBXBuildFile section */
 
@@ -106,6 +103,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		07BA94BD26BAD5AE00BF614A /* MPLUS1p-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MPLUS1p-Regular.ttf"; sourceTree = "<group>"; };
+		07BA94BE26BAD5AE00BF614A /* MPLUS1p-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MPLUS1p-Black.ttf"; sourceTree = "<group>"; };
+		07BA94BF26BAD5AE00BF614A /* MPLUS1p-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MPLUS1p-Thin.ttf"; sourceTree = "<group>"; };
+		07BA94C026BAD5AE00BF614A /* MPLUS1p-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MPLUS1p-Medium.ttf"; sourceTree = "<group>"; };
+		07BA94C126BAD5AE00BF614A /* MPLUS1p-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MPLUS1p-ExtraBold.ttf"; sourceTree = "<group>"; };
+		07BA94C226BAD5AE00BF614A /* MPLUS1p-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MPLUS1p-Light.ttf"; sourceTree = "<group>"; };
+		07BA94C926BAD67600BF614A /* MPLUS1p-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MPLUS1p-Bold.ttf"; path = "../../../Downloads/M_PLUS_1p/MPLUS1p-Bold.ttf"; sourceTree = "<group>"; };
 		0D0BF7E325BCC19800688A94 /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
 		0D0BF81725C1390B00688A94 /* Crypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crypto.swift; sourceTree = "<group>"; };
 		13B85FDFCA510D30B815D856 /* libPods-LoginForm-LoginFormUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LoginForm-LoginFormUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,16 +174,6 @@
 		8FD1C35F2548479200242C42 /* registerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registerManager.swift; sourceTree = "<group>"; };
 		8FD598DB25922018005B7AF9 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		8FDA890326556BCD00AEC8FF /* Font */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Font; path = LoginForm/Font; sourceTree = "<group>"; };
-		8FDA890626556D6200AEC8FF /* FiraSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FiraSans-Bold.ttf"; path = "LoginForm/Font/FiraSans-Bold.ttf"; sourceTree = "<group>"; };
-		8FDA890726556D6200AEC8FF /* FiraSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FiraSans-SemiBold.ttf"; path = "LoginForm/Font/FiraSans-SemiBold.ttf"; sourceTree = "<group>"; };
-		8FDA890826556D6200AEC8FF /* FiraSans-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FiraSans-Thin.ttf"; path = "LoginForm/Font/FiraSans-Thin.ttf"; sourceTree = "<group>"; };
-		8FDA890926556D6200AEC8FF /* FiraSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FiraSans-Light.ttf"; path = "LoginForm/Font/FiraSans-Light.ttf"; sourceTree = "<group>"; };
-		8FDA890A26556D6200AEC8FF /* FiraSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FiraSans-Regular.ttf"; path = "LoginForm/Font/FiraSans-Regular.ttf"; sourceTree = "<group>"; };
-		8FDB840326568F8F00E4D61C /* MPLUS1p-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MPLUS1p-Regular.ttf"; path = "../../../../Downloads/M_PLUS_1p/MPLUS1p-Regular.ttf"; sourceTree = "<group>"; };
-		8FDB840426568F8F00E4D61C /* MPLUS1p-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MPLUS1p-Light.ttf"; path = "../../../../Downloads/M_PLUS_1p/MPLUS1p-Light.ttf"; sourceTree = "<group>"; };
-		8FDB840526568F9000E4D61C /* MPLUS1p-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MPLUS1p-Bold.ttf"; path = "../../../../Downloads/M_PLUS_1p/MPLUS1p-Bold.ttf"; sourceTree = "<group>"; };
-		8FDB840626568F9000E4D61C /* MPLUS1p-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MPLUS1p-Thin.ttf"; path = "../../../../Downloads/M_PLUS_1p/MPLUS1p-Thin.ttf"; sourceTree = "<group>"; };
-		8FDB840726568F9000E4D61C /* MPLUS1p-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MPLUS1p-ExtraBold.ttf"; path = "../../../../Downloads/M_PLUS_1p/MPLUS1p-ExtraBold.ttf"; sourceTree = "<group>"; };
 		8FE855F125E101B1007B21C8 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		8FE855F325E101B1007B21C8 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
 		8FE855F625E101B1007B21C8 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
@@ -282,16 +276,13 @@
 		8F7A414625405529009440C8 = {
 			isa = PBXGroup;
 			children = (
-				8FDB840526568F9000E4D61C /* MPLUS1p-Bold.ttf */,
-				8FDB840726568F9000E4D61C /* MPLUS1p-ExtraBold.ttf */,
-				8FDB840426568F8F00E4D61C /* MPLUS1p-Light.ttf */,
-				8FDB840326568F8F00E4D61C /* MPLUS1p-Regular.ttf */,
-				8FDB840626568F9000E4D61C /* MPLUS1p-Thin.ttf */,
-				8FDA890626556D6200AEC8FF /* FiraSans-Bold.ttf */,
-				8FDA890926556D6200AEC8FF /* FiraSans-Light.ttf */,
-				8FDA890A26556D6200AEC8FF /* FiraSans-Regular.ttf */,
-				8FDA890726556D6200AEC8FF /* FiraSans-SemiBold.ttf */,
-				8FDA890826556D6200AEC8FF /* FiraSans-Thin.ttf */,
+				07BA94C926BAD67600BF614A /* MPLUS1p-Bold.ttf */,
+				07BA94BE26BAD5AE00BF614A /* MPLUS1p-Black.ttf */,
+				07BA94C126BAD5AE00BF614A /* MPLUS1p-ExtraBold.ttf */,
+				07BA94C226BAD5AE00BF614A /* MPLUS1p-Light.ttf */,
+				07BA94C026BAD5AE00BF614A /* MPLUS1p-Medium.ttf */,
+				07BA94BD26BAD5AE00BF614A /* MPLUS1p-Regular.ttf */,
+				07BA94BF26BAD5AE00BF614A /* MPLUS1p-Thin.ttf */,
 				8FDA890326556BCD00AEC8FF /* Font */,
 				8F7A415125405529009440C8 /* LoginForm */,
 				8F7A416B2540552B009440C8 /* LoginFormTests */,
@@ -617,17 +608,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8FDB840826568F9000E4D61C /* MPLUS1p-Regular.ttf in Resources */,
-				8FDB840926568F9000E4D61C /* MPLUS1p-Light.ttf in Resources */,
-				8FDB840A26568F9000E4D61C /* MPLUS1p-Bold.ttf in Resources */,
-				8FDB840B26568F9000E4D61C /* MPLUS1p-Thin.ttf in Resources */,
-				8FDB840C26568F9000E4D61C /* MPLUS1p-ExtraBold.ttf in Resources */,
-				8FDA890B26556D6200AEC8FF /* FiraSans-Bold.ttf in Resources */,
-				8FDA890C26556D6200AEC8FF /* FiraSans-SemiBold.ttf in Resources */,
-				8FDA890D26556D6200AEC8FF /* FiraSans-Thin.ttf in Resources */,
-				8FDA890E26556D6200AEC8FF /* FiraSans-Light.ttf in Resources */,
-				8FDA890F26556D6200AEC8FF /* FiraSans-Regular.ttf in Resources */,
-				8FDA890426556BCD00AEC8FF /* Font in Resources */,
+				07BA94CA26BAD67D00BF614A /* MPLUS1p-Bold.ttf in Resources */,
+				07BA94C326BAD61500BF614A /* MPLUS1p-Black.ttf in Resources */,
+				07BA94C426BAD61500BF614A /* MPLUS1p-ExtraBold.ttf in Resources */,
+				07BA94C526BAD61500BF614A /* MPLUS1p-Light.ttf in Resources */,
+				07BA94C626BAD61500BF614A /* MPLUS1p-Medium.ttf in Resources */,
+				07BA94C726BAD61500BF614A /* MPLUS1p-Regular.ttf in Resources */,
+				07BA94C826BAD61500BF614A /* MPLUS1p-Thin.ttf in Resources */,
 				8F7A41622540552B009440C8 /* LaunchScreen.storyboard in Resources */,
 				8F7A415F2540552B009440C8 /* Assets.xcassets in Resources */,
 				8F1300A625665BB200AE5DBD /* CustomTableViewCell.xib in Resources */,
@@ -727,6 +714,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07BA94BC26BAD4C400BF614A /* Font in Sources */,
 				8FBB029325CBD6CB005B2883 /* tableDetailController.swift in Sources */,
 				8FD1C3602548479200242C42 /* registerManager.swift in Sources */,
 				8FAE6F752603527E000F2DE8 /* ActiveUserManager.swift in Sources */,
