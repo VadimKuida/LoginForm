@@ -15,6 +15,7 @@
 		07BA94C726BAD61500BF614A /* MPLUS1p-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 07BA94BD26BAD5AE00BF614A /* MPLUS1p-Regular.ttf */; };
 		07BA94C826BAD61500BF614A /* MPLUS1p-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 07BA94BF26BAD5AE00BF614A /* MPLUS1p-Thin.ttf */; };
 		07BA94CA26BAD67D00BF614A /* MPLUS1p-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 07BA94C926BAD67600BF614A /* MPLUS1p-Bold.ttf */; };
+		07BA94CC26BBCF6500BF614A /* iOSDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BA94CB26BBCF6500BF614A /* iOSDropDown.swift */; };
 		0D0BF7E425BCC19800688A94 /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0BF7E325BCC19800688A94 /* K.swift */; };
 		0D0BF81825C1390C00688A94 /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0BF81725C1390B00688A94 /* Crypto.swift */; };
 		19727C9108AF50A83B5B3A8C /* libPods-LoginFormTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D21678E24ECD8319D5D7031 /* libPods-LoginFormTests.a */; };
@@ -110,6 +111,7 @@
 		07BA94C126BAD5AE00BF614A /* MPLUS1p-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MPLUS1p-ExtraBold.ttf"; sourceTree = "<group>"; };
 		07BA94C226BAD5AE00BF614A /* MPLUS1p-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MPLUS1p-Light.ttf"; sourceTree = "<group>"; };
 		07BA94C926BAD67600BF614A /* MPLUS1p-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MPLUS1p-Bold.ttf"; path = "../../../Downloads/M_PLUS_1p/MPLUS1p-Bold.ttf"; sourceTree = "<group>"; };
+		07BA94CB26BBCF6500BF614A /* iOSDropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSDropDown.swift; sourceTree = "<group>"; };
 		0D0BF7E325BCC19800688A94 /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
 		0D0BF81725C1390B00688A94 /* Crypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crypto.swift; sourceTree = "<group>"; };
 		13B85FDFCA510D30B815D856 /* libPods-LoginForm-LoginFormUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LoginForm-LoginFormUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -345,6 +347,7 @@
 		8F8763E1263AC71200B4782F /* Toast */ = {
 			isa = PBXGroup;
 			children = (
+				07BA94CB26BBCF6500BF614A /* iOSDropDown.swift */,
 				8F8763E2263AC86000B4782F /* ToastController.swift */,
 			);
 			path = Toast;
@@ -716,6 +719,7 @@
 			files = (
 				07BA94BC26BAD4C400BF614A /* Font in Sources */,
 				8FBB029325CBD6CB005B2883 /* tableDetailController.swift in Sources */,
+				07BA94CC26BBCF6500BF614A /* iOSDropDown.swift in Sources */,
 				8FD1C3602548479200242C42 /* registerManager.swift in Sources */,
 				8FAE6F752603527E000F2DE8 /* ActiveUserManager.swift in Sources */,
 				8F8E204725F4FFD20002D67A /* MainTabBarController.swift in Sources */,
