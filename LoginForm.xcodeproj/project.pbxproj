@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0773439126E0E5910056284A /* loginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773439026E0E5910056284A /* loginController.swift */; };
+		0773439526E201300056284A /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773439426E201300056284A /* CheckBox.swift */; };
 		07BA94BC26BAD4C400BF614A /* Font in Sources */ = {isa = PBXBuildFile; fileRef = 8FDA890326556BCD00AEC8FF /* Font */; };
 		07BA94C326BAD61500BF614A /* MPLUS1p-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 07BA94BE26BAD5AE00BF614A /* MPLUS1p-Black.ttf */; };
 		07BA94C426BAD61500BF614A /* MPLUS1p-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 07BA94C126BAD5AE00BF614A /* MPLUS1p-ExtraBold.ttf */; };
@@ -49,8 +51,8 @@
 		8F90DB8825DFC2B50051ACE5 /* commentStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F90DB8725DFC2B50051ACE5 /* commentStep.swift */; };
 		8F98651025EFA6BB0039980B /* CustomTableViewCellStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F98650E25EFA6BB0039980B /* CustomTableViewCellStep.swift */; };
 		8F98651A25EFB0720039980B /* CustomTableViewCellStep.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F98650F25EFA6BB0039980B /* CustomTableViewCellStep.xib */; };
-		8FA2B0FD25406EF5005401B2 /* registerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA2B0FC25406EF5005401B2 /* registerController.swift */; };
-		8FA2B10225406F06005401B2 /* loginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA2B10125406F06005401B2 /* loginController.swift */; };
+		8FA2B0FD25406EF5005401B2 /* registerController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA2B0FC25406EF5005401B2 /* registerController1.swift */; };
+		8FA2B10225406F06005401B2 /* registerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA2B10125406F06005401B2 /* registerController.swift */; };
 		8FAA279A2631771A00E3D16F /* CustomCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAA27992631771A00E3D16F /* CustomCalendar.swift */; };
 		8FAACE04254C355B00DFB7E9 /* contentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAACE03254C355B00DFB7E9 /* contentModel.swift */; };
 		8FAACE0C254C36F400DFB7E9 /* contentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAACE0B254C36F400DFB7E9 /* contentManager.swift */; };
@@ -104,6 +106,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0773439026E0E5910056284A /* loginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginController.swift; sourceTree = "<group>"; };
+		0773439426E201300056284A /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 		07BA94BD26BAD5AE00BF614A /* MPLUS1p-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MPLUS1p-Regular.ttf"; sourceTree = "<group>"; };
 		07BA94BE26BAD5AE00BF614A /* MPLUS1p-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MPLUS1p-Black.ttf"; sourceTree = "<group>"; };
 		07BA94BF26BAD5AE00BF614A /* MPLUS1p-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MPLUS1p-Thin.ttf"; sourceTree = "<group>"; };
@@ -154,8 +158,8 @@
 		8F90DB8725DFC2B50051ACE5 /* commentStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commentStep.swift; sourceTree = "<group>"; };
 		8F98650E25EFA6BB0039980B /* CustomTableViewCellStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCellStep.swift; sourceTree = "<group>"; };
 		8F98650F25EFA6BB0039980B /* CustomTableViewCellStep.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCellStep.xib; sourceTree = "<group>"; };
-		8FA2B0FC25406EF5005401B2 /* registerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registerController.swift; sourceTree = "<group>"; };
-		8FA2B10125406F06005401B2 /* loginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginController.swift; sourceTree = "<group>"; };
+		8FA2B0FC25406EF5005401B2 /* registerController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registerController1.swift; sourceTree = "<group>"; };
+		8FA2B10125406F06005401B2 /* registerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registerController.swift; sourceTree = "<group>"; };
 		8FAA27992631771A00E3D16F /* CustomCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCalendar.swift; sourceTree = "<group>"; };
 		8FAACE03254C355B00DFB7E9 /* contentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = contentModel.swift; sourceTree = "<group>"; };
 		8FAACE0B254C36F400DFB7E9 /* contentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = contentManager.swift; sourceTree = "<group>"; };
@@ -349,6 +353,7 @@
 			children = (
 				07BA94CB26BBCF6500BF614A /* iOSDropDown.swift */,
 				8F8763E2263AC86000B4782F /* ToastController.swift */,
+				0773439426E201300056284A /* CheckBox.swift */,
 			);
 			path = Toast;
 			sourceTree = "<group>";
@@ -373,8 +378,9 @@
 				8F7A415625405529009440C8 /* ViewController.swift */,
 				8FC21734264D3B860085F97F /* Topic */,
 				8FC21735264D3B9E0085F97F /* Step */,
-				8FA2B10125406F06005401B2 /* loginController.swift */,
-				8FA2B0FC25406EF5005401B2 /* registerController.swift */,
+				8FA2B10125406F06005401B2 /* registerController.swift */,
+				0773439026E0E5910056284A /* loginController.swift */,
+				8FA2B0FC25406EF5005401B2 /* registerController1.swift */,
 				8F90DB8725DFC2B50051ACE5 /* commentStep.swift */,
 				8FBB029225CBD6CB005B2883 /* tableDetailController.swift */,
 				8F844DF8260E148600B06C46 /* ScannerViewController.swift */,
@@ -723,6 +729,7 @@
 				8FD1C3602548479200242C42 /* registerManager.swift in Sources */,
 				8FAE6F752603527E000F2DE8 /* ActiveUserManager.swift in Sources */,
 				8F8E204725F4FFD20002D67A /* MainTabBarController.swift in Sources */,
+				0773439126E0E5910056284A /* loginController.swift in Sources */,
 				8F9083B3255136C700FB2ACC /* tableController.swift in Sources */,
 				8FAACE0C254C36F400DFB7E9 /* contentManager.swift in Sources */,
 				8F7A415725405529009440C8 /* ViewController.swift in Sources */,
@@ -741,15 +748,16 @@
 				8FBB02AC25CBECFE005B2883 /* contentDetailManager.swift in Sources */,
 				8F5F8CFE2620984900DC8AAD /* AddNewTopicController.swift in Sources */,
 				8F7A415525405529009440C8 /* SceneDelegate.swift in Sources */,
-				8FA2B10225406F06005401B2 /* loginController.swift in Sources */,
+				8FA2B10225406F06005401B2 /* registerController.swift in Sources */,
 				0D0BF81825C1390C00688A94 /* Crypto.swift in Sources */,
 				8FAACE04254C355B00DFB7E9 /* contentModel.swift in Sources */,
 				8FB2CDA625B710FB009AB020 /* stepModel.swift in Sources */,
 				8F61F9DE2614D74E0068E0F3 /* Alert.swift in Sources */,
 				8F8763E3263AC86000B4782F /* ToastController.swift in Sources */,
 				8F1300BC256679D200AE5DBD /* tableStepController.swift in Sources */,
+				0773439526E201300056284A /* CheckBox.swift in Sources */,
 				8FC21733264D38AF0085F97F /* AddNewStepController.swift in Sources */,
-				8FA2B0FD25406EF5005401B2 /* registerController.swift in Sources */,
+				8FA2B0FD25406EF5005401B2 /* registerController1.swift in Sources */,
 				0D0BF7E425BCC19800688A94 /* K.swift in Sources */,
 				8FBB02A725CBECE5005B2883 /* contentDetailModel.swift in Sources */,
 				8F8546F5256BC5BD00A32F50 /* Task.swift in Sources */,
@@ -951,7 +959,7 @@
 				CODE_SIGN_ENTITLEMENTS = LoginForm/LoginForm.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 24;
+				CURRENT_PROJECT_VERSION = 28;
 				DEVELOPMENT_TEAM = FGZ7977LN5;
 				INFOPLIST_FILE = LoginForm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -977,7 +985,7 @@
 				CODE_SIGN_ENTITLEMENTS = LoginForm/LoginForm.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 24;
+				CURRENT_PROJECT_VERSION = 28;
 				DEVELOPMENT_TEAM = FGZ7977LN5;
 				INFOPLIST_FILE = LoginForm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -45,14 +45,14 @@ class ViewController: UIViewController {
     }
     
     
-    private func requestTrackingAuthorization() {
-        guard #available(iOS 14, *) else { return }
-        ATTrackingManager.requestTrackingAuthorization { _ in
-            DispatchQueue.main.async { [weak self] in
-                // self?.router.close() or nothing to do
-            }
-        }
-    }
+//    private func requestTrackingAuthorization() {
+//        guard #available(iOS 14, *) else { return }
+//        ATTrackingManager.requestTrackingAuthorization { _ in
+//            DispatchQueue.main.async { [weak self] in
+//                // self?.router.close() or nothing to do
+//            }
+//        }
+//    }
     
     func biometricType() -> String {
       let _ = contextIdent.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil)
@@ -160,7 +160,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        requestTrackingAuthorization()
+//        requestTrackingAuthorization()
         var activeUserManager = ActiveUserManager()
         viewMain.frame = view.frame
         viewMain.backgroundColor = .white
@@ -223,11 +223,11 @@ class ViewController: UIViewController {
 
 
     @IBAction func goToReg(_ sender: Any) {
-        if let newViewController = storyboard?.instantiateViewController(withIdentifier: "Reg") {
-            newViewController.modalTransitionStyle = .crossDissolve // это значение можно менять для разных видов анимации появления
-            newViewController.modalPresentationStyle = .overFullScreen
-            present(newViewController, animated: true, completion: nil)
-           }
+        let vc = RegisterController()
+        let navController = UINavigationController(rootViewController: vc)
+//        navController.modalTransitionStyle = .crossDissolve
+        navController.modalPresentationStyle = .automatic
+        present(navController, animated: true, completion: nil)
     }
     
     

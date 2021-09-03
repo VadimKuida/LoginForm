@@ -10,6 +10,7 @@ import UIKit
 import iOSDropDown
 
 
+
 private var firstLoadNewTopic: Bool = false
 private let tableViewAddTopic = UITableView()
 
@@ -504,7 +505,7 @@ extension AddNewTopicController1: UITextViewDelegate {
 
 
 
-class AddNewTopicController2: UIViewController {
+class AddNewTopicController2: UIViewController, UITextFieldDelegate {
     
     var addNewTopicController = AddNewTopicController()
     var labelName = UILabel()

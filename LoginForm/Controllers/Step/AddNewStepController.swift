@@ -225,7 +225,6 @@ class AddNewStepController1: UIViewController, UITableViewDelegate,  UITextField
         
                 editorDescGroup.translatesAutoresizingMaskIntoConstraints = false
                 [
-
     //            print(editorDescGroup.safeAreaLayoutGuide.topAnchor)
                 editorDescGroup.topAnchor.constraint(equalTo: viewDescGroupPading.safeAreaLayoutGuide.topAnchor),
                 editorDescGroup.leadingAnchor.constraint(equalTo: viewDescGroupPading.leadingAnchor),

@@ -791,17 +791,27 @@ class tableController: UITableViewController, UISearchBarDelegate, UIViewControl
             K.teamLeader = nil
             K.numberOfRows = []
             
-            if let newViewController = self.storyboard?.instantiateViewController(withIdentifier: "main") {
-                newViewController.modalTransitionStyle = .flipHorizontal // это значение можно менять для разных видов анимации появления
-                newViewController.modalPresentationStyle = .overFullScreen
-    //            newViewController.modalPresentationStyle = .currentContext
-    //            newViewController.modalPresentationStyle = .overCurrentContext // это та самая волшебная строка, убрав или закомментировав ее, вы получите появление смахиваемого контроллера
-                self.present(newViewController, animated: true, completion: nil)
+//            if let newViewController = self.storyboard?.instantiateViewController(withIdentifier: "main") {
+//                newViewController.modalTransitionStyle = .flipHorizontal // это значение можно менять для разных видов анимации появления
+//                newViewController.modalPresentationStyle = .overFullScreen
+//    //            newViewController.modalPresentationStyle = .currentContext
+//    //            newViewController.modalPresentationStyle = .overCurrentContext // это та самая волшебная строка, убрав или закомментировав ее, вы получите появление смахиваемого контроллера
+//                self.present(newViewController, animated: true, completion: nil)
+//
+//
+//
+//
+//               }
+            
+            let vc = LoginController()
 
 
-
-
-               }
+           
+            vc.modalTransitionStyle = .crossDissolve
+            vc.modalPresentationStyle = .overCurrentContext
+    //        self.dismiss(animated: true)
+            self.present(vc, animated: true, completion: nil)
+            
             }
 
         let noAction = UIAlertAction(title: "Нет", style: .default) { (action) -> Void in
@@ -1239,10 +1249,10 @@ class NoGroup: UIViewController {
         
         
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "main") as! ViewController
-            vc.modalTransitionStyle = .crossDissolve
-            vc.modalPresentationStyle = .overFullScreen
+        let vc = LoginController()
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .overCurrentContext
+//        self.dismiss(animated: true)
         self.present(vc, animated: true, completion: nil)
 
            
