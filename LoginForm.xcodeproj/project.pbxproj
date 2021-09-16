@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		071141B326EF96DB0091E0EC /* LoadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071141B226EF96DB0091E0EC /* LoadViewController.swift */; };
+		071141B526F0FBF70091E0EC /* RecoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071141B426F0FBF70091E0EC /* RecoverController.swift */; };
 		0773439126E0E5910056284A /* loginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773439026E0E5910056284A /* loginController.swift */; };
 		0773439526E201300056284A /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773439426E201300056284A /* CheckBox.swift */; };
 		07BA94BC26BAD4C400BF614A /* Font in Sources */ = {isa = PBXBuildFile; fileRef = 8FDA890326556BCD00AEC8FF /* Font */; };
@@ -106,6 +108,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		071141B226EF96DB0091E0EC /* LoadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadViewController.swift; sourceTree = "<group>"; };
+		071141B426F0FBF70091E0EC /* RecoverController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverController.swift; sourceTree = "<group>"; };
 		0773439026E0E5910056284A /* loginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginController.swift; sourceTree = "<group>"; };
 		0773439426E201300056284A /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 		07BA94BD26BAD5AE00BF614A /* MPLUS1p-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MPLUS1p-Regular.ttf"; sourceTree = "<group>"; };
@@ -354,6 +358,7 @@
 				07BA94CB26BBCF6500BF614A /* iOSDropDown.swift */,
 				8F8763E2263AC86000B4782F /* ToastController.swift */,
 				0773439426E201300056284A /* CheckBox.swift */,
+				071141B226EF96DB0091E0EC /* LoadViewController.swift */,
 			);
 			path = Toast;
 			sourceTree = "<group>";
@@ -380,6 +385,7 @@
 				8FC21735264D3B9E0085F97F /* Step */,
 				8FA2B10125406F06005401B2 /* registerController.swift */,
 				0773439026E0E5910056284A /* loginController.swift */,
+				071141B426F0FBF70091E0EC /* RecoverController.swift */,
 				8FA2B0FC25406EF5005401B2 /* registerController1.swift */,
 				8F90DB8725DFC2B50051ACE5 /* commentStep.swift */,
 				8FBB029225CBD6CB005B2883 /* tableDetailController.swift */,
@@ -751,6 +757,7 @@
 				8FA2B10225406F06005401B2 /* registerController.swift in Sources */,
 				0D0BF81825C1390C00688A94 /* Crypto.swift in Sources */,
 				8FAACE04254C355B00DFB7E9 /* contentModel.swift in Sources */,
+				071141B526F0FBF70091E0EC /* RecoverController.swift in Sources */,
 				8FB2CDA625B710FB009AB020 /* stepModel.swift in Sources */,
 				8F61F9DE2614D74E0068E0F3 /* Alert.swift in Sources */,
 				8F8763E3263AC86000B4782F /* ToastController.swift in Sources */,
@@ -767,6 +774,7 @@
 				8F98651025EFA6BB0039980B /* CustomTableViewCellStep.swift in Sources */,
 				8FAE6F7D2603528E000F2DE8 /* ActiveUserModel.swift in Sources */,
 				8F633190268A0D3200F5FC92 /* OnlineCheck.swift in Sources */,
+				071141B326EF96DB0091E0EC /* LoadViewController.swift in Sources */,
 				8FBB029C25CBDB4D005B2883 /* CustomTableDetailCell.swift in Sources */,
 				8FAA279A2631771A00E3D16F /* CustomCalendar.swift in Sources */,
 				8F7A415D25405529009440C8 /* LoginForm.xcdatamodeld in Sources */,
@@ -959,7 +967,7 @@
 				CODE_SIGN_ENTITLEMENTS = LoginForm/LoginForm.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 28;
+				CURRENT_PROJECT_VERSION = 31;
 				DEVELOPMENT_TEAM = FGZ7977LN5;
 				INFOPLIST_FILE = LoginForm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -985,7 +993,7 @@
 				CODE_SIGN_ENTITLEMENTS = LoginForm/LoginForm.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 28;
+				CURRENT_PROJECT_VERSION = 31;
 				DEVELOPMENT_TEAM = FGZ7977LN5;
 				INFOPLIST_FILE = LoginForm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

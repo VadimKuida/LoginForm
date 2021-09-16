@@ -49,8 +49,6 @@
 	<string>Мы можем использовать ваше местоположение для отображение места замера на карте и статистики использования приложения</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>Доступ к галерее необходим для загрузки QR что-бы сменить группу</string>
-	<key>NSUserTrackingUsageDescription</key>
-	<string>Это абсолютно безопасно и поможет нам сделать приложение лучше!</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>MPLUS1p-Thin.ttf</string>

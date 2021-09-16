@@ -104,6 +104,7 @@ class RegisterController: UIViewController, UITextFieldDelegate{
         editorName.attributedPlaceholder = textPlaceholder
         editorName.placeholder  = "Имя"
         editorName.clearButtonMode = .whileEditing
+        editorName.autocorrectionType = .no
         view.addSubview(editorName)
 
         view.addSubview(lineBorder(y: editorName.frame.maxY))
@@ -115,6 +116,7 @@ class RegisterController: UIViewController, UITextFieldDelegate{
         editorNameF.placeholder  = "Фамилия"
 //        editorNameF.keyboardType = .numberPad
         editorNameF.clearButtonMode = .whileEditing
+        editorNameF.autocorrectionType = .no
         view.addSubview(editorNameF)
         view.addSubview(lineBorder(y: editorNameF.frame.maxY))
         
@@ -125,6 +127,7 @@ class RegisterController: UIViewController, UITextFieldDelegate{
         editorLogin.placeholder  = "Логин (ТН)"
         editorLogin.keyboardType = .emailAddress
         editorLogin.clearButtonMode = .whileEditing
+        editorLogin.autocorrectionType = .no
         view.addSubview(editorLogin)
         view.addSubview(lineBorder(y: editorLogin.frame.maxY))
           
@@ -332,6 +335,7 @@ class RegisterController1: UIViewController, UITextFieldDelegate {
         editorMail.placeholder  = "E-mail"
         editorMail.keyboardType = .emailAddress
         editorMail.clearButtonMode = .whileEditing
+        editorMail.autocorrectionType = .no
         view.addSubview(editorMail)
 
         view.addSubview(lineBorder(y: editorMail.frame.maxY))
@@ -343,6 +347,7 @@ class RegisterController1: UIViewController, UITextFieldDelegate {
         editorPassword.placeholder  = "Пароль"
 //        editorNameF.keyboardType = .numberPad
         editorPassword.clearButtonMode = .whileEditing
+        editorPassword.autocorrectionType = .no
         editorPassword.isSecureTextEntry = true
         view.addSubview(editorPassword)
         view.addSubview(lineBorder(y: editorPassword.frame.maxY))
@@ -638,13 +643,24 @@ override func viewDidLoad() {
     NotificationCenter.default.addObserver(self, selector: #selector(self.refreshMail), name: NSNotification.Name(rawValue: "newDataNotifMaill"), object: nil)
     
 
-    let buttonBack = UIButton(type: .system)
-    buttonBack.setImage(UIImage(systemName: "chevron.backward"), for: .normal)
-    buttonBack.setTitle("Назад", for: .normal)
-    buttonBack.addTarget(self, action: #selector(didTapBack), for: .touchUpInside)
-    buttonBack.sizeToFit()
+//    let buttonBack = UIButton(type: .system)
+//    buttonBack.setImage(UIImage(systemName: "chevron.backward"), for: .normal)
+//    buttonBack.setTitle("Назад", for: .normal)
+//    buttonBack.addTarget(self, action: #selector(didTapBack), for: .touchUpInside)
+//    buttonBack.sizeToFit()
 //        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: buttonBack)
 
+    
+    
+    let buttonBack = UIButton()
+    buttonBack.frame = CGRect(x: (view.frame.width/2) - (338/2), y: view.frame.height-(view.frame.height/4), width: 338, height: 56)
+    buttonBack.backgroundColor = UIColor(hexString: "#E77373")
+    buttonBack.setTitle("Новая регистрация", for: .normal)
+    buttonBack.layer.cornerRadius = 8
+    buttonBack.layer.borderWidth = 0
+    buttonBack.addTarget(self, action: #selector(didTapBack), for: UIControl.Event.touchUpInside)
+    
+    
     
     
     let buttonNext = UIButton(type: .system)
@@ -665,6 +681,7 @@ override func viewDidLoad() {
 //        buttonCreate.addTarget(self, action: #selector(buttonAction), for: UIControlEvents.touchUpInside)
 //        buttonCreate.layer.borderColor = UIColor.black.cgColor
     if K.mailCheck {
+        
         view.addSubview(buttonCreate)
         imageMail = URL(string:  "https://shi-ku.ru/img/mail_check_green.png")!
         labelTextMain.text = "Почта подтверждена!"
@@ -674,24 +691,25 @@ override func viewDidLoad() {
     else {
         imageMail = URL(string:  "https://shi-ku.ru/img/mail_check_blue.png")!
         labelTextMain.text = "Проверка почты"
-        labelTextDesc.text = "На указанный почтотвый ящик направлено письмо для подстверждения адреса. После подтверждения фунционал приложение станет доступен."
+        labelTextDesc.text = "На указанный почтотвый ящик направлено письмо для подтверждения адреса. После подтверждения фунционал приложение станет доступен."
         self.timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.didTapNext), userInfo: nil, repeats: true)
+        view.addSubview(buttonBack)
     }
 
-    buttonExit.frame = CGRect(x: 10, y: 63, width: 70, height: 14)
-//        buttonExit.backgroundColor = UIColor(hexString: "#478ECC")
-    buttonExit.setTitle("Выход", for: .normal)
-//        buttonExit.tintColor = .systemBlue
-    buttonExit.setTitleColor(.systemBlue,
-                            for: .normal)
-    
-//        buttonExit.layer.cornerRadius = 8
-//        buttonExit.layer.borderWidth = 0
-    buttonExit.addTarget(self, action: #selector(didTapBack), for: UIControl.Event.touchUpInside)
-//        buttonCreate.addTarget(self, action: #selector(buttonAction), for: UIControlEvents.touchUpInside)
-//        buttonCreate.layer.borderColor = UIColor.black.cgColor
+//    buttonExit.frame = CGRect(x: 10, y: 63, width: 70, height: 14)
+////        buttonExit.backgroundColor = UIColor(hexString: "#478ECC")
+//    buttonExit.setTitle("Новая регистрация", for: .normal)
+////        buttonExit.tintColor = .systemBlue
+//    buttonExit.setTitleColor(.systemBlue,
+//                            for: .normal)
+//
+////        buttonExit.layer.cornerRadius = 8
+////        buttonExit.layer.borderWidth = 0
+//    buttonExit.addTarget(self, action: #selector(didTapBack), for: UIControl.Event.touchUpInside)
+////        buttonCreate.addTarget(self, action: #selector(buttonAction), for: UIControlEvents.touchUpInside)
+////        buttonCreate.layer.borderColor = UIColor.black.cgColor
 
-    view.addSubview(buttonExit)
+//    view.addSubview(buttonExit)
 
     imageUser.frame = CGRect(x: (view.frame.width-160)/2, y: (view.frame.height/4)-80, width: 160, height: 132)
     let url = imageMail
@@ -824,7 +842,7 @@ extension NoCheck: LoginManagerDelegate {
         }
         
         func showViewMain() {
-            view.addSubview(viewMain)
+//            view.addSubview(viewMain)
         }
         
 
@@ -832,7 +850,8 @@ extension NoCheck: LoginManagerDelegate {
         DispatchQueue.main.async { [self] in
             if (login.status) == 1 {
               self.timer.invalidate()
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//                self.dismiss(animated: true, completion: nil)
+                let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
                 let newViewController = storyboard.instantiateViewController(withIdentifier: "Table") as! tableController
                 
                 newViewController.firstName = K.userName

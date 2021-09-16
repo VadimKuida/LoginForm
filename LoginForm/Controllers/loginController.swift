@@ -13,6 +13,54 @@ import AppTrackingTransparency
 
 
 
+class LoginControllerBack: UIViewController {
+    let viewMain = UIView()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        viewMain.frame = view.frame
+        viewMain.backgroundColor = .white
+//        view.addSubview(viewMain)
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//    if let newViewController = storyboard.instantiateViewController(withIdentifier: "loginController") as? LoginController {
+//        newViewController.firstName = K.userName
+//        newViewController.user = K.userLogin
+//        newViewController.group = K.idGroupProfile
+//        newViewController.resetCoredata = true
+//        newViewController.userAction = K.userLogin
+//        newViewController.idSeance = nil
+//                newViewController.viewMain.backgroundColor = .white
+//                newViewController.viewMain.frame = view.frame
+//                newViewController.view.addSubview(viewMain)
+//        activeUserManager.performActiveUserSeance(loginLet: login.login, action: 2)
+//        let navController = UINavigationController(rootViewController: newViewController)
+
+        openLoginForm()
+
+//         }
+    }
+    
+    func openLoginForm() {
+//        let newViewController  = LoginController()
+//        newViewController.modalTransitionStyle = .flipHorizontal
+//        newViewController.modalPresentationStyle = .fullScreen
+//        self.present(newViewController, animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let newViewController = self.storyboard!.instantiateViewController(withIdentifier: "loginController") as? LoginController {
+
+        let navController = UINavigationController(rootViewController: newViewController)
+        navController.modalTransitionStyle = .flipHorizontal
+        navController.modalPresentationStyle = .fullScreen
+        self.present(navController, animated: true, completion: nil)
+
+
+
+         }
+        
+    }
+    
+}
+
 class LoginController: UIViewController, UITextFieldDelegate {
     
     
@@ -65,58 +113,12 @@ class LoginController: UIViewController, UITextFieldDelegate {
         activeUserManager.delegate = self
         loginManager.delegate = self
         loadItems()
-        
         viewMain.frame = view.frame
         viewMain.backgroundColor = .white
-        view.addSubview(viewMain)
-        
-        if itemTimeArray.count == 0  {
-            self.view.layoutIfNeeded()
-            state = .loggedout
-            buttonLogin.isEnabled = false
-            buttonLogin.backgroundColor = UIColor(hexString: "#dcdce0")
-            self.buttonLogin.setTitle("Вход", for: .normal)
-        } else {
-            self.buttonLogin.backgroundColor = UIColor(hexString: "#478ECC")
-            self.editorPassword.isEnabled = false
-            self.editorLogin.isEnabled = false
-            self.buttonLogin.isEnabled = true
-//            self.buttonReg.isHidden  = true
-//            self.fieldLogin.isEditing = false
-//            self.fieldPass.isEditing = false
-            
-            if itemTimeArray[0].pass!.count < 30 {
-                state = .loggedYes
-                let icon = UIImage(systemName: biometricType())!
+        viewMain.tag = 321
 
-    //            buttonLogin.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
-                buttonLogin.setTitle("", for: .normal)
-                buttonLogin.setImage(icon, for: .normal)
-                buttonLogin.tintColor = .white
-                let user = itemTimeArray[0].user
-                let pass = itemTimeArray[0].pass!.sha512
-                
-                self.deleteAllData(entity: "Login")
-                self.typeAction(user: user!, pass: pass)
-                K.userPass = itemTimeArray[0].pass!
-                loginManager.performLogin(loginRegLet: user!, passRegLet: pass)
-            } else {
-            
-            state = .loggedYes
-            let icon = UIImage(systemName: biometricType())!
-//                self.resetCoredata = false
-//            buttonLogin.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
-                
-//            buttonLogin.setTitle("", for: .normal)
-            buttonLogin.setImage(icon, for: .normal)
-            buttonLogin.tintColor = .white
-//            buttonLogin.image(for: )
-                K.userPass = itemTimeArray[0].pass!
-            loginManager.performLogin(loginRegLet: itemTimeArray[0].user!, passRegLet: itemTimeArray[0].pass!)
-            }
-        }
-        
-    
+
+
         
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -192,6 +194,8 @@ class LoginController: UIViewController, UITextFieldDelegate {
         editorLogin.attributedPlaceholder = textPlaceholder
         editorLogin.placeholder  = "Логин (ТН)"
         editorLogin.clearButtonMode = .whileEditing
+        
+        editorLogin.autocorrectionType = .no
         view.addSubview(editorLogin)
 
         view.addSubview(lineBorder(y: editorLogin.frame.maxY))
@@ -204,6 +208,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
         editorPassword.isSecureTextEntry = true
 //        editorNameF.keyboardType = .numberPad
         editorPassword.clearButtonMode = .whileEditing
+        editorPassword.autocorrectionType = .no
         view.addSubview(editorPassword)
         view.addSubview(lineBorder(y: editorPassword.frame.maxY))
         
@@ -218,9 +223,89 @@ class LoginController: UIViewController, UITextFieldDelegate {
         buttonRegistration.addTarget(self, action: #selector(registrationNext), for: .touchUpInside)
         view.addSubview(buttonRegistration)
         
-
-          
         
+        
+        let buttonRecover = UIButton()
+        
+        buttonRecover.frame = CGRect(x: (view.frame.width-180), y: editorPassword.frame.maxY + 10, width: 200, height: 30)
+        buttonRecover.setTitleColor(UIColor(hexString: "#b9b9bd"), for: .normal)
+        buttonRecover.titleLabel?.font =  UIFont(name: K.fontBold, size: 12)
+        buttonRecover.setTitle("Востановить пароль", for: .normal)
+        buttonRecover.backgroundColor = UIColor(hexString: "#FFFFFF")
+        
+        buttonRecover.addTarget(self, action: #selector(recoverNext), for: .touchUpInside)
+        view.addSubview(buttonRecover)
+        
+        if itemTimeArray.count == 0  {
+            self.view.layoutIfNeeded()
+            state = .loggedout
+            buttonLogin.isEnabled = false
+            buttonLogin.backgroundColor = UIColor(hexString: "#dcdce0")
+            buttonLogin.setTitle("Вход", for: .normal)
+            editorPassword.isEnabled = true
+            editorLogin.isEnabled = true
+//            editorLogin.text = "1"
+//            editorPassword.text = "1"
+        } else {
+            self.buttonLogin.backgroundColor = UIColor(hexString: "#478ECC")
+            self.editorPassword.isEnabled = false
+            self.editorLogin.isEnabled = false
+            self.buttonLogin.isEnabled = true
+            self.buttonRegistration.isEnabled = false
+            self.editorLogin.textColor = UIColor(hexString: "#dcdce0")
+            self.editorPassword.textColor = UIColor(hexString: "#dcdce0")
+            self.buttonRegistration.setTitleColor(UIColor(hexString: "#dcdce0"), for: .normal)
+//            self.buttonReg.isHidden  = true
+//            self.fieldLogin.isEditing = false
+//            self.fieldPass.isEditing = false
+            
+            if itemTimeArray[0].pass!.count < 30 {
+                state = .loggedYes
+                let icon = UIImage(systemName: biometricType())!
+
+    //            buttonLogin.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+                buttonLogin.setTitle("", for: .normal)
+                buttonLogin.setImage(icon, for: .normal)
+                buttonLogin.tintColor = .white
+                let user = itemTimeArray[0].user
+                let pass = itemTimeArray[0].pass!.sha512
+
+                self.deleteAllData(entity: "Login")
+                self.typeAction(user: user!, pass: pass)
+                K.userPass = itemTimeArray[0].pass!
+                loginManager.performLogin(loginRegLet: user!, passRegLet: pass)
+            } else {
+            editorLogin.text = itemTimeArray[0].user!
+            editorPassword.text = "fffffffff"
+            state = .loggedYes
+            let icon = UIImage(systemName: biometricType())!
+//                self.resetCoredata = false
+//            buttonLogin.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+                
+//            buttonLogin.setTitle("", for: .normal)
+            buttonLogin.setImage(icon, for: .normal)
+            buttonLogin.tintColor = .white
+//            buttonLogin.image(for: )
+                K.userPass = itemTimeArray[0].pass!
+            loginManager.performLogin(loginRegLet: itemTimeArray[0].user!, passRegLet: itemTimeArray[0].pass!)
+            }
+        }
+//        view.addSubview(viewMain)
+ 
+//        view.addSubview(viewMain)
+//        self.view.viewMain.removeFromSuperview()
+//        viewMain.isHidden = true
+//        for v in view.subviews{
+//            if v.tag == 321 {
+//                print(v)
+//                v.removeFromSuperview()
+//            }
+//        }
+        
+
+
+        
+       
     }
     
     
@@ -281,17 +366,20 @@ class LoginController: UIViewController, UITextFieldDelegate {
     @objc func didTapNext() {
         
         setLoadingScreen()
-        
+        loadItems()
         let loginRegLet = editorLogin.text!
         let passRegLet = editorPassword.text!.sha512
 //        print(fieldPass.text!.sha512)
         view.endEditing(true)
+        print(itemTimeArray.count)
 //        print(delegateApp.divToken)
         if (delegateApp.divToken != nil) {
         loginManager.performAddDev(loginLet: loginRegLet, id: delegateApp.divToken)
         }
         
-        if itemTimeArray.count == 0  {
+
+        
+        if itemTimeArray.count == 0    {
 //            self.resetCoredata = true
             state = .loggedout
             K.userPass = passRegLet
@@ -329,6 +417,15 @@ class LoginController: UIViewController, UITextFieldDelegate {
     }
     
     
+    @objc func recoverNext () {
+        let vc = RecoverController()
+        let navController = UINavigationController(rootViewController: vc)
+//        navController.modalTransitionStyle = .crossDissolve
+        navController.modalPresentationStyle = .automatic
+        present(navController, animated: true, completion: nil)
+    }
+    
+    
     @IBAction func singleCheckboxAction(_ sender: UIButton){
         sender.checkboxAnimation {
             print("I'm done")
@@ -336,8 +433,6 @@ class LoginController: UIViewController, UITextFieldDelegate {
             
         }
     }
-    
-    
     
     func loadItems() {
         let request : NSFetchRequest<Login> = Login.fetchRequest()
@@ -411,6 +506,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
         spinner.stopAnimating()
         spinner.isHidden = true
         loadingLabel.isHidden = true
+        
         buttonLogin.setTitle("Войти", for: .normal)
 
     }
@@ -437,6 +533,7 @@ extension LoginController: LoginManagerDelegate {
             K.groupName = login.groupName
             K.urlTabBar = nil
             K.teamLeader = login.TL
+//            self.presentingViewController?.dismiss(animated: true, completion: nil)
 //            K.userPass = self.fieldPass.text!.sha512
             if K.idGroupProfile == 0
             {
@@ -449,7 +546,8 @@ extension LoginController: LoginManagerDelegate {
             
             else
             {
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                self.dismiss(animated: true)
+                let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
             if let newViewController = storyboard.instantiateViewController(withIdentifier: "Table") as? tableController {
                 newViewController.firstName = K.userName
                 newViewController.user = K.userLogin
@@ -457,19 +555,48 @@ extension LoginController: LoginManagerDelegate {
                 newViewController.resetCoredata = true
                 newViewController.userAction = K.userLogin
                 newViewController.idSeance = nil
+//                newViewController.viewMain.backgroundColor = .white
+//                newViewController.viewMain.frame = view.frame
+//                newViewController.view.addSubview(viewMain)
                 activeUserManager.performActiveUserSeance(loginLet: login.login, action: 2)
                 let navController = UINavigationController(rootViewController: newViewController)
                 navController.modalTransitionStyle = .flipHorizontal
-                navController.modalPresentationStyle = .overFullScreen
+                navController.modalPresentationStyle = .fullScreen
                 self.present(navController, animated: true, completion: showViewMain)
-                
-                
+
+
+
                  }
+                
+//                            let vc = LoginControllerBack()
+//
+//
+//
+//                            vc.modalTransitionStyle = .crossDissolve
+//                            vc.modalPresentationStyle = .overFullScreen
+//
+//                            self.present(vc, animated: true, completion: nil)
+                            
                }
         }
         
         func showViewMain() {
-            view.addSubview(viewMain)
+            itemTimeArray.removeAll()
+            editorLogin.text = ""
+            editorPassword.text = ""
+            buttonLogin.isEnabled = false
+            editorPassword.isEnabled = true
+            editorLogin.isEnabled = true
+            buttonLogin.backgroundColor = UIColor(hexString: "#dcdce0")
+//            self.view.addSubview(viewMain)
+            viewMain.isHidden = false
+            self.buttonRegistration.isEnabled = true
+            self.buttonLogin.backgroundColor = UIColor(hexString: "#478ECC")
+
+            self.editorLogin.textColor = .black
+            self.editorPassword.textColor = .black
+            buttonRegistration.setTitleColor(UIColor(hexString: "#478ECC"), for: .normal)
+            
         }
         
         func mainIdetn() {

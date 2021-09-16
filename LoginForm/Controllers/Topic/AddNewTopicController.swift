@@ -208,6 +208,7 @@ class AddNewTopicController1: UIViewController, UITableViewDelegate,  UITextFiel
                 dropDown.placeholder = "Название группы"
                 dropDown.selectedRowColor = .white
                 dropDown.arrowColor = .brown
+                dropDown.autocorrectionType = .no
 //                dropDown.optionIds = [1,23,54,22,]
                 dropDown.layer.backgroundColor = CGColor(red: 50, green: 50, blue: 50, alpha: 1)
                 dropDown.layer.shadowOffset = .zero

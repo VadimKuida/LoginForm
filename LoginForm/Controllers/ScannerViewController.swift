@@ -256,7 +256,7 @@ extension ScannerViewController: ActiveUserManagerDelegate {
                     // Initialize Actions
                 let yesAction = UIAlertAction(title: "Ok", style: .default) { (action) -> Void in
                         print("The user is okay.")
-                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
                     let newViewController = storyboard.instantiateViewController(withIdentifier: "Table") as! tableController
                     
                     newViewController.firstName = K.userName

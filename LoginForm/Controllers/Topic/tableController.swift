@@ -55,20 +55,25 @@ class tableController: UITableViewController, UISearchBarDelegate, UIViewControl
     //TabBar
     let tabBarVC = UITabBarController()
     
+    var viewMain = UIView()
+    
 
 
     @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+//        viewMain.frame = view.frame
+//        viewMain.backgroundColor = .white
+//        view.addSubview(viewMain)
         loadGroup()
     }
     
     
      func loadGroup () {
 
-  
+    
+        
         imageUser.frame = CGRect(x: (view.frame.width-160)/2, y: (view.frame.height/4)-80, width: 160, height: 130)
         let url = URL(string:  "https://shi-ku.ru/img/not_topic.png")
         let data = try? Data(contentsOf: url!)
@@ -343,8 +348,14 @@ class tableController: UITableViewController, UISearchBarDelegate, UIViewControl
         loadItemsUser()
         if let i = itemLoginArray.firstIndex(where: {$0.user != nil }) {
             self.userCore = itemLoginArray[i].user!
+
             }
-        return self.userCore
+        if (self.userCore != nil) {
+            return self.userCore
+        } else {
+            return ""
+        }
+        
     }
     
     func saveItems() {
@@ -557,7 +568,7 @@ class tableController: UITableViewController, UISearchBarDelegate, UIViewControl
 //
 
         popup = UIView()
-        popup.backgroundColor = UIColor.white
+        popup.backgroundColor = .white
 
         let lb = UILabel(frame: CGRect(x: 16, y: 0, width: view.frame.size.width, height: 40))
         lb.text = filteredData[section].name
@@ -797,20 +808,33 @@ class tableController: UITableViewController, UISearchBarDelegate, UIViewControl
 //    //            newViewController.modalPresentationStyle = .currentContext
 //    //            newViewController.modalPresentationStyle = .overCurrentContext // это та самая волшебная строка, убрав или закомментировав ее, вы получите появление смахиваемого контроллера
 //                self.present(newViewController, animated: true, completion: nil)
-//
-//
-//
-//
 //               }
+//
+//
+            self.dismiss(animated: true)
+//            let vc = LoginController()
+//
+//
+//
+//            vc.modalTransitionStyle = .crossDissolve
+//            vc.modalPresentationStyle = .overCurrentContext
+//
+//            self.present(vc, animated: true, completion: nil)
             
-            let vc = LoginController()
+            
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            let newViewController = storyboard.instantiateViewController(withIdentifier: "loginController") as! LoginController
+            
+            let newViewController = LoginController()
+            newViewController.itemTimeArray.removeAll()
+            newViewController.viewMain.removeFromSuperview()
 
-
-           
-            vc.modalTransitionStyle = .crossDissolve
-            vc.modalPresentationStyle = .overCurrentContext
-    //        self.dismiss(animated: true)
-            self.present(vc, animated: true, completion: nil)
+            newViewController.modalTransitionStyle = .flipHorizontal
+            newViewController.modalPresentationStyle = .overFullScreen
+            
+            self.present(newViewController, animated: true, completion: nil)
+            
+            
             
             }
 
@@ -1247,7 +1271,7 @@ class NoGroup: UIViewController {
         K.groupName = nil
         labelInvite.text = nil
         
-        
+        view.window!.rootViewController?.dismiss(animated: true, completion: nil)
         
         let vc = LoginController()
         vc.modalTransitionStyle = .crossDissolve

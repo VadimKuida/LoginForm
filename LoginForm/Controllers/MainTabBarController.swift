@@ -61,7 +61,7 @@ class SeccondViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.registerTableViewCells()
         view.backgroundColor = .white
         
-        tableViewAdd.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "TableViewCell" )
+        tableViewAdd.register(UINib(nibName: "TableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "TableViewCell" )
         tableViewAdd.frame = CGRect(x: 0, y: 300, width: view.frame.size.width, height: view.frame.size.height-300)
         self.view.addSubview(tableViewAdd)
         tableViewAdd.isHidden =  true
@@ -444,16 +444,16 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     @objc func didTapMenuButtonShear() {
         if K.urlTabBar != nil {
             let firstImages = "https://api.qrserver.com/v1/create-qr-code/?data=shiku://val1=\(String(K.urlTabBar))&size=150x150"
-            let firstOpenApp = "shiku://var1=\(String(K.urlTabBar))"
+            let firstOpenApp = (String(K.groupName))
             let urlImages = URL(string: firstImages)!
-            let urlOpenApp = URL(string: firstOpenApp)!
+           
             if let data = try? Data(contentsOf: urlImages) {
             let image = UIImage(data: data)!
-            let ac = UIActivityViewController(activityItems: [image,urlOpenApp], applicationActivities: nil)
+            let ac = UIActivityViewController(activityItems: [image,firstOpenApp], applicationActivities: nil)
             present(ac, animated: true)
             }
         } else {
-            alertCustom.showAlertOk(main: "Внимание!", second: "Выбиреите замер.", control: self)
+            alertCustom.showAlertOk(main: "Внимание!", second: "Выбиреите группу", control: self)
         }
     }
     
